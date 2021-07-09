@@ -144,15 +144,34 @@
 
 
 <div class="sendapplicationdata">
-<form align="center">
+<form align="center"><br><br>
 <label >   Message to be sent:</label><br><br>
 <input type="text" placeholder="Enter the message" id="msg1"style=" border-radius:5px;height:40px;width=100%"/><br><br>
 
 <label>Message type:</label><br>
 <input type="text" placeholder="Enter the type" id="type1" style=" border-radius:5px;height:40px;width=50px"/ ><br><br>
 
-<input type="submit" value="SEND" class="stylebtn" name="applicationdata" ><br><br>
+<input type="button" value="SEND" class="stylebtn" name="applicationdata" onclick="sendappdata();" /><br><br>
 
+<script>
+function sendappdata()
+{
+var message=parseInt(document.getElementById("msg1")).value;
+var type=parseInt(document.getElementById("type1")).value;
+var a;
+alert("hello everyone");
+alert(message);
+alert(type);
+ var res=floCloudAPI.sendApplicationData(message,type, options = {});
+
+if(a==isstring(res))
+alert("successful");
+else
+alert("unsuccessful");
+
+
+}
+</script>
 </form>
 
 </div>
@@ -167,7 +186,7 @@
 <form align="center">
 <br><br><br>
 <h3>Request application data</h3><br><br>
-<input type="submit" value="REQUEST" class="stylebtn"><br><br><br><br>
+<input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
 </form>
 </div>
 
@@ -184,18 +203,20 @@
 </ol><br><br>
 <div class="sendapplicationdata">
 
-<form align="center">
+<form align="center"><br><br>
 <label >   Message to be sent:</label><br><br>
 <input type="text" placeholder="Enter the message" style=" border-radius:5px;height:40px;width=50px"/><br><br>
 
 <label>Message type:</label><br>
 <input type="text" placeholder="Enter the type" style=" border-radius:5px;height:40px;width=50px"/ ><br><br>
 
-<input type="submit" value="SEND" class="stylebtn"><br><br>
+<input type="button" value="SEND" class="stylebtn"><br><br>
 
 </form>
 </div><br><br>
 
+
+<!--request general data-->
 <div>
 
 <h3>Request general data</h3><br><br>
@@ -210,12 +231,248 @@
 <h3>Request general data</h3><br><br>
 <label>Enter the type of message</label><br><br>
 <input type="text" placeholder="Enter the type" style=" border-radius:5px;height:40px;width=50px"><br><br>
-<input type="submit" value="REQUEST" class="stylebtn"><br><br><br><br>
+<input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
 </form></div>
 </div>
+<!--end of request general data-->
+<!--Reset object data-->
+<div>
 
+<h3>Reset object data</h3><br><br>
+<ol  class="fontsize">
+<li>resetObjectData resets the objectData to cloud.</li>
+
+<li>"objectName" - Name of the objectData to be reset. </li><li>Quotes are must</li>
+<li>options - (optional, options detailed at end of module)</li></ol><br><br>
+
+<div  class="sendapplicationdata">
+<form align="center">
+<br><br><br>
+<h3>Reset object data</h3><br><br>
+<label>Enter the Object name:</label><br><br>
+<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<h4>Enter the key value pair:</h4><br>
+
+<input type="text" placeholder="Enter the key" style=" border-radius:5px;height:40px;width=50px">
+
+
+<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="button" value="RESET" class="stylebtn"><br><br><br><br>
+</form>
+</div>
 
 </div>
+<!--end of reset object data-->
+
+<!--update object data-->
+<br><br><div>
+<h3>Update object data</h3><br><br>
+<ol class="fontsize">
+<li>updateObjectData updates the objectData to cloud.</li>
+
+<li>"objectName" - Name of the objectData to be updated.</li><li> Quotes are must.</li>
+<li>options - (optional, options detailed at end of module)</li>
+</ol><br><br>
+
+<div class="sendapplicationdata">
+	<form align="center">
+<br><br><br>
+<h3>Reset object data</h3><br><br>
+<label>Enter the Object name:</label><br><br>
+<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<h4>Enter the key value pair:</h4><br>
+
+<input type="text" placeholder="Enter the key" style=" border-radius:5px;height:40px;width=50px">
+
+
+<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="button" value="UPDATE" class="stylebtn"><br><br><br><br>
+</form>
+</div>
+</div><br><br>
+<!--end of update object data-->
+
+<!--request object data-->
+<div>
+<h3>Request object data</h3><br><br>
+<ol class="fontsize">
+<li>requestObjectData requests application data from the cloud.</li>
+
+<li>"objectName" - Name of the objectData to be requested.</li><li> Quotes are must.</li>
+<li>options - (optional, options detailed at end of module)</li>
+</ol><br><br>
+
+<div class="sendapplicationdata">
+	<form align="center">
+<br><br><br>
+
+<label>Enter the Object name:</label><br><br>
+<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width=50px"><br><br>
+
+<input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
+</form>
+</div>
+
+</div><br><br>
+<!--end of request object data-->
+
+<!--FLO crypto operations-->
+<h2 style="text-decoration:underline;">FLO Crypto Operations</h2><br><br>
+<p >floCrypto operations can be used to perform<b> blockchain-cryptography methods</b>.<br>
+ floCrypto operations are synchronized and return a value. <br>
+
+<b>Important: FLO Crypto operations are all functions. They have not been promisified</b></p>
+
+<!--generate new flo id-->
+<div>
+<h3>Generate new FLO ID</h3><br><br>
+<ol class="fontsize">
+<li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>
+
+<li>Returns : Object { privKey , pubKey, floID }</li><br><br>
+</ol>
+
+<div class="sendapplicationdata"><br><br>
+<form align="center">
+<input type="button" value="GENERATE" class="stylebtn"><br><br><br><br>
+</form>
+</div>
+</div><br><br>
+<!--end of generate new flo id-->
+
+<!--calculate public key hex-->
+<div>
+<h3>Calculate Public Key HEX</h3><br><br>
+<ol class="fontsize">
+<li>getPubKeyHex returns public-key from given private-key</li>
+
+<li>privateKey - private key in WIF format (Hex)</li>
+<li>Returns : pubKey (string)</li>
+</ol>
+<br><br>
+
+<div class="sendapplicationdata">
+
+<form align="center">
+<br><br><label>Enter Private Key:</label><br><br>
+<input type="text" placeholder="Enter Private Key" style=" border-radius:5px;height:40px;width=50px" ><br><br>
+<input type="button" value="CALCULATE" class="stylebtn"><br><br><br>
+</form>
+</div>
+</div><br><br>
+
+<!--end of calculate public key hex-->
+
+<!--calculate flo id-->
+<div>
+<h3>Calculate Public key HEX</h3><br><br>
+<ol class="fontsize">
+<li>getFloID returns flo-ID from given public-key (or) private-key</li>
+
+<li>publickey_or_privateKey - public key or private key hex value</li>
+<li>Returns : floID (string)</li>
+</ol><br><br>
+
+<div class="sendapplicationdata">
+
+<form align="center">
+<br><br>
+<label>Enter Your Key:</label><br><br>
+<input type="text" placeholder="Private or Public Key" style=" border-radius:5px;height:40px;width=50px">
+<br><br>
+<input type="button" value="CALCULATE" class="stylebtn"><br><br><br>
+</form>
+</div>
+</div><br><br>
+
+<!--end of calculate flo id-->
+
+<!--verify private key-->
+
+<div>
+<h3>Verify Private key</h3><br><br>
+
+<ol class="fontsize">
+<li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
+
+<li>privateKey - private key in WIF format (Hex)</li>
+<li>pubKey_floID - public Key or flo ID</li>
+<li>isfloID - boolean value (true: compare as flo ID, false: compare as public key) (optional, default is true)</li>
+<li>Returns : boolen (true or false)</li>
+</ol><br><br>
+
+<div class="sendapplicationdata">
+<form align="center"><br><br>
+<label>Enter Private Key:</label><br><br>
+<input type="text" placeholder="Private Key" style=" border-radius:5px;height:40px;width=50px">
+<br><br>
+
+<label>Enter Public Key or flo ID:</label><br><br>
+<input type="text" placeholder="Enter Public Key or FLO id" style=" border-radius:5px;height:40px;width=50px">
+<br><br>
+<input type="button" value="VERIFY" class="stylebtn"><br><br><br>
+</form>
+</div>
+</div><br><br>
+
+<!--end of verify private key-->
+
+
+<!--sign data-->
+<div>
+<h3>Sign Data</h3><br><br>
+<ol class="fontsize">
+<li>signData signs the data using the private key</li>
+
+<li>data - data to sign</li>
+<li>privateKey - private key of the signer</li></ol>
+<br><br>
+<div class="sendapplicationdata">
+<form align="center"><br><br>
+<label>Enter the data to sign:</label><br><br>
+<input type="text" placeholder="Enter the data" style=" border-radius:5px;height:40px;width=50px"><br><br>
+
+<label>Enter the Private Key:</label><br><br>
+<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width=50px"><br><br>
+
+<input type="button" value="SIGN" class="stylebtn"><br><br><br>
+
+</form>
+
+</div>
+
+</div><br><br>
+<!--end of sign data-->
+
+<!--data enceyption-->
+<div>
+<h3>Data Encryption</h3><br><br>
+<ol class="fontsize">
+<li>encryptData encrypts the given data using public-key</li>
+
+<li>data - data to encrypt (String)</li>
+<li>publicKey - public key of the recipient</li>
+<li>Returns : Encrypted data (Object)</li>
+</ol><br><br>
+
+<div class="sendapplicationdata">
+<br><br><form align="center">
+<label>Enter the Data:</label><br><br>
+<input type="text" placeholder="Enter the Data" style=" border-radius:5px;height:40px;width=50px"><br><br>
+
+<label>Enter the Public Key:</label><br><br>
+<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width=50px"><br><br>
+
+<input type="button" value="ENCRYPT" class="stylebtn"><br><br><br>
+</form>
+</div>
+</div><br><br>
+
+<!--end of data enceyption-->
+
+<!--end ofFLO crypto operations-->
+</div>
+
 </body>
 
 </html>
