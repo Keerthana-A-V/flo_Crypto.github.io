@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/mainnn.css">
+
 </head>
 
 <body data-theme="light">
@@ -146,38 +147,45 @@
 <div class="sendapplicationdata">
 <form align="center"><br><br>
 <label >   Message to be sent:</label><br><br>
-<input type="text" placeholder="Enter the message" id="msg1"style=" border-radius:5px;height:40px;width=100%"/><br><br>
+<input type="text" placeholder="Enter the message" id="msg1" style=" border-radius:5px;height:40px;width:150px"/><br><br>
 
 <label>Message type:</label><br>
-<input type="text" placeholder="Enter the type" id="type1" style=" border-radius:5px;height:40px;width=50px"/ ><br><br>
+<input type="text" placeholder="Enter the type" id="type1" style=" border-radius:5px;height:40px;width:150px"/ ><br><br>
 
-<input type="button" value="SEND" class="stylebtn" name="applicationdata" onclick="sendappdata();" /><br><br>
+<input type="button" value="SEND" class="stylebtn" name="applicationdata" onclick="sendappdata()" /><br><br>
 
 <script>
 function sendappdata()
 {
-var message=parseInt(document.getElementById("msg1")).value;
-var type=parseInt(document.getElementById("type1")).value;
-var a;
-alert("hello everyone");
+let message=(document.getElementById("msg1").value);
+let type=(document.getElementById("type1").value);
 alert(message);
 alert(type);
- var res=floCloudAPI.sendApplicationData(message,type, options = {});
+alert("hello");
 
-if(a==isstring(res))
-alert("successful");
-else
-alert("unsuccessful");
 
+
+floCloudAPI.sendApplicationData(message, type).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");
+          }
+        );
 
 }
+console.log("Working");
 </script>
 </form>
 
 </div>
 <br><br>
+
+<!--request application data-->
 <div>
-<h3>request application data</h3><br><br>
+<h3>Request Application Data</h3><br><br>
 <ol class="fontsize">
 <li>requestApplicationData requests application data from the cloud.</li>
 
@@ -186,12 +194,25 @@ alert("unsuccessful");
 <form align="center">
 <br><br><br>
 <h3>Request application data</h3><br><br>
-<input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
+<input type="button" value="REQUEST" class="stylebtn" onclick="requestappdata()"><br><br><br><br>
 </form>
+
+<script>
+
+function requestappdata()
+{
+alert("Requesting.....")
+
+var a= floCloudAPI.requestApplicationData(options = {});
+alert(a);
+}
+
+</script>
 </div>
 
 </div><br><br><br>
 
+<!--send general data-->
 <div>
 <h3>Send general data</h3><br><br>
 <ol class="fontsize">
@@ -205,16 +226,30 @@ alert("unsuccessful");
 
 <form align="center"><br><br>
 <label >   Message to be sent:</label><br><br>
-<input type="text" placeholder="Enter the message" style=" border-radius:5px;height:40px;width=50px"/><br><br>
+<input type="text" placeholder="Enter the message" id="msg2" style=" border-radius:5px;height:40px;width:150px"/><br><br>
 
 <label>Message type:</label><br>
-<input type="text" placeholder="Enter the type" style=" border-radius:5px;height:40px;width=50px"/ ><br><br>
+<input type="text" placeholder="Enter the type" id="type2" style=" border-radius:5px;height:40px;width:150px"/><br><br>
 
-<input type="button" value="SEND" class="stylebtn"><br><br>
+<input type="button" value="SEND" class="stylebtn" onclick="sendgeneraldata()"><br><br>
 
 </form>
-</div><br><br>
 
+<script>
+function sendgeneraldata()
+{
+var message= document.getElementById("msg1").value;
+var type=document.getElementById("type1").value;
+
+alert(a);
+var a =floCloudAPI.sendGeneralData(message, type, options = {})
+
+}
+
+</script>
+
+</div><br><br>
+<!--send general data-->
 
 <!--request general data-->
 <div>
@@ -230,14 +265,15 @@ alert("unsuccessful");
 <br><br><br>
 <h3>Request general data</h3><br><br>
 <label>Enter the type of message</label><br><br>
-<input type="text" placeholder="Enter the type" style=" border-radius:5px;height:40px;width=50px"><br><br>
-<input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
+<input type="text" placeholder="Enter the type" id="data" style=" border-radius:5px;height:40px;width:150px"><br><br>
+<input type="button" value="REQUEST" class="stylebtn" onclick="requestgeneraldata()"><br><br><br><br>
 </form></div>
+
 </div>
 <!--end of request general data-->
+
 <!--Reset object data-->
 <div>
-
 <h3>Reset object data</h3><br><br>
 <ol  class="fontsize">
 <li>resetObjectData resets the objectData to cloud.</li>
@@ -250,15 +286,27 @@ alert("unsuccessful");
 <br><br><br>
 <h3>Reset object data</h3><br><br>
 <label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the object name" id="msg3" style="border-radius:5px;height:40px;width:150px"/>
+<br><br>
 <h4>Enter the key value pair:</h4><br>
 
-<input type="text" placeholder="Enter the key" style=" border-radius:5px;height:40px;width=50px">
+<input type="text" placeholder="Enter the key" id="type3" style="border-radius:5px;height:40px;width:150px"/>
 
 
-<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width=50px"><br><br>
-<input type="button" value="RESET" class="stylebtn"><br><br><br><br>
+<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width:150px"><br><br>
+<input type="button" value="RESET" class="stylebtn" onclick="resetobjectdata()"><br><br><br><br>
 </form>
+<script>
+
+function resetobjectdata()
+{
+var message =document.getElementById("msg3").value;
+var type=document.getElementById("type3").value;
+
+floCloudAPI.resetObjectData("objectName", options = {})
+
+}
+</script>
 </div>
 
 </div>
@@ -279,13 +327,13 @@ alert("unsuccessful");
 <br><br><br>
 <h3>Reset object data</h3><br><br>
 <label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the object name" style="border-radius:5px;height:40px;width:150px"><br><br>
 <h4>Enter the key value pair:</h4><br>
 
-<input type="text" placeholder="Enter the key" style=" border-radius:5px;height:40px;width=50px">
+<input type="text" placeholder="Enter the key" style=" border-radius:5px;height:40px;width:150px">
 
 
-<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width:150px"><br><br>
 <input type="button" value="UPDATE" class="stylebtn"><br><br><br><br>
 </form>
 </div>
@@ -307,7 +355,7 @@ alert("unsuccessful");
 <br><br><br>
 
 <label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width:150px"><br><br>
 
 <input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
 </form>
@@ -317,7 +365,7 @@ alert("unsuccessful");
 <!--end of request object data-->
 
 <!--FLO crypto operations-->
-<h2 style="text-decoration:underline;">FLO Crypto Operations</h2><br><br>
+<h2 style="text-decoration:underline">FLO Crypto Operations</h2><br><br>
 <p >floCrypto operations can be used to perform<b> blockchain-cryptography methods</b>.<br>
  floCrypto operations are synchronized and return a value. <br>
 
@@ -325,7 +373,7 @@ alert("unsuccessful");
 
 <!--generate new flo id-->
 <div>
-<h3>Generate new FLO ID</h3><br><br>
+<h3>Generate new FLO ID:</h3><br><br>
 <ol class="fontsize">
 <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>
 
@@ -355,7 +403,7 @@ alert("unsuccessful");
 
 <form align="center">
 <br><br><label>Enter Private Key:</label><br><br>
-<input type="text" placeholder="Enter Private Key" style=" border-radius:5px;height:40px;width=50px" ><br><br>
+<input type="text" placeholder="Enter Private Key" style=" border-radius:5px;height:40px;width:150px" ><br><br>
 <input type="button" value="CALCULATE" class="stylebtn"><br><br><br>
 </form>
 </div>
@@ -378,7 +426,7 @@ alert("unsuccessful");
 <form align="center">
 <br><br>
 <label>Enter Your Key:</label><br><br>
-<input type="text" placeholder="Private or Public Key" style=" border-radius:5px;height:40px;width=50px">
+<input type="text" placeholder="Private or Public Key" style=" border-radius:5px;height:40px;width:150px">
 <br><br>
 <input type="button" value="CALCULATE" class="stylebtn"><br><br><br>
 </form>
@@ -404,11 +452,11 @@ alert("unsuccessful");
 <div class="sendapplicationdata">
 <form align="center"><br><br>
 <label>Enter Private Key:</label><br><br>
-<input type="text" placeholder="Private Key" style=" border-radius:5px;height:40px;width=50px">
+<input type="text" placeholder="Private Key" style=" border-radius:5px;height:40px;width:150px">
 <br><br>
 
 <label>Enter Public Key or flo ID:</label><br><br>
-<input type="text" placeholder="Enter Public Key or FLO id" style=" border-radius:5px;height:40px;width=50px">
+<input type="text" placeholder="Enter Public Key or FLO id" style=" border-radius:5px;height:40px;width:150px">
 <br><br>
 <input type="button" value="VERIFY" class="stylebtn"><br><br><br>
 </form>
@@ -430,10 +478,10 @@ alert("unsuccessful");
 <div class="sendapplicationdata">
 <form align="center"><br><br>
 <label>Enter the data to sign:</label><br><br>
-<input type="text" placeholder="Enter the data" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the data" style=" border-radius:5px;height:40px;width:150px;"><br><br>
 
 <label>Enter the Private Key:</label><br><br>
-<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width:150px;"><br><br>
 
 <input type="button" value="SIGN" class="stylebtn"><br><br><br>
 
@@ -458,10 +506,10 @@ alert("unsuccessful");
 <div class="sendapplicationdata">
 <br><br><form align="center">
 <label>Enter the Data:</label><br><br>
-<input type="text" placeholder="Enter the Data" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the Data" style=" border-radius:5px;height:40px;width:150px"><br><br>
 
 <label>Enter the Public Key:</label><br><br>
-<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width=50px"><br><br>
+<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width:150px"><br><br>
 
 <input type="button" value="ENCRYPT" class="stylebtn"><br><br><br>
 </form>
