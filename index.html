@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>flocloud application</title>
     <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/mainnn.css">
+    <link rel="stylesheet" href="css/mainnn.css">
 
 </head>
 
@@ -48,7 +48,7 @@
         </label>
     </header>
     <nav id="navbar">
-        <div class="navbar-item active" onclick="showPage(this, 'home_page')">
+        <div class="navbar-item active" onclick= "showPage(this, 'home_page')">
             <svg class="icon" viewBox="0 0 64 64">
                 <path
                     d="M24.77,44.15H40.06V63.5H53.4V36h5.66a3.38,3.38,0,0,0,2.53-5.68l-6.73-7.16V11.26H46.48v3L34.53,1.59a3.49,3.49,0,0,0-5.06,0L2.41,30.35A3.38,3.38,0,0,0,4.94,36H10.6V63.5H24.77" />
@@ -93,24 +93,9 @@
                         <polyline
                             points="17.04 35.97 14.57 33.5 40.15 7.9 32.75 0.5 55.52 0.5 55.52 23.28 48.12 15.87 23.86 40.14 15.88 48.13 8.48 40.72 8.48 63.5 31.25 63.5 23.85 56.1 49.43 30.5 46.96 28.03" />
                     </svg>
-                    <h4 onclick="alert('Hello')">FLO Crypto Operations</h4>
+                    <h4 >FLO Crypto Operations</h4>
                 </div>
-                <div class="option">
-                    <svg class="icon" viewBox="0 0 64 64">
-                        <title>transfer</title>
-                        <polyline
-                            points="17.04 35.97 14.57 33.5 40.15 7.9 32.75 0.5 55.52 0.5 55.52 23.28 48.12 15.87 23.86 40.14 15.88 48.13 8.48 40.72 8.48 63.5 31.25 63.5 23.85 56.1 49.43 30.5 46.96 28.03" />
-                    </svg>
-                    <h4>option </h4>
-                </div>
-                <div class="option">
-                    <svg class="icon" viewBox="0 0 64 64">
-                        <title>transfer</title>
-                        <polyline
-                            points="17.04 35.97 14.57 33.5 40.15 7.9 32.75 0.5 55.52 0.5 55.52 23.28 48.12 15.87 23.86 40.14 15.88 48.13 8.48 40.72 8.48 63.5 31.25 63.5 23.85 56.1 49.43 30.5 46.96 28.03" />
-                    </svg>
-                    <h4>Option</h4>
-                </div>
+ 
             </div>
         </section>
         <section id="profile_page" class="page hide-completely">
@@ -122,8 +107,8 @@
     <script id="UI_functions">
         let allPages = document.querySelectorAll('.page'),
             allTabs = document.querySelectorAll('.navbar-item');
-        function showPage(btn, page) {
-            allPages.forEach((page) => {
+        function showPage(btn, page){
+            allPages.forEach( (page) => {
                 page.classList.add('hide-completely')
             })
             allTabs.forEach((tab) => {
@@ -134,7 +119,9 @@
         }
     </script>
 
-<div >
+
+
+<div>
 <h2 id="sendApplicationData" style="text-decoration:underline">flo cloud operations</h2><br><br>
 <h3>Send Application Data</h3><br>
 <p> <ol class="fontsize">
@@ -153,32 +140,31 @@
 <input type="text" placeholder="Enter the type" id="type1" style=" border-radius:5px;height:40px;width:150px"/ ><br><br>
 
 <input type="button" value="SEND" class="stylebtn" name="applicationdata" onclick="sendappdata()" /><br><br>
+</form>
 
 <script>
+
+
 function sendappdata()
 {
-let message=(document.getElementById("msg1").value);
-let type=(document.getElementById("type1").value);
+    let message =document.getElementById("msg1").value;
+    let type=document.getElementById("type1").value;
 alert(message);
 alert(type);
-alert("hello");
-
-
-
-floCloudAPI.sendApplicationData(message, type).then(
+alert("before");
+    floCloudAPI.sendApplicationData(message, type, options = {}).then(
           function (value) {
             alert("successful");
             
           },
           function (error) {
-            alert("unsuccessful");
+            alert("unsuccessful");      
           }
         );
 
 }
-console.log("Working");
 </script>
-</form>
+
 
 </div>
 <br><br>
@@ -203,8 +189,15 @@ function requestappdata()
 {
 alert("Requesting.....")
 
-var a= floCloudAPI.requestApplicationData(options = {});
-alert(a);
+ floCloudAPI.requestApplicationData(options = {}).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");      
+          }
+        );
 }
 
 </script>
@@ -238,11 +231,19 @@ alert(a);
 <script>
 function sendgeneraldata()
 {
-var message= document.getElementById("msg1").value;
-var type=document.getElementById("type1").value;
+var message= document.getElementById("msg2").value;
+var type=document.getElementById("type2").value;
 
-alert(a);
-var a =floCloudAPI.sendGeneralData(message, type, options = {})
+
+floCloudAPI.sendGeneralData(message, type, options = {}).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");      
+          }
+        );
 
 }
 
@@ -265,10 +266,25 @@ var a =floCloudAPI.sendGeneralData(message, type, options = {})
 <br><br><br>
 <h3>Request general data</h3><br><br>
 <label>Enter the type of message</label><br><br>
-<input type="text" placeholder="Enter the type" id="data" style=" border-radius:5px;height:40px;width:150px"><br><br>
+<input type="text" placeholder="Enter the type" id="type4" style=" border-radius:5px;height:40px;width:150px"><br><br>
 <input type="button" value="REQUEST" class="stylebtn" onclick="requestgeneraldata()"><br><br><br><br>
 </form></div>
+<script>
+    function requestgeneraldata()
+    {
+        let type=document.getElementById("type4").value;
+        floCloudAPI.requestGeneralData(type, options = {}).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");      
+          }
+        );
 
+    }
+</script>
 </div>
 <!--end of request general data-->
 
@@ -303,7 +319,15 @@ function resetobjectdata()
 var message =document.getElementById("msg3").value;
 var type=document.getElementById("type3").value;
 
-floCloudAPI.resetObjectData("objectName", options = {})
+floCloudAPI.resetObjectData("objectName", options = {}).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");      
+          }
+        );
 
 }
 </script>
@@ -325,18 +349,33 @@ floCloudAPI.resetObjectData("objectName", options = {})
 <div class="sendapplicationdata">
 	<form align="center">
 <br><br><br>
-<h3>Reset object data</h3><br><br>
+<h3>Update object data</h3><br><br>
 <label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" style="border-radius:5px;height:40px;width:150px"><br><br>
+<input type="text" placeholder="Enter the object name" id="msg5" style="border-radius:5px;height:40px;width:150px"><br><br>
 <h4>Enter the key value pair:</h4><br>
 
-<input type="text" placeholder="Enter the key" style=" border-radius:5px;height:40px;width:150px">
+<input type="text" placeholder="Enter the key" id="type5" style=" border-radius:5px;height:40px;width:150px">
 
 
 <input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width:150px"><br><br>
 <input type="button" value="UPDATE" class="stylebtn"><br><br><br><br>
 </form>
 </div>
+<script>
+    let message=document.getElementById("msg5").value;
+    let type=document.getElementById("type5").value;
+
+    floCloudAPI.updateObjectData("objectName", options = {}).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");      
+          }
+        );
+
+</script>
 </div><br><br>
 <!--end of update object data-->
 
@@ -355,12 +394,24 @@ floCloudAPI.resetObjectData("objectName", options = {})
 <br><br><br>
 
 <label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" style=" border-radius:5px;height:40px;width:150px"><br><br>
+<input type="text" placeholder="Enter the object name" id="obj1" style=" border-radius:5px;height:40px;width:150px"><br><br>
 
 <input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
 </form>
 </div>
+<script>
+    let objname=document.getElementById("obj1").value;
+    floCloudAPI.requestObjectData("objectName", options = {}).then(
+          function (value) {
+            alert("successful");
+            
+          },
+          function (error) {
+            alert("unsuccessful");      
+          }
+        );
 
+    </script>
 </div><br><br>
 <!--end of request object data-->
 
@@ -385,6 +436,10 @@ floCloudAPI.resetObjectData("objectName", options = {})
 <input type="button" value="GENERATE" class="stylebtn"><br><br><br><br>
 </form>
 </div>
+
+<script>
+    
+    let </script>
 </div><br><br>
 <!--end of generate new flo id-->
 
@@ -521,6 +576,5 @@ floCloudAPI.resetObjectData("objectName", options = {})
 <!--end ofFLO crypto operations-->
 </div>
 
-</body>
-
+ </body>
 </html>
