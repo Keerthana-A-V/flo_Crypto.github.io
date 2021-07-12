@@ -133,13 +133,11 @@
 
 <div class="sendapplicationdata">
 <form align="center"><br><br>
-<label >   Message to be sent:</label><br><br>
-<input type="text" placeholder="Enter the message" id="msg1" style=" border-radius:5px;height:40px;width:150px"/><br><br>
+  <h3>Send application data </h3><br><br>
+<sm-input id="msg1" placeholder="Enter the message"  animate > </sm-input><br><br>
+<sm-input id="type1" placeholder="Enter message type"  animate > </sm-input><br><br>
 
-<label>Message type:</label><br>
-<input type="text" placeholder="Enter the type" id="type1" style=" border-radius:5px;height:40px;width:150px"/ ><br><br>
-
-<input type="button" value="SEND" class="stylebtn" name="applicationdata" onclick="sendappdata()" /><br><br>
+<sm-button variant="primary" onclick="sendappdata() ">   SEND   </sm-button><br><br><br><br>
 </form>
 
 <script>
@@ -180,7 +178,8 @@ alert("before");
 <form align="center">
 <br><br><br>
 <h3>Request application data</h3><br><br>
-<input type="button" value="REQUEST" class="stylebtn" onclick="requestappdata()"><br><br><br><br>
+
+<sm-button variant="primary" onclick="requestappdata()">REQUEST</sm-button><br><br><br><br>
 </form>
 
 <script>
@@ -218,14 +217,11 @@ alert("Requesting.....")
 <div class="sendapplicationdata">
 
 <form align="center"><br><br>
-<label >   Message to be sent:</label><br><br>
-<input type="text" placeholder="Enter the message" id="msg2" style=" border-radius:5px;height:40px;width:150px"/><br><br>
+  <h3>Send General Data</h3><br><br>
+<sm-input id="msg2" placeholder="Enter the message"  animate > </sm-input><br><br>
+<sm-input id="type2" placeholder="Enter message type"  animate > </sm-input><br><br>
 
-<label>Message type:</label><br>
-<input type="text" placeholder="Enter the type" id="type2" style=" border-radius:5px;height:40px;width:150px"/><br><br>
-
-<input type="button" value="SEND" class="stylebtn" onclick="sendgeneraldata()"><br><br>
-
+<sm-button variant="primary" onclick="sendgeneraldata()">SEND</sm-button><br><br><br><br>
 </form>
 
 <script>
@@ -265,10 +261,13 @@ floCloudAPI.sendGeneralData(message, type, options = {}).then(
 <form align="center">
 <br><br><br>
 <h3>Request general data</h3><br><br>
-<label>Enter the type of message</label><br><br>
-<input type="text" placeholder="Enter the type" id="type4" style=" border-radius:5px;height:40px;width:150px"><br><br>
-<input type="button" value="REQUEST" class="stylebtn" onclick="requestgeneraldata()"><br><br><br><br>
+
+<sm-input id="type4" placeholder="Enter message type"  animate > </sm-input><br><br>
+
+<sm-button variant="primary" onclick="requestgeneraldata()">REQUEST</sm-button><br><br><br><br>
 </form></div>
+
+
 <script>
     function requestgeneraldata()
     {
@@ -285,7 +284,7 @@ floCloudAPI.sendGeneralData(message, type, options = {}).then(
 
     }
 </script>
-</div>
+</div><br><br><br><br>
 <!--end of request general data-->
 
 <!--Reset object data-->
@@ -301,16 +300,12 @@ floCloudAPI.sendGeneralData(message, type, options = {}).then(
 <form align="center">
 <br><br><br>
 <h3>Reset object data</h3><br><br>
-<label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" id="msg3" style="border-radius:5px;height:40px;width:150px"/>
-<br><br>
-<h4>Enter the key value pair:</h4><br>
 
-<input type="text" placeholder="Enter the key" id="type3" style="border-radius:5px;height:40px;width:150px"/>
+<sm-input id="msg3" placeholder="Enter the Object name"  animate > </sm-input><br><br>
+<sm-input id="type3" placeholder="Enter message type"  animate > </sm-input>
+<sm-input id="val3" placeholder="Enter the Value" animate></sm-input><br><br>
 
-
-<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width:150px"><br><br>
-<input type="button" value="RESET" class="stylebtn" onclick="resetobjectdata()"><br><br><br><br>
+<sm-button variant="primary" onclick="resetobjectdata()">RESET</sm-button><br><br><br><br>
 </form>
 <script>
 
@@ -331,7 +326,7 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 
 }
 </script>
-</div>
+</div><br><br><br><br>
 
 </div>
 <!--end of reset object data-->
@@ -350,18 +345,17 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 	<form align="center">
 <br><br><br>
 <h3>Update object data</h3><br><br>
-<label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" id="msg5" style="border-radius:5px;height:40px;width:150px"><br><br>
-<h4>Enter the key value pair:</h4><br>
 
-<input type="text" placeholder="Enter the key" id="type5" style=" border-radius:5px;height:40px;width:150px">
+<sm-input id="msg5" placeholder="Enter the Object name"  animate > </sm-input><br><br>
+<sm-input id="type5" placeholder="Enter the Key"  animate > </sm-input>
+<sm-input id="val5" placeholder="Enter the Value " animate></sm-input><br><br>
 
-
-<input type="text" placeholder="Enter the value" style=" border-radius:5px;height:40px;width:150px"><br><br>
-<input type="button" value="UPDATE" class="stylebtn"><br><br><br><br>
+<sm-button variant="primary" onclick="updateobjectdata()">UPDATE</sm-button><br><br><br><br>
 </form>
 </div>
 <script>
+  function updateobjectdata()
+  {
     let message=document.getElementById("msg5").value;
     let type=document.getElementById("type5").value;
 
@@ -374,6 +368,7 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
             alert("unsuccessful");      
           }
         );
+  }
 
 </script>
 </div><br><br>
@@ -392,14 +387,16 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 <div class="sendapplicationdata">
 	<form align="center">
 <br><br><br>
+<h3>Request object data</h3><br><br>
 
-<label>Enter the Object name:</label><br><br>
-<input type="text" placeholder="Enter the object name" id="obj1" style=" border-radius:5px;height:40px;width:150px"><br><br>
+<sm-input id="obj1" placeholder="Enter the Object name"  animate > </sm-input><br><br>
 
-<input type="button" value="REQUEST" class="stylebtn"><br><br><br><br>
+<sm-button variant="primary" onclick="requestobjectdata()">REQUEST</sm-button><br><br><br><br>
 </form>
 </div>
 <script>
+  function requestobjectdata()
+  {
     let objname=document.getElementById("obj1").value;
     floCloudAPI.requestObjectData("objectName", options = {}).then(
           function (value) {
@@ -410,8 +407,9 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
             alert("unsuccessful");      
           }
         );
+  }
 
-    </script>
+</script>
 </div><br><br>
 <!--end of request object data-->
 
@@ -432,14 +430,20 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 </ol>
 
 <div class="sendapplicationdata"><br><br>
-<form align="center">
-<input type="button" value="GENERATE" class="stylebtn"><br><br><br><br>
+<form align="center"><br><br>
+  <h3>Generate new FLO ID</h3><br><br>
+  <sm-button variant="primary" onclick="generatefloid()">GENERATE</sm-button><br><br><br>
+ 
 </form>
 </div>
-
 <script>
-    
-    let </script>
+function generatefloid()
+{
+
+}
+
+</script>
+
 </div><br><br>
 <!--end of generate new flo id-->
 
@@ -457,10 +461,19 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 <div class="sendapplicationdata">
 
 <form align="center">
-<br><br><label>Enter Private Key:</label><br><br>
-<input type="text" placeholder="Enter Private Key" style=" border-radius:5px;height:40px;width:150px" ><br><br>
-<input type="button" value="CALCULATE" class="stylebtn"><br><br><br>
+
+  <br><br>
+  <h3>Calculate Public key hex</h3><br><br>
+  <sm-input id="msg5" placeholder="Enter Private key"  animate > </sm-input><br><br>
+ <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br><br>
 </form>
+<script>
+  function publickeyhex()
+  {
+
+  }
+</script>
+
 </div>
 </div><br><br>
 
@@ -468,7 +481,7 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 
 <!--calculate flo id-->
 <div>
-<h3>Calculate Public key HEX</h3><br><br>
+<h3>Calculate FLO ID</h3><br><br>
 <ol class="fontsize">
 <li>getFloID returns flo-ID from given public-key (or) private-key</li>
 
@@ -480,11 +493,20 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 
 <form align="center">
 <br><br>
-<label>Enter Your Key:</label><br><br>
-<input type="text" placeholder="Private or Public Key" style=" border-radius:5px;height:40px;width:150px">
+<h3>Calculate FLO ID</h3><br><br>
+
+<sm-input id="msg5" placeholder="Enter Private or Public key"  animate > </sm-input><br><br>
 <br><br>
-<input type="button" value="CALCULATE" class="stylebtn"><br><br><br>
+
+<sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br><br><br><br>
 </form>
+<script>
+  function calcfloid()
+  {
+
+  }
+</script>
+
 </div>
 </div><br><br>
 
@@ -506,15 +528,22 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 
 <div class="sendapplicationdata">
 <form align="center"><br><br>
-<label>Enter Private Key:</label><br><br>
-<input type="text" placeholder="Private Key" style=" border-radius:5px;height:40px;width:150px">
+  <h3>Verify Private key</h3><br><br>
+
+  <sm-input id="msg5" placeholder="Enter the Private key"  animate > </sm-input><br><br>
+  <sm-input id="type5" placeholder="Enter Pblic key or FLO ID"  animate > </sm-input>
+
 <br><br>
 
-<label>Enter Public Key or flo ID:</label><br><br>
-<input type="text" placeholder="Enter Public Key or FLO id" style=" border-radius:5px;height:40px;width:150px">
-<br><br>
-<input type="button" value="VERIFY" class="stylebtn"><br><br><br>
+<sm-button variant="primary" onclick="verifyprivatekey()">VERIFY</sm-button><br><br><br><br>
 </form>
+
+<script>
+  function verifyprivatekey()
+  {
+
+  }
+</script>
 </div>
 </div><br><br>
 
@@ -532,16 +561,20 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 <br><br>
 <div class="sendapplicationdata">
 <form align="center"><br><br>
-<label>Enter the data to sign:</label><br><br>
-<input type="text" placeholder="Enter the data" style=" border-radius:5px;height:40px;width:150px;"><br><br>
 
-<label>Enter the Private Key:</label><br><br>
-<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width:150px;"><br><br>
+  <h3>Sign Data</h3><br><br>
 
-<input type="button" value="SIGN" class="stylebtn"><br><br><br>
+  <sm-input id="msg5" placeholder="Enter data to sign"  animate > </sm-input><br><br>
+  <sm-input id="type5" placeholder="Enter Private Key"  animate > </sm-input><br><br>
 
+<sm-button variant="primary" onclick="signdata()">SIGN</sm-button><br><br><br><br>
 </form>
+<script>
+  function signdata()
+  {
 
+  }
+</script>
 </div>
 
 </div><br><br>
@@ -560,14 +593,21 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 
 <div class="sendapplicationdata">
 <br><br><form align="center">
-<label>Enter the Data:</label><br><br>
-<input type="text" placeholder="Enter the Data" style=" border-radius:5px;height:40px;width:150px"><br><br>
 
-<label>Enter the Public Key:</label><br><br>
-<input type="text" placeholder="Enter the Private Key" style=" border-radius:5px;height:40px;width:150px"><br><br>
+  <h3>Data Encryption</h3><br><br>
 
-<input type="button" value="ENCRYPT" class="stylebtn"><br><br><br>
+<sm-input id="msg5" placeholder="Enter the data"  animate > </sm-input><br><br>
+<sm-input id="type5" placeholder="Enter Public Key"  animate > </sm-input><br><br>
+
+<sm-button variant="primary" onclick="dataencryption()">ENCRYPT</sm-button><br><br><br><br>
 </form>
+
+<script>
+  function dataencryption()
+  {
+
+  }
+</script>
 </div>
 </div><br><br>
 
@@ -575,6 +615,10 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 
 <!--end ofFLO crypto operations-->
 </div>
+<script src="js/components.min.js" ></script>
+<script src="js/components.js" ></script>
+<script src="js/helper.js" ></script>
+<script src="js/aggregate.js" ></script>
 
  </body>
 </html>
