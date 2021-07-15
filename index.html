@@ -10072,9 +10072,12 @@ function generatefloid()
   {
       let data=document.getElementById("msg7").value;
       let publicKey=document.getElementById("type7").value;
-      let obj= floCrypto.encryptData(data, publicKey)
-      alert(obj.encrypteddata);
-
+      var obj= floCrypto.encryptData(data, publicKey)
+      alert(Object.getOwnPropertyNames(obj));
+      alert(obj.secret);
+      alert(Object.getOwnPropertyNames(senderPublicKeyString));
+      alert(senderPublicKeyString.XValuePublicString);
+      alert(senderPublicKeyString.YValuePublicString);
   }
 </script>
 </div>
@@ -10082,8 +10085,53 @@ function generatefloid()
 
 <!--end of data enceyption-->
 
-<!--end ofFLO crypto operations-->
+<!--end of FLO crypto operations-->
+</div><br>
+
+<!--Task-2-->
+
+<div>
+    <h3>Data Decryption</h3><br><br>
+    <ol class="fontsize"><li>decryptData decrypts the given data using private-key</li>
+
+       <li> data - encrypted data to decrypt (Object that was returned from encryptData)</li>
+       <li> privateKey - private key of the recipient</li>
+       <li> Returns : Decrypted Data (String)</li></ol>
+<br><br>
+<div class="sendapplicationdata">
+<form align="center">
+<br><br>
+<h3>data Decryption</h3><br><br>
+<sm-input id="dec" placeholder="Enter encrypted data" animate></sm-input><br><br>
+<sm-input id="priv" placeholder="Enter Private key" animate></sm-input><br><br>
+
+<sm-button variant="primary" onclick="datadecryption()">DECRYPT</sm-button><br><br><br><br>
+</form>
+
+<script>
+    function datadecryption()
+    {
+        let data=document.getElementById("dec").value;
+        
+        let privatekey=document.getElementById("priv").value;
+        var dec= floCrypto.decryptData(data,privatekey);
+        alert(data);
+        alert(dec);
+
+    }
+</script>
 </div>
+<!---->
+</div>
+
+
+<div>
+
+</div>
+
+
+<!--End of Task-2-->
+
 <script src="js/components.min.js" ></script>
 <script src="js/components.js" ></script>
 <script src="js/helper.js" ></script>
