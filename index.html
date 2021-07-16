@@ -10037,7 +10037,6 @@ function generatefloid()
      let privKey=document.getElementById("type5").value; 
      var signature =floCrypto.signData(data, privKey)
      alert(signature);
-
   }
 </script>
 </div>
@@ -10073,11 +10072,15 @@ function generatefloid()
       let data=document.getElementById("msg7").value;
       let publicKey=document.getElementById("type7").value;
       var obj= floCrypto.encryptData(data, publicKey)
-      alert(Object.getOwnPropertyNames(obj));
-      alert(obj.secret);
+
+      alert("Encrypted data: "+obj.secret);
+     /*  alert(Object.getOwnPropertyNames(obj));
+     alert(senderPublicKeyString);
       alert(Object.getOwnPropertyNames(senderPublicKeyString));
-      alert(senderPublicKeyString.XValuePublicString);
-      alert(senderPublicKeyString.YValuePublicString);
+      var ob=Object.getOwnPropertyNames(senderPublicKeyString);
+        alert(senderPublicKeyString.XValuePublicString);
+        alert(senderPublicKeyString.YValuePublicString);*/
+     
   }
 </script>
 </div>
@@ -10098,12 +10101,14 @@ function generatefloid()
        <li> privateKey - private key of the recipient</li>
        <li> Returns : Decrypted Data (String)</li></ol>
 <br><br>
+    </div>
 <div class="sendapplicationdata">
 <form align="center">
 <br><br>
 <h3>data Decryption</h3><br><br>
-<sm-input id="dec" placeholder="Enter encrypted data" animate></sm-input><br><br>
-<sm-input id="priv" placeholder="Enter Private key" animate></sm-input><br><br>
+
+<sm-input id="ddd" placeholder="Enter the data"  animate > </sm-input><br><br>
+<sm-input id="pri" placeholder="Enter Private key"  animate > </sm-input><br><br>
 
 <sm-button variant="primary" onclick="datadecryption()">DECRYPT</sm-button><br><br><br><br>
 </form>
@@ -10111,22 +10116,54 @@ function generatefloid()
 <script>
     function datadecryption()
     {
-        let data=document.getElementById("dec").value;
-        
-        let privatekey=document.getElementById("priv").value;
-        var dec= floCrypto.decryptData(data,privatekey);
-        alert(data);
-        alert(dec);
+        alert("entered");
+        let data = document.getElementById("ddd").value;
+        let privee= document.getElementById("pri").value;
+        let res =  floCrypto.decryptData(data, privee)
+        alert(res);
 
     }
 </script>
-</div>
-<!---->
+
 </div>
 
 
 <div>
+    <h3>Verify Signature</h3><br><br>
+    <ol>
+        <li>
+            verifySign verifies signatue of the data using public-key</li>
 
+            <li>data - data of the given signature</li>
+                <li>signature - signature of the data</li>
+                    <li>publicKey - public key of the signer</li>
+                        <li>Returns : boolen (true or false) </li>
+    </ol><br><br>
+
+   
+<div class="sendapplicationdata">
+            <form align="center">
+            <br><br>
+            <h3>Verify Signature</h3><br><br>
+            
+            <sm-input id="data" placeholder="Enter the data"  animate > </sm-input><br><br>
+            <sm-input id="sign" placeholder="Enter the Signature"  animate > </sm-input><br><br>
+
+            <sm-input id="pub" placeholder="Enter Public key"  animate > </sm-input><br><br>
+            
+            <sm-button variant="primary" onclick="verifysignature()">VERIFY</sm-button><br><br><br><br>
+            </form>
+            <script>
+                function verifysignature()
+                {
+                    let data=document.getElementById("data").value;
+                    let signature=document.getElementById("sign").value;
+                    let publ=document.getElementById("pub").value;
+                    let result= Boolean (floCrypto.verifySign(data, signature, publ));
+                    alert(result);
+
+                }
+            </script>
 </div>
 
 
