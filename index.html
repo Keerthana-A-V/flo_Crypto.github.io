@@ -7093,9 +7093,7 @@
                   "Failed to detremine your private key.");
               receiverECKeyData.privateKey = privateKey.privateKeyDecimal;
   
-              var receiverDerivedKey = this.util.deriveReceiverSharedKey(data.senderPublicKeyString,
-                  receiverECKeyData
-                  .privateKey);
+              var receiverDerivedKey = this.util.deriveReceiverSharedKey(data.senderPublicKeyString,receiverECKeyData.privateKey);
   
               let receiverKey = receiverDerivedKey.XValue + receiverDerivedKey.YValue;
               let decryptMsg = Crypto.AES.decrypt(data.secret, receiverKey);
@@ -9538,7 +9536,7 @@
                             points="17.04 35.97 14.57 33.5 40.15 7.9 32.75 0.5 55.52 0.5 55.52 23.28 48.12 15.87 23.86 40.14 15.88 48.13 8.48 40.72 8.48 63.5 31.25 63.5 23.85 56.1 49.43 30.5 46.96 28.03" />
                     </svg>
 			
-                    <h4>flo cloud api operation</h4>
+                    <h4>Option</h4>
                 </div>
                 <div class="option">
                     <svg class="icon" viewBox="0 0 64 64">
@@ -9574,293 +9572,7 @@
 
 
 
-<div>
-<h2 id="sendApplicationData" style="text-decoration:underline">flo cloud operations</h2><br><br>
-<h3>Send Application Data</h3><br>
-<p> <ol class="fontsize">
-<li>message - data to be sent<br></li>
-<li>type - type of the data<br></li>
-<li>options - (optional, options detailed at end of module)</li><br></p><br>
-</ol>
 
-
-<div class="sendapplicationdata">
-<form align="center"><br><br>
-  <h3>Send application data </h3><br><br>
-<sm-input id="msg1" placeholder="Enter the message"  animate > </sm-input><br><br>
-<sm-input id="type1" placeholder="Enter message type"  animate > </sm-input><br><br>
-
-<sm-button variant="primary" onclick="sendappdata() ">   SEND   </sm-button><br><br><br><br>
-</form>
-
-<script>
-
-
-function sendappdata()
-{
-    let message =document.getElementById("msg1").value;
-    let type=document.getElementById("type1").value;
-    floCloudAPI.sendApplicationData(message, type, options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-
-}
-</script>
-
-
-</div>
-<br><br>
-
-<!--request application data-->
-<div>
-<h3>Request Application Data</h3><br><br>
-<ol class="fontsize">
-<li>requestApplicationData requests application data from the cloud.</li>
-
-<li>options - (optional, options detailed at end of module)</li></ol><br><br>
-<div class="sendapplicationdata">
-<form align="center">
-<br><br><br>
-<h3>Request application data</h3><br><br>
-
-<sm-button variant="primary" onclick="requestappdata()">REQUEST</sm-button><br><br><br><br>
-</form>
-
-<script>
-
-function requestappdata()
-{
-
- floCloudAPI.requestApplicationData(options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-}
-
-</script>
-</div>
-
-</div><br><br><br>
-
-<!--send general data-->
-<div>
-<h3>Send general data</h3><br><br>
-<ol class="fontsize">
-<li>sendGeneralData sends general data to the cloud.</li>
-
-<li>message - data to be sent</li>
-<li>type - type of the data</li>
-<li>options - (optional, options detailed at end of module)</li>
-</ol><br><br>
-<div class="sendapplicationdata">
-
-<form align="center"><br><br>
-  <h3>Send General Data</h3><br><br>
-<sm-input id="msg2" placeholder="Enter the message"  animate > </sm-input><br><br>
-<sm-input id="type2" placeholder="Enter message type"  animate > </sm-input><br><br>
-
-<sm-button variant="primary" onclick="sendgeneraldata()">SEND</sm-button><br><br><br><br>
-</form>
-
-<script>
-function sendgeneraldata()
-{
-var message= document.getElementById("msg2").value;
-var type=document.getElementById("type2").value;
-
-
-floCloudAPI.sendGeneralData(message, type, options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-
-}
-
-</script>
-
-</div><br><br>
-<!--send general data-->
-
-<!--request general data-->
-<div>
-
-<h3>Request general data</h3><br><br>
-<ol class="fontsize"><li>requestGeneralData requests application data from the cloud.</li>
-
-<li>type - type of the data</li>
-<li>options - (optional, options detailed at end of module)</li>
-</div><br><br><br>
-<div class="sendapplicationdata">
-<form align="center">
-<br><br><br>
-<h3>Request general data</h3><br><br>
-
-<sm-input id="type4" placeholder="Enter message type"  animate > </sm-input><br><br>
-
-<sm-button variant="primary" onclick="requestgeneraldata()">REQUEST</sm-button><br><br><br><br>
-</form></div>
-
-
-<script>
-    function requestgeneraldata()
-    {
-        let type=document.getElementById("type4").value;
-        floCloudAPI.requestGeneralData(type, options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-
-    }
-</script>
-</div><br><br><br><br>
-<!--end of request general data-->
-
-<!--Reset object data-->
-<div>
-<h3>Reset object data</h3><br><br>
-<ol  class="fontsize">
-<li>resetObjectData resets the objectData to cloud.</li>
-
-<li>"objectName" - Name of the objectData to be reset. </li><li>Quotes are must</li>
-<li>options - (optional, options detailed at end of module)</li></ol><br><br>
-
-<div  class="sendapplicationdata">
-<form align="center">
-<br><br><br>
-<h3>Reset object data</h3><br><br>
-
-<sm-input id="msg3" placeholder="Enter the Object name"  animate > </sm-input><br><br>
-<sm-input id="type3" placeholder="Enter message type"  animate > </sm-input>
-<sm-input id="val3" placeholder="Enter the Value" animate></sm-input><br><br>
-
-<sm-button variant="primary" onclick="resetobjectdata()">RESET</sm-button><br><br><br><br>
-</form>
-<script>
-
-function resetobjectdata()
-{
-var message =document.getElementById("msg3").value;
-var type=document.getElementById("type3").value;
-
-floCloudAPI.resetObjectData("objectName", options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-
-}
-</script>
-</div><br><br><br><br>
-
-</div>
-<!--end of reset object data-->
-
-<!--update object data-->
-<br><br><div>
-<h3>Update object data</h3><br><br>
-<ol class="fontsize">
-<li>updateObjectData updates the objectData to cloud.</li>
-
-<li>"objectName" - Name of the objectData to be updated.</li><li> Quotes are must.</li>
-<li>options - (optional, options detailed at end of module)</li>
-</ol><br><br>
-
-<div class="sendapplicationdata">
-	<form align="center">
-<br><br><br>
-<h3>Update object data</h3><br><br>
-
-<sm-input id="msg5" placeholder="Enter the Object name"  animate > </sm-input><br><br>
-<sm-input id="type5" placeholder="Enter the Key"  animate > </sm-input>
-<sm-input id="val5" placeholder="Enter the Value " animate></sm-input><br><br>
-
-<sm-button variant="primary" onclick="updateobjectdata()">UPDATE</sm-button><br><br><br><br>
-</form>
-</div>
-<script>
-  function updateobjectdata()
-  {
-    let message=document.getElementById("msg5").value;
-    let type=document.getElementById("type5").value;
-
-    floCloudAPI.updateObjectData("objectName", options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-  }
-
-</script>
-</div><br><br>
-<!--end of update object data-->
-
-<!--request object data-->
-<div>
-<h3>Request object data</h3><br><br>
-<ol class="fontsize">
-<li>requestObjectData requests application data from the cloud.</li>
-
-<li>"objectName" - Name of the objectData to be requested.</li><li> Quotes are must.</li>
-<li>options - (optional, options detailed at end of module)</li>
-</ol><br><br>
-
-<div class="sendapplicationdata">
-	<form align="center">
-<br><br><br>
-<h3>Request object data</h3><br><br>
-
-<sm-input id="obj1" placeholder="Enter the Object name"  animate > </sm-input><br><br>
-
-<sm-button variant="primary" onclick="requestobjectdata()">REQUEST</sm-button><br><br><br><br>
-</form>
-</div>
-<script>
-  function requestobjectdata()
-  {
-    let objname=document.getElementById("obj1").value;
-    floCloudAPI.requestObjectData("objectName", options = {}).then(
-          function (value) {
-            alert("successful");
-            
-          },
-          function (error) {
-            alert("unsuccessful");      
-          }
-        );
-  }
-
-</script>
-</div><br><br>
-<!--end of request object data-->
 
 <!--FLO crypto operations-->
 <h2 style="text-decoration:underline">FLO Crypto Operations</h2><br><br>
@@ -9878,20 +9590,29 @@ floCloudAPI.resetObjectData("objectName", options = {}).then(
 <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
 </ol>
 
+
 <div class="sendapplicationdata"><br><br>
 <form align="center"><br><br>
   <h3>Generate new FLO ID</h3><br><br>
   <sm-button variant="primary" onclick="generatefloid()">GENERATE</sm-button><br><br><br>
- 
+
 </form>
+<div class="generate"> 
+    <div id="private" style="font-weight: bold;"></div><br>
+   <div id="pub" style="font-weight: bold;"></div><br>
+   <div id="flo" style="font-weight: bold;"></div><br>
+</div>
 </div>
 <script>
 function generatefloid()
 {
     let flo =floCrypto.generateNewID()
-   alert( "Private key: "+ flo.privKey);
+    document.getElementById("private").innerHTML="Private key: " + flo.privKey; 
+    document.getElementById("pub").innerHTML="Public key: "+ flo.pubKey;
+    document.getElementById("flo").innerHTML="FLO ID: "+ flo.floID;
+    /* alert( "Private key: "+ flo.privKey);
    alert("Public Key: "+flo.pubKey);
-   alert("FLO ID: "+flo.floID);
+   alert("FLO ID: "+flo.floID);*/
 }
 
 </script>
@@ -9916,20 +9637,23 @@ function generatefloid()
 
   <br><br>
   <h3>Calculate Public key hex</h3><br><br>
-  <sm-input id="private" placeholder="Enter Private key"  animate > </sm-input><br><br>
+  <sm-input id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br><br>
  <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br><br>
 </form>
+<div id="publickeyhex"></div>
+</div>
+
 <script>
   function publickeyhex()
   {
-      let privatekey = document.getElementById("private").value; 
-     var pubKey=floCrypto.getPubKeyHex(privatekey);
-     alert(pubKey);
+      let privatekey = document.getElementById("idprivate").value;
+     var pubkey=floCrypto.getPubKeyHex(privatekey)
+     document.getElementById("publickeyhex").innerHTML="Public Key: "+pubkey;
 
   }
 </script>
 
-</div>
+
 </div><br><br>
 
 <!--end of calculate public key hex-->
@@ -9950,7 +9674,7 @@ function generatefloid()
 <br><br>
 <h3>Calculate FLO ID</h3><br><br>
 
-<sm-input id="keyy" placeholder="Enter Private or Public key"  animate > </sm-input><br><br>
+<sm-input id="key" placeholder="Enter Private or Public key"  animate > </sm-input><br><br>
 <br><br>
 
 <sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br><br><br><br>
@@ -9958,7 +9682,7 @@ function generatefloid()
 <script>
   function calcfloid()
   {
-      let keyy= document.getElementById("keyy");
+      let keyy= document.getElementById("key").value;
      var floid =floCrypto.getFloID(keyy)
         alert(floid);
   }
@@ -9994,14 +9718,23 @@ function generatefloid()
 
 <sm-button variant="primary" onclick="verifyprivatekey()">VERIFY</sm-button><br><br><br><br>
 </form>
-
+<div id="verify"></div>
 <script>
   function verifyprivatekey()
   {
       let privatekey=document.getElementById("privatek").value;
       let pubKey_floID= document.getElementById("keey").value;
     var ver= Boolean (floCrypto.verifyPrivKey(privatekey, pubKey_floID))
-    alert(ver);
+       
+        if(ver==true)
+        {
+            document.getElementById("verify").innerHTML="TRUE,   The private-key is verified for the given public-key or flo-ID."
+        }
+        else
+        {
+            document.getElementById("verify").innerHTML="FALSE,   The private-key is not verified for the given public-key or flo-ID. "
+
+        }
 
   }
 </script>
@@ -10029,14 +9762,19 @@ function generatefloid()
   <sm-input id="type5" placeholder="Enter Private Key"  animate > </sm-input><br><br>
 
 <sm-button variant="primary" onclick="signdata()">SIGN</sm-button><br><br><br><br>
+
 </form>
+<div id="signed" style="font-size:22px;font-weight: bold;"></div><br>
+<div id="signatures" class="signatures"></div>
 <script>
   function signdata()
   { 
      let data=document.getElementById("msg5").value;
      let privKey=document.getElementById("type5").value; 
      var signature =floCrypto.signData(data, privKey)
-     alert(signature);
+     document.getElementById("signed").innerHTML="Signed data is,"
+     document.getElementById("signatures").innerHTML= signature
+    // alert(signature);
   }
 </script>
 </div>
@@ -10065,16 +9803,16 @@ function generatefloid()
 
 <sm-button variant="primary" onclick="dataencryption()">ENCRYPT</sm-button><br><br><br><br>
 </form>
-
+<b id="print"></b>
 <script>
   function dataencryption()
   {
       let data=document.getElementById("msg7").value;
       let publicKey=document.getElementById("type7").value;
       var obj= floCrypto.encryptData(data, publicKey)
-
-      alert("Encrypted data: "+obj.secret);
-     /*  alert(Object.getOwnPropertyNames(obj));
+      document.getElementById("print").innerHTML="Encrypted data: "+obj.secret
+     /* alert("Encrypted data: "+obj.secret);
+       alert(Object.getOwnPropertyNames(obj));
      alert(senderPublicKeyString);
       alert(Object.getOwnPropertyNames(senderPublicKeyString));
       var ob=Object.getOwnPropertyNames(senderPublicKeyString);
@@ -10093,46 +9831,45 @@ function generatefloid()
 
 <!--Task-2-->
 
+<!--Data decryption-->
 <div>
     <h3>Data Decryption</h3><br><br>
-    <ol class="fontsize"><li>decryptData decrypts the given data using private-key</li>
+    <ol class="fontsize">
+        <li> data - encrypted data to decrypt (Object that was returned from encryptData)</li>
+        <li>privateKey - private key of the recipient</li>
+        <li>Returns : Decrypted Data (String)</li>
+    </ol><br><br>
+    <div class="sendapplicationdata"><br><br>
+        <form align="center">
+            <h3>Data Decryption</h3><br><br>
+            <sm-input id="endata" placeholder="Enter Encrypted data" animate></sm-input><br><br>
+            <sm-input id="enprivate" placeholder="Enter private key" animate></sm-input><br><br>
 
-       <li> data - encrypted data to decrypt (Object that was returned from encryptData)</li>
-       <li> privateKey - private key of the recipient</li>
-       <li> Returns : Decrypted Data (String)</li></ol>
-<br><br>
+            <sm-button variant="primary" onclick="datadecrypt()">DECRYPT</sm-button><br><br><br>
+
+        </form>
+
+        <script>
+            function datadecrypt()
+            {
+            let encrdata=document.getElementById("endata").value;
+            let enprivatekey=document.getElementById("enprivate").value;
+            alert(floCrypto.decryptData(encrdata, enprivatekey));
+             var enresult= floCrypto.decryptData(encrdata, enprivatekey)
+            alert(enresult);
+            }
+
+        </script>
     </div>
-<div class="sendapplicationdata">
-<form align="center">
-<br><br>
-<h3>data Decryption</h3><br><br>
+</div><br><br>
+<!--end of data decryption-->
 
-<sm-input id="ddd" placeholder="Enter the data"  animate > </sm-input><br><br>
-<sm-input id="pri" placeholder="Enter Private key"  animate > </sm-input><br><br>
-
-<sm-button variant="primary" onclick="datadecryption()">DECRYPT</sm-button><br><br><br><br>
-</form>
-
-<script>
-    function datadecryption()
-    {
-        alert("entered");
-        let data = document.getElementById("ddd").value;
-        let privee= document.getElementById("pri").value;
-        let res =  floCrypto.decryptData(data, privee)
-        alert(res);
-
-    }
-</script>
-
-</div>
-
+<!--Verify signature-->
 
 <div>
     <h3>Verify Signature</h3><br><br>
-    <ol>
-        <li>
-            verifySign verifies signatue of the data using public-key</li>
+    <ol class="fontsize">
+        <li>verifySign verifies signatue of the data using public-key</li>
 
             <li>data - data of the given signature</li>
                 <li>signature - signature of the data</li>
@@ -10146,25 +9883,39 @@ function generatefloid()
             <br><br>
             <h3>Verify Signature</h3><br><br>
             
-            <sm-input id="data" placeholder="Enter the data"  animate > </sm-input><br><br>
-            <sm-input id="sign" placeholder="Enter the Signature"  animate > </sm-input><br><br>
+            <sm-input id="d" placeholder="Enter the data"  animate > </sm-input><br><br>
+            <sm-input id="s" placeholder="Enter the Signature"  animate > </sm-input><br><br>
 
-            <sm-input id="pub" placeholder="Enter Public key"  animate > </sm-input><br><br>
+            <sm-input id="p" placeholder="Enter Public key"  animate > </sm-input><br><br>
             
-            <sm-button variant="primary" onclick="verifysignature()">VERIFY</sm-button><br><br><br><br>
+            <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br><br><br><br>
             </form>
+            <div id="verify"></div>
             <script>
-                function verifysignature()
-                {
-                    let data=document.getElementById("data").value;
-                    let signature=document.getElementById("sign").value;
-                    let publ=document.getElementById("pub").value;
-                    let result= Boolean (floCrypto.verifySign(data, signature, publ));
-                    alert(result);
 
+                function verification()
+                {
+                    let data=document.getElementById("d").value;
+                    let sigg=document.getElementById("s").value;
+                    let val=document.getElementById("p").value;
+
+                    var r=Boolean(floCrypto.verifySign(data,sigg,val))
+                    if(r==true)
+                    {
+                    document.getElementById("verify").innerHTML="TRUE, Signature is verified." 
+                    }
+                    else
+                    {
+                        document.getElementById("verify").innerHTML="FALSE, Signature is not verified." 
+
+                    }
+
+                    alert(r);
                 }
             </script>
 </div>
+</div>
+<!--end of Verify signature-->
 
 
 <!--End of Task-2-->
