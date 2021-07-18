@@ -9598,9 +9598,9 @@
 
 </form>
 <div class="generate"> 
-    <div id="private" style="font-weight: bold;"></div><br>
-   <div id="pub" style="font-weight: bold;"></div><br>
-   <div id="flo" style="font-weight: bold;"></div><br>
+    <div id="private" class="innerhtml"></div><br>
+   <div id="pub" class="innerhtml"></div><br>
+   <div id="flo" class="innerhtml"></div><br>
 </div>
 </div>
 <script>
@@ -9640,7 +9640,7 @@ function generatefloid()
   <sm-input id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br><br>
  <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br><br>
 </form>
-<div id="publickeyhex"></div>
+<div id="publickeyhex" class="innerhtml" ></div>
 </div>
 
 <script>
@@ -9679,12 +9679,14 @@ function generatefloid()
 
 <sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br><br><br><br>
 </form>
+<div id="floo" class="innerhtml"></div><br>
 <script>
   function calcfloid()
   {
       let keyy= document.getElementById("key").value;
      var floid =floCrypto.getFloID(keyy)
-        alert(floid);
+     document.getElementById("floo").innerHTML="FLO ID: "+floid
+       // alert(floid);
   }
 </script>
 
@@ -9718,7 +9720,7 @@ function generatefloid()
 
 <sm-button variant="primary" onclick="verifyprivatekey()">VERIFY</sm-button><br><br><br><br>
 </form>
-<div id="verify"></div>
+<div id="verify" class="innerhtml"></div><br>
 <script>
   function verifyprivatekey()
   {
@@ -9765,7 +9767,7 @@ function generatefloid()
 
 </form>
 <div id="signed" style="font-size:22px;font-weight: bold;"></div><br>
-<div id="signatures" class="signatures"></div>
+<div id="signatures" class="innerhtml"></div><br>
 <script>
   function signdata()
   { 
@@ -9782,87 +9784,55 @@ function generatefloid()
 </div><br><br>
 <!--end of sign data-->
 
-<!--data enceyption-->
+<!--encrypt and decrypt-->
+
 <div>
-<h3>Data Encryption</h3><br><br>
-<ol class="fontsize">
-<li>encryptData encrypts the given data using public-key</li>
+    <h3>Data Encryption </h3><br><br>
+    <ol class="fontsize">
+        <li>encryptData encrypts the given data using public-key</li>
+         <li>data - data to encrypt (String)</li>
+        <li>publicKey - public key of the recipient</li>
+        <li>Returns : Encrypted data (Object)</li>
+        </ol><br><br>
 
-<li>data - data to encrypt (String)</li>
-<li>publicKey - public key of the recipient</li>
-<li>Returns : Encrypted data (Object)</li>
-</ol><br><br>
+        <div class="sendapplicationdata">
+            <form align="center">
+                <h3>Data Encryption </h3><br><br>
+                <sm-input id="t1" placeholder="enter data"></sm-input><br><br>
+                <sm-input id="t2" placeholder="enter public key"></sm-input><br><br>
 
-<div class="sendapplicationdata">
-<br><br><form align="center">
+                 <sm-input id="t3" placeholder="enter private key"></sm-input><br><br>
+                 <sm-button variant="primary" onclick="crypto()">Encryt and Decrypt</sm-button><br><br>
+                
+            </form>
+            <div class="innerhtml">
+            <div id="w1"></div>
+            <div id="w2"></div><br>
+            </div>
+            <script>
+                 function crypto()
+    {
+        let s1=document.getElementById("t1").value;
+        let s2=document.getElementById("t2").value;
+        let s3=document.getElementById("t3").value;
 
-  <h3>Data Encryption</h3><br><br>
+        var ob=floCrypto.encryptData(s1,s2)
+        document.getElementById("w1").innerHTML="Encrypted Data: "+ob.secret;
+        //alert(ob.secret);
+        var obs=floCrypto.decryptData(ob,s3)
+        document.getElementById("w2").innerHTML="Decrypted Data: "+obs;
 
-<sm-input id="msg7" placeholder="Enter the data"  animate > </sm-input><br><br>
-<sm-input id="type7" placeholder="Enter Public Key"  animate > </sm-input><br><br>
+        //alert(obs);
+        
+    }
+            </script>
+    
+        </div>
 
-<sm-button variant="primary" onclick="dataencryption()">ENCRYPT</sm-button><br><br><br><br>
-</form>
-<b id="print"></b>
-<script>
-  function dataencryption()
-  {
-      let data=document.getElementById("msg7").value;
-      let publicKey=document.getElementById("type7").value;
-      var obj= floCrypto.encryptData(data, publicKey)
-      document.getElementById("print").innerHTML="Encrypted data: "+obj.secret
-     /* alert("Encrypted data: "+obj.secret);
-       alert(Object.getOwnPropertyNames(obj));
-     alert(senderPublicKeyString);
-      alert(Object.getOwnPropertyNames(senderPublicKeyString));
-      var ob=Object.getOwnPropertyNames(senderPublicKeyString);
-        alert(senderPublicKeyString.XValuePublicString);
-        alert(senderPublicKeyString.YValuePublicString);*/
-     
-  }
-</script>
 </div>
-</div><br><br>
-
-<!--end of data enceyption-->
-
-<!--end of FLO crypto operations-->
 </div><br>
 
-<!--Task-2-->
 
-<!--Data decryption-->
-<div>
-    <h3>Data Decryption</h3><br><br>
-    <ol class="fontsize">
-        <li> data - encrypted data to decrypt (Object that was returned from encryptData)</li>
-        <li>privateKey - private key of the recipient</li>
-        <li>Returns : Decrypted Data (String)</li>
-    </ol><br><br>
-    <div class="sendapplicationdata"><br><br>
-        <form align="center">
-            <h3>Data Decryption</h3><br><br>
-            <sm-input id="endata" placeholder="Enter Encrypted data" animate></sm-input><br><br>
-            <sm-input id="enprivate" placeholder="Enter private key" animate></sm-input><br><br>
-
-            <sm-button variant="primary" onclick="datadecrypt()">DECRYPT</sm-button><br><br><br>
-
-        </form>
-
-        <script>
-            function datadecrypt()
-            {
-            let encrdata=document.getElementById("endata").value;
-            let enprivatekey=document.getElementById("enprivate").value;
-            alert(floCrypto.decryptData(encrdata, enprivatekey));
-             var enresult= floCrypto.decryptData(encrdata, enprivatekey)
-            alert(enresult);
-            }
-
-        </script>
-    </div>
-</div><br><br>
-<!--end of data decryption-->
 
 <!--Verify signature-->
 
@@ -9890,7 +9860,7 @@ function generatefloid()
             
             <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br><br><br><br>
             </form>
-            <div id="verify"></div>
+            <div id="verify" class="innerhtml"></div><br>
             <script>
 
                 function verification()
@@ -9914,8 +9884,165 @@ function generatefloid()
                 }
             </script>
 </div>
-</div>
+</div><br><br>
 <!--end of Verify signature-->
+
+<!--validate flo id-->
+
+<div>
+    <h3>Validate FLO Id</h3><br><br>
+    <ol class="fontsize">
+      <li>validateAddr check if the given Address is valid or not</li> 
+
+      <li>floID - flo ID to validate</li> 
+        <li>Returns : boolen (true or false)</li> 
+    </ol><br><br>
+    <div class="sendapplicationdata"><br><br>
+        <form align="center">
+                <h3>Validate FLO Id</h3><br><br>
+            <sm-input id="flo" placeholder="Enter FLO ID"></sm-input><br><br>
+            <sm-button variant="primary" onclick="validateflo()">VALIDATE</sm-button><br><br>
+
+        </form>
+        <div id="write1" class="innerhtml"></div><br>
+        <script>
+            function validateflo()
+            {
+                let floid=document.getElementById("flo").value;
+                var res=Boolean( floCrypto.validateAddr(floid))
+                if(res==true)
+                {
+                document.getElementById("write1").innerHTML="TRUE, FLO ID is validated."
+                }
+                else
+                {
+                    document.getElementById("write1").innerHTML="FALSE, FLO ID is not validated."
+
+                }
+            }
+
+        </script>
+
+    </div>
+</div><br><br>
+<!--end of validate flo id-->
+
+<!--Generate Random Interger-->
+<div>
+    <h3>Generate Random Interger</h3><br><br>
+    <ol class="fontsize">
+       <li>randInt returns a randomly generated interger in a given range.</li> 
+
+       <li>min - minimum value of the range</li> 
+        <li>max - maximum value of the range</li> 
+            <li>Returns : randomNum (Interger)</li> 
+
+    </ol><br><br>
+    <div class="sendapplicationdata"><br><br>
+        <form align="center">
+            <h3>Generate Random Interger</h3><br><br>
+            <sm-input id="genrandom1" placeholder="Enter minimum value"></sm-input><br><br>
+            <sm-input id="genrandom2" placeholder="Enter maximum value"></sm-input><br><br>
+            <sm-button variant="primary" onclick="genrandomint()">GENERATE</sm-button><br><br>
+
+        </form>
+        <div id="write4" class="innerhtml"></div><br><br>
+        <script>
+            function genrandomint()
+            {
+                let minval=document.getElementById("genrandom1").value;
+                let maxval=document.getElementById("genrandom2").value;
+                var result= floCrypto.randInt(minval, maxval)
+                document.getElementById("write4").innerHTML="The random integer is : "+result;
+
+            }
+        </script>
+
+    </div>
+</div><br><br>
+<!--end of Generate Random Interger-->
+
+<!--Generate Random String-->
+<div>
+    <h3>Generate Random String</h3><br><br>
+    <ol class="fontsize">
+    <li>randString returns a randomly generated string of given length.</li> 
+
+    <li>length - length of the string to be generated</li> 
+        <li>alphaNumeric - boolean (true: generated string will only contain alphabets and digits,<br> false: generated string will also have symbols) (optional, default value is false)</li> 
+            <li>Returns : randomString (String)</li> 
+    </ol><br><br>
+    <div class="sendapplicationdata"><br><br>
+        <form align="center">
+            <h3>Generate Random String</h3><br><br>
+            <sm-input id="randomstr" placeholder="Enter the length"></sm-input><br><br>
+            <sm-input id="val3" placeholder="Enter true or false for alphanumeric"></sm-input><br><br>
+            <sm-button variant="primary" onclick="genrandomstr()">GENERATE</sm-button><br><br>
+        </form>
+        <div class="innerhtml">
+            <div id="write7"></div>
+            <div id="write8"></div>
+
+        </div>
+        <script>
+            function genrandomstr()
+            {
+                let str=document.getElementById("randomstr").value;
+                let val=document.getElementById("val3").value;
+                var randstring= floCrypto.randString(str, val)
+                document.getElementById("write7").innerHTML="Random string is,"
+                document.getElementById("write8").innerHTML=randstring
+
+            }
+        </script>
+    </div>
+</div><br><br>
+<!--end of Generate Random String-->
+
+
+
+<!--Create Shamir's Secret shares-->
+<div>
+    <h3>Create Shamir's Secret shares</h3><br><br>
+    <ol class="fontsize">
+     <li>str - string to be split</li>   
+     <li>total_shares - total number of shares to be split into</li>   
+    <li>threshold_limit - minimum number of shares required to reconstruct the secret str</li>   
+    <li>Returns : Shares (Array of string)</li>   
+    </ol>
+    <br><br>
+    <div class="sendapplicationdata"><br><br>
+        <form align="center">
+            <h3>Create Shamir's Secret shares</h3><br><br>
+            <sm-input id="shdata" placeholder="Enter string to split"></sm-input><br><br>
+            <sm-input id="shshare" placeholder="Enter the number of shares"></sm-input><br><br>
+            <sm-input id="shnumber" placeholder="Enter the threshold_limit"></sm-input><br><br>
+            <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br><br>
+        </form>
+        <div class="innerhtml">
+        <div id="write2"></div>
+        <div id="write3"></div>
+    </div><br><br>
+        <script>
+            function createshare()
+            {
+                let data_sh=document.getElementById("shdata").value;
+                let share_sh=document.getElementById("shshare").value;
+                let number_sh=document.getElementById("shnumber").value;
+                 const shares=new Array(share_sh);
+                const shares=floCrypto.createShamirsSecretShares(data_sh, share_sh,number_sh)
+                document.getElementById("write2").innerHTML="Shamir's secret share are,";
+                document.getElementById("write3").innerHTML=shares;
+
+
+            }
+        </script>
+
+    </div>
+</div>
+
+
+<!--end of Create Shamir's Secret shares-->
 
 
 <!--End of Task-2-->
