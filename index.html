@@ -10020,32 +10020,60 @@ function generatefloid()
             <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br><br>
         </form>
         <div class="innerhtml">
-        <div id="write2"></div>
-        <div id="write3"></div>
-    </div><br><br>
+            <div id="write2"></div>
+            <div id="write3"></div>
+        </div><br><br>
         <script>
             function createshare()
             {
                 let data_sh=document.getElementById("shdata").value;
                 let share_sh=document.getElementById("shshare").value;
                 let number_sh=document.getElementById("shnumber").value;
-                 const shares=new Array(share_sh);
-                const shares=floCrypto.createShamirsSecretShares(data_sh, share_sh,number_sh)
+                let share=floCrypto.createShamirsSecretShares(data_sh, share_sh,number_sh)
+                alert(share);
                 document.getElementById("write2").innerHTML="Shamir's secret share are,";
-                document.getElementById("write3").innerHTML=shares;
+                document.getElementById("write3").innerHTML=share;
+            }
+        </script>
 
+    </div>
+</div><br><br>
+
+
+<!--end of Create Shamir's Secret shares-->
+
+
+<!--Retrieve Shamir's Secret-->
+<div>
+    <h3>Retrieve Shamir's Secret</h3><br><br>
+    <ol class="fontsize">
+        <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
+
+            <li> sharesArray - Array of shares</li>
+                <li>Returns : retrivedData (String)</li>
+
+    </ol><br><br>
+    <div class="sendapplicationdata">
+        <form align="center"><br><br>
+            <h3>Retrieve Shamir's Secret</h3><br><br>
+            <sm-input id="ar1" placeholder="Enter array shares"></sm-input><br><br>
+            <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button><br><br>
+        </form>
+        <script>
+            function retrievesecret()
+            {
+                let ar=[];
+                let arr=document.getElementById("ar1").value;
+                let strretrieve=floCrypto.retrieveShamirSecret(arr)
+                alert(strretrieve);
 
             }
         </script>
 
     </div>
 </div>
+<!-- end of Retrieve Shamir's Secret-->
 
-
-<!--end of Create Shamir's Secret shares-->
-
-
-<!--End of Task-2-->
 
 <script src="js/components.min.js" ></script>
 <script src="js/components.js" ></script>
