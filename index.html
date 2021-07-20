@@ -9900,7 +9900,7 @@ function generatefloid()
     <div class="sendapplicationdata"><br><br>
         <form align="center">
                 <h3>Validate FLO Id</h3><br><br>
-            <sm-input id="flo" placeholder="Enter FLO ID"></sm-input><br><br>
+            <sm-input id="flo" placeholder="Enter FLO ID" animate></sm-input><br><br>
             <sm-button variant="primary" onclick="validateflo()">VALIDATE</sm-button><br><br>
 
         </form>
@@ -9941,8 +9941,8 @@ function generatefloid()
     <div class="sendapplicationdata"><br><br>
         <form align="center">
             <h3>Generate Random Interger</h3><br><br>
-            <sm-input id="genrandom1" placeholder="Enter minimum value"></sm-input><br><br>
-            <sm-input id="genrandom2" placeholder="Enter maximum value"></sm-input><br><br>
+            <sm-input id="genrandom1" placeholder="Enter minimum value" animate></sm-input><br><br>
+            <sm-input id="genrandom2" placeholder="Enter maximum value" animate></sm-input><br><br>
             <sm-button variant="primary" onclick="genrandomint()">GENERATE</sm-button><br><br>
 
         </form>
@@ -9975,8 +9975,8 @@ function generatefloid()
     <div class="sendapplicationdata"><br><br>
         <form align="center">
             <h3>Generate Random String</h3><br><br>
-            <sm-input id="randomstr" placeholder="Enter the length"></sm-input><br><br>
-            <sm-input id="val3" placeholder="Enter true or false for alphanumeric"></sm-input><br><br>
+            <sm-input id="randomstr" placeholder="Enter the length" animate></sm-input><br><br>
+            <sm-input id="val3" placeholder="Enter true or false for alphanumeric" animate></sm-input><br><br>
             <sm-button variant="primary" onclick="genrandomstr()">GENERATE</sm-button><br><br>
         </form>
         <div class="innerhtml">
@@ -10014,9 +10014,9 @@ function generatefloid()
     <div class="sendapplicationdata"><br><br>
         <form align="center">
             <h3>Create Shamir's Secret shares</h3><br><br>
-            <sm-input id="shdata" placeholder="Enter string to split"></sm-input><br><br>
-            <sm-input id="shshare" placeholder="Enter the number of shares"></sm-input><br><br>
-            <sm-input id="shnumber" placeholder="Enter the threshold_limit"></sm-input><br><br>
+            <sm-input id="shdata" placeholder="Enter string to split" animate></sm-input><br><br>
+            <sm-input id="shshare" placeholder="Enter number of shares" animate></sm-input><br><br>
+            <sm-input id="shnumber" placeholder="Enter the threshold_limit" animate></sm-input><br><br>
             <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br><br>
         </form>
         <div class="innerhtml">
@@ -10026,16 +10026,15 @@ function generatefloid()
         <script>
             function createshare()
             {
-                let data_sh=document.getElementById("shdata").value;
-                let share_sh=document.getElementById("shshare").value;
-                let number_sh=document.getElementById("shnumber").value;
-                let share=floCrypto.createShamirsSecretShares(data_sh, share_sh,number_sh)
-                alert(share);
-                document.getElementById("write2").innerHTML="Shamir's secret share are,";
-                document.getElementById("write3").innerHTML=share;
+                let str=document.getElementById("shdata").value;
+                let share=document.getElementById("shshare").value;
+                let threshold_limit=document.getElementById("shnumber").value;
+
+                let ans=[];
+                ans.push(floCrypto.createShamirsSecretShares(str,share,threshold_limit))
+                alert(ans);
             }
         </script>
-
     </div>
 </div><br><br>
 
@@ -10071,8 +10070,39 @@ function generatefloid()
         </script>
 
     </div>
-</div>
+</div><br><br>
 <!-- end of Retrieve Shamir's Secret-->
+
+<!--Verify Shamir's Secret-->
+<div>
+    <h3>Verify Shamir's Secret</h3><br><br>
+    <ol class="fontsize">
+        <li>verifyShamirsSecret verfies the validity of the created shares.</li>
+
+            <li>sharesArray - Array of shares</li>
+            <li>str - originalData (string).</li>
+            <li>Returns : boolen (true or false)</li>
+
+    </ol><br><br>
+    <div class="sendapplicationdata"><br><br>
+        <form align="center">
+            <sm-input id="ar9" placeholder="Enter array of shares"></sm-input><br><br>
+            <sm-input id="ar8" placeholder="Enter original string"></sm-input><br><br>
+            <sm-button variant="primary" onclick="verifysecret()">VERIFY</sm-button><br><br>
+        </form>
+        <script>
+            function verifysecret()
+            {
+                let share=document.getElementById("ar9").value;
+                let org=document.getElementById("ar8").value;
+                let result1= floCrypto.verifyShamirsSecret(share, org)
+                alert(result1);
+
+            }
+        </script>
+    </div>
+</div>
+<!--end of Verify Shamir's Secret-->
 
 
 <script src="js/components.min.js" ></script>
