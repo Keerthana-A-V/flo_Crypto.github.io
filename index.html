@@ -10020,19 +10020,27 @@ function generatefloid()
             <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br><br>
         </form>
         <div class="innerhtml">
-            <div id="write2"></div>
+            <div id="write2"><br></div>
             <div id="write3"></div>
         </div><br><br>
         <script>
             function createshare()
             {
-                let str=document.getElementById("shdata").value;
-                let share=document.getElementById("shshare").value;
+                let str =document.getElementById("shdata").value;
+                let  total_shares=document.getElementById("shshare").value;
                 let threshold_limit=document.getElementById("shnumber").value;
-
-                let ans=[];
-                ans.push(floCrypto.createShamirsSecretShares(str,share,threshold_limit))
-                alert(ans);
+                var i=0;
+                 var a=total_shares;
+                 var b=threshold_limit;
+                 let x = new Array(); 
+                 //alert(typeof(x));               
+                // for(var i=0;i<t;i++)
+                 x = floCrypto.createShamirsSecretShares(str,2,2)
+             for (i=0;i<total_shares;i++)
+               {
+                   //alert(x[i]);
+                   document.getElementById("write3").innerHTML = x[0]+"<br>"+x[1];
+               }
             }
         </script>
     </div>
@@ -10055,14 +10063,16 @@ function generatefloid()
     <div class="sendapplicationdata">
         <form align="center"><br><br>
             <h3>Retrieve Shamir's Secret</h3><br><br>
-            <sm-input id="ar1" placeholder="Enter array shares"></sm-input><br><br>
+            <sm-input id="ar1" placeholder="Enter array shares"></sm-input>
+            <button class="button" onclick="pluss()">+</button><br><br>
             <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button><br><br>
         </form>
+        <div id="write11"></div>
         <script>
             function retrievesecret()
             {
-                let ar=[];
-                let arr=document.getElementById("ar1").value;
+                let arras=[];
+                let arras=document.getElementById("ar1").value;
                 let strretrieve=floCrypto.retrieveShamirSecret(arr)
                 alert(strretrieve);
 
@@ -10093,6 +10103,7 @@ function generatefloid()
         <script>
             function verifysecret()
             {
+                let share= new Array();
                 let share=document.getElementById("ar9").value;
                 let org=document.getElementById("ar8").value;
                 let result1= floCrypto.verifyShamirsSecret(share, org)
@@ -10109,6 +10120,7 @@ function generatefloid()
 <script src="js/components.js" ></script>
 <script src="js/helper.js" ></script>
 <script src="js/aggregate.js" ></script>
+<script src="js/plus.js"></script>
 
  </body>
 </html>

@@ -3,14 +3,36 @@ border:black solid 2px;
 
 }
 
-.stylebtn{
-background-color:purple;
-color:white;
-height:50px;
-width:20%;
-border-radius:10px;}
-
 .fontsize{
 font-size:25px}
 
 h3{text-decoration:underline;}
+
+.generate{
+    font-size: large;
+    text-align:left;
+
+    justify-content: left;
+}
+
+.print
+{
+    text-align:center;
+    font-weight: bold;
+}
+
+.innerhtml
+{
+    font-weight: bold;
+    text-align: center;
+}
+
+.button
+{
+    background-color:honeydew;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border:solid black;
+    transform: 2px;
+}
