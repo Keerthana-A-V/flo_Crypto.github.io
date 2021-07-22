@@ -7211,7 +7211,7 @@
                       var shares = shamirSecretShare.share(strHex, total_shares, threshold_limit);
                       return shares;
                   }
-                  return false;
+                 // return false;
               } catch {
                   return false
               }
@@ -9603,20 +9603,6 @@
    <div id="flo" class="innerhtml"></div><br>
 </div>
 </div>
-<script>
-function generatefloid()
-{
-    let flo =floCrypto.generateNewID()
-    document.getElementById("private").innerHTML="Private key: " + flo.privKey; 
-    document.getElementById("pub").innerHTML="Public key: "+ flo.pubKey;
-    document.getElementById("flo").innerHTML="FLO ID: "+ flo.floID;
-    /* alert( "Private key: "+ flo.privKey);
-   alert("Public Key: "+flo.pubKey);
-   alert("FLO ID: "+flo.floID);*/
-}
-
-</script>
-
 </div><br><br>
 <!--end of generate new flo id-->
 
@@ -9642,18 +9628,6 @@ function generatefloid()
 </form>
 <div id="publickeyhex" class="innerhtml" ></div>
 </div>
-
-<script>
-  function publickeyhex()
-  {
-      let privatekey = document.getElementById("idprivate").value;
-     var pubkey=floCrypto.getPubKeyHex(privatekey)
-     document.getElementById("publickeyhex").innerHTML="Public Key: "+pubkey;
-
-  }
-</script>
-
-
 </div><br><br>
 
 <!--end of calculate public key hex-->
@@ -9680,16 +9654,6 @@ function generatefloid()
 <sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br><br><br><br>
 </form>
 <div id="floo" class="innerhtml"></div><br>
-<script>
-  function calcfloid()
-  {
-      let keyy= document.getElementById("key").value;
-     var floid =floCrypto.getFloID(keyy)
-     document.getElementById("floo").innerHTML="FLO ID: "+floid
-       // alert(floid);
-  }
-</script>
-
 </div>
 </div><br><br>
 
@@ -9721,25 +9685,6 @@ function generatefloid()
 <sm-button variant="primary" onclick="verifyprivatekey()">VERIFY</sm-button><br><br><br><br>
 </form>
 <div id="verify" class="innerhtml"></div><br>
-<script>
-  function verifyprivatekey()
-  {
-      let privatekey=document.getElementById("privatek").value;
-      let pubKey_floID= document.getElementById("keey").value;
-    var ver= Boolean (floCrypto.verifyPrivKey(privatekey, pubKey_floID))
-       
-        if(ver==true)
-        {
-            document.getElementById("verify").innerHTML="TRUE,   The private-key is verified for the given public-key or flo-ID."
-        }
-        else
-        {
-            document.getElementById("verify").innerHTML="FALSE,   The private-key is not verified for the given public-key or flo-ID. "
-
-        }
-
-  }
-</script>
 </div>
 </div><br><br>
 
@@ -9768,17 +9713,6 @@ function generatefloid()
 </form>
 <div id="signed" style="font-size:22px;font-weight: bold;"></div><br>
 <div id="signatures" class="innerhtml"></div><br>
-<script>
-  function signdata()
-  { 
-     let data=document.getElementById("msg5").value;
-     let privKey=document.getElementById("type5").value; 
-     var signature =floCrypto.signData(data, privKey)
-     document.getElementById("signed").innerHTML="Signed data is,"
-     document.getElementById("signatures").innerHTML= signature
-    // alert(signature);
-  }
-</script>
 </div>
 
 </div><br><br>
@@ -9861,28 +9795,6 @@ function generatefloid()
             <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br><br><br><br>
             </form>
             <div id="verify" class="innerhtml"></div><br>
-            <script>
-
-                function verification()
-                {
-                    let data=document.getElementById("d").value;
-                    let sigg=document.getElementById("s").value;
-                    let val=document.getElementById("p").value;
-
-                    var r=Boolean(floCrypto.verifySign(data,sigg,val))
-                    if(r==true)
-                    {
-                    document.getElementById("verify").innerHTML="TRUE, Signature is verified." 
-                    }
-                    else
-                    {
-                        document.getElementById("verify").innerHTML="FALSE, Signature is not verified." 
-
-                    }
-
-                    alert(r);
-                }
-            </script>
 </div>
 </div><br><br>
 <!--end of Verify signature-->
@@ -9905,24 +9817,6 @@ function generatefloid()
 
         </form>
         <div id="write1" class="innerhtml"></div><br>
-        <script>
-            function validateflo()
-            {
-                let floid=document.getElementById("flo").value;
-                var res=Boolean( floCrypto.validateAddr(floid))
-                if(res==true)
-                {
-                document.getElementById("write1").innerHTML="TRUE, FLO ID is validated."
-                }
-                else
-                {
-                    document.getElementById("write1").innerHTML="FALSE, FLO ID is not validated."
-
-                }
-            }
-
-        </script>
-
     </div>
 </div><br><br>
 <!--end of validate flo id-->
@@ -9947,17 +9841,6 @@ function generatefloid()
 
         </form>
         <div id="write4" class="innerhtml"></div><br><br>
-        <script>
-            function genrandomint()
-            {
-                let minval=document.getElementById("genrandom1").value;
-                let maxval=document.getElementById("genrandom2").value;
-                var result= floCrypto.randInt(minval, maxval)
-                document.getElementById("write4").innerHTML="The random integer is : "+result;
-
-            }
-        </script>
-
     </div>
 </div><br><br>
 <!--end of Generate Random Interger-->
@@ -9984,17 +9867,6 @@ function generatefloid()
             <div id="write8"></div>
 
         </div>
-        <script>
-            function genrandomstr()
-            {
-                let str=document.getElementById("randomstr").value;
-                let val=document.getElementById("val3").value;
-                var randstring= floCrypto.randString(str, val)
-                document.getElementById("write7").innerHTML="Random string is,"
-                document.getElementById("write8").innerHTML=randstring
-
-            }
-        </script>
     </div>
 </div><br><br>
 <!--end of Generate Random String-->
@@ -10020,29 +9892,10 @@ function generatefloid()
             <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br><br>
         </form>
         <div class="innerhtml">
-            <div id="write2"><br></div>
+            <div id="write2"></div>
             <div id="write3"></div>
+            <div id="write4"></div>
         </div><br><br>
-        <script>
-            function createshare()
-            {
-                let str =document.getElementById("shdata").value;
-                let  total_shares=document.getElementById("shshare").value;
-                let threshold_limit=document.getElementById("shnumber").value;
-                var i=0;
-                 var a=total_shares;
-                 var b=threshold_limit;
-                 let x = new Array(); 
-                 //alert(typeof(x));               
-                // for(var i=0;i<t;i++)
-                 x = floCrypto.createShamirsSecretShares(str,2,2)
-             for (i=0;i<total_shares;i++)
-               {
-                   //alert(x[i]);
-                   document.getElementById("write3").innerHTML = x[0]+"<br>"+x[1];
-               }
-            }
-        </script>
     </div>
 </div><br><br>
 
@@ -10064,22 +9917,13 @@ function generatefloid()
         <form align="center"><br><br>
             <h3>Retrieve Shamir's Secret</h3><br><br>
             <sm-input id="ar1" placeholder="Enter array shares"></sm-input>
-            <button class="button" onclick="pluss()">+</button><br><br>
+            <sm-button variant="primary" onclick="button()" >PUSH</sm-button><br><br>
             <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button><br><br>
         </form>
+        <div class="innerhtml">
+
         <div id="write11"></div>
-        <script>
-            function retrievesecret()
-            {
-                let arras=[];
-                let arras=document.getElementById("ar1").value;
-                let strretrieve=floCrypto.retrieveShamirSecret(arr)
-                alert(strretrieve);
-
-            }
-        </script>
-
-    </div>
+    </div></div>
 </div><br><br>
 <!-- end of Retrieve Shamir's Secret-->
 
@@ -10097,20 +9941,13 @@ function generatefloid()
     <div class="sendapplicationdata"><br><br>
         <form align="center">
             <sm-input id="ar9" placeholder="Enter array of shares"></sm-input><br><br>
+            <sm-button variant="primary" onclick="button1()" >PUSH</sm-button><br><br>
             <sm-input id="ar8" placeholder="Enter original string"></sm-input><br><br>
             <sm-button variant="primary" onclick="verifysecret()">VERIFY</sm-button><br><br>
         </form>
-        <script>
-            function verifysecret()
-            {
-                let share= new Array();
-                let share=document.getElementById("ar9").value;
-                let org=document.getElementById("ar8").value;
-                let result1= floCrypto.verifyShamirsSecret(share, org)
-                alert(result1);
-
-            }
-        </script>
+        <div class="innerhtml">
+            <div id="write21"></div>
+        </div>
     </div>
 </div>
 <!--end of Verify Shamir's Secret-->
