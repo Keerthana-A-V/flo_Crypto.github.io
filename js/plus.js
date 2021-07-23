@@ -58,32 +58,27 @@
           let data=document.getElementById("d").value;
           let sigg=document.getElementById("s").value;
           let val=document.getElementById("p").value;
-
-          var r=Boolean(floCrypto.verifySign(data,sigg,val))
-          if(r==true)
-          {
-          document.getElementById("verify").innerHTML="TRUE, Signature is verified." 
-          }
-          else
-          {
-              document.getElementById("verify").innerHTML="FALSE, Signature is not verified." 
-
-          }
-
-          alert(r);
+          var r=(floCrypto.verifySign(data,sigg,val))
+         if(r==true)
+         {
+             document.getElementById("v1").innerHTML="TRUE, Signature is verified!!";
+         }
+         else
+         {
+             document.getElementById("v1").innerHTML="FALSE, Signature is not verified!!";
+         }
       }
-
-      function validateflo()
+     function validateflo()
       {
-          let floid=document.getElementById("flo").value;
-          var res=Boolean( floCrypto.validateAddr(floid))
+        let floid=document.getElementById("flo1").value;
+          var res=Boolean(floCrypto.validateAddr(floid))
           if(res==true)
           {
-          document.getElementById("write1").innerHTML="TRUE, FLO ID is validated."
+          document.getElementById("write1").innerHTML="TRUE, FLO ID is validated.";
           }
           else
           {
-              document.getElementById("write1").innerHTML="FALSE, FLO ID is not validated."
+              document.getElementById("write1").innerHTML="FALSE, FLO ID is not validated.";
 
           }
       }
@@ -108,47 +103,45 @@
       function createshare()
       {
           let data=document.getElementById("shdata").value;
-          let numshare= document.getElementById("shshare").value;
-          let limit =document.getElementById("shnumber").value;
-          const x=[];  
-         x.push(floCrypto.createShamirsSecretShares(data,3,3));
-        alert(x);
-        document.getElementById("write4").innerHTML=x;
-         document.getElementById("write2").innerHTML="The shares are,"
-         document.getElementById("write3").innerHTML=floCrypto.createShamirsSecretShares(data,numshare,limit)
+          let numshare=parseInt( document.getElementById("shshare").value);
+          let limit =parseInt( document.getElementById("shnumber").value);
+          const x=[];
+          var i=0;  
+         x.push(floCrypto.createShamirsSecretShares(data,numshare,limit));
+         document.getElementById("write2").innerHTML="The shares are,";
+         document.getElementById("write3").innerHTML=x;
+      }  
 
-
-       /*  for(var i=0;i<numshare;i++)
-         {
-             var newDiv=document.createElement("div");
-             var newContent=x[i];
-             newDiv.appendChild(newContent);
-             var currentDiv=document.getElementById("write3");
-             document.body.insertBefore(newDiv,currentDiv);
-         }*/
-  
-      }    
       const y=[];
       function button()
       {
          
           y.push(document.getElementById("ar1").value);
-        alert("pushed!!");
+          document.getElementById("ar1").value='';
+        //  alert("pushed!!");
      //     for(var i=0;i<y.length;i++)
        //   alert(y[i]);
       }
 
       function retrievesecret()
       {
-          alert(y.length);
        let shresult= floCrypto.retrieveShamirSecret(y)
-       document.getElementById("write11").innerHTML="the Original data is,"+"<br>"+shresult;
+       if(shresult==false)
+       {
+        document.getElementById("write11").innerHTML="The data is not retrieved!!";
+ 
+       }
+       else
+       document.getElementById("write11").innerHTML="The Original data is,"+"<br>"+shresult;
       }
+
       const z=[];
       function button1()
       {
         z.push(document.getElementById("ar9").value);
-        alert("pushed!!");
+        document.getElementById("ar9").value='';
+
+        //alert("pushed!!");
       }
       function verifysecret()
       {
@@ -164,25 +157,22 @@
 
         }
       }
-     /* function createshare()
+
+      function resetbtn()
       {
-          let str =document.getElementById("shdata") .value;
-          let  total_shares=document.getElementById("shshare") .value;
-          let threshold_limit=document.getElementById("shnumber") .value;
-          var i=0;
-           let x = new Array(); 
-           //alert(typeof(x));               
-          // for(var i=0;i<t;i++)
-           x = floCrypto.createShamirsSecretShares(str,total_shares,threshold_limit)
-       for (i=0;i<total_shares;i++);
+        var con= confirm("Do you really want to clear the array?");
+
+            if(con==true)
          {
-             //alert(x[i]);
-             document.getElementById("write3").innerHTML = x[0]+"<br>"+x[1];
+            y.length=0;            
          }
-      }*/
 
-
-
-
-
-
+      }
+      function resetbtn1()
+      {
+          var con1= confirm("Do you really want to clear the array?");
+          if(con1==true)
+          {
+              z.length=0;
+          }
+      }

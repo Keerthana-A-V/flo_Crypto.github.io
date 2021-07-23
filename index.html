@@ -9711,8 +9711,10 @@
 <sm-button variant="primary" onclick="signdata()">SIGN</sm-button><br><br><br><br>
 
 </form>
-<div id="signed" style="font-size:22px;font-weight: bold;"></div><br>
-<div id="signatures" class="innerhtml"></div><br>
+<div class="innerhtml">
+<div id="signed"></div>
+<div id="signatures" ></div><br>
+</div>
 </div>
 
 </div><br><br>
@@ -9732,10 +9734,10 @@
         <div class="sendapplicationdata">
             <form align="center">
                 <h3>Data Encryption </h3><br><br>
-                <sm-input id="t1" placeholder="enter data"></sm-input><br><br>
-                <sm-input id="t2" placeholder="enter public key"></sm-input><br><br>
+                <sm-input id="t1" placeholder="enter data" animate></sm-input><br><br>
+                <sm-input id="t2" placeholder="enter public key" animate></sm-input><br><br>
 
-                 <sm-input id="t3" placeholder="enter private key"></sm-input><br><br>
+                 <sm-input id="t3" placeholder="enter private key" animate></sm-input><br><br>
                  <sm-button variant="primary" onclick="crypto()">Encryt and Decrypt</sm-button><br><br>
                 
             </form>
@@ -9792,9 +9794,11 @@
 
             <sm-input id="p" placeholder="Enter Public key"  animate > </sm-input><br><br>
             
-            <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br><br><br><br>
+            <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br><br>
             </form>
-            <div id="verify" class="innerhtml"></div><br>
+            <div class="innerhtml">
+            <div id="v1"></div>
+            </div>
 </div>
 </div><br><br>
 <!--end of Verify signature-->
@@ -9812,8 +9816,8 @@
     <div class="sendapplicationdata"><br><br>
         <form align="center">
                 <h3>Validate FLO Id</h3><br><br>
-            <sm-input id="flo" placeholder="Enter FLO ID" animate></sm-input><br><br>
-            <sm-button variant="primary" onclick="validateflo()">VALIDATE</sm-button><br><br>
+                <sm-input id="flo1" placeholder="Enter FLO ID" animate></sm-input><br><br>
+                <sm-button variant="primary" onclick="validateflo()">VALIDATE</sm-button><br><br>
 
         </form>
         <div id="write1" class="innerhtml"></div><br>
@@ -9916,9 +9920,11 @@
     <div class="sendapplicationdata">
         <form align="center"><br><br>
             <h3>Retrieve Shamir's Secret</h3><br><br>
-            <sm-input id="ar1" placeholder="Enter array shares"></sm-input>
+            <sm-input id="ar1" placeholder="Enter array shares" animate></sm-input>
             <sm-button variant="primary" onclick="button()" >PUSH</sm-button><br><br>
-            <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button><br><br>
+            <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button>
+            <sm-button  variant="primary" onclick="resetbtn()">RESET</sm-button>
+            <br><br>
         </form>
         <div class="innerhtml">
 
@@ -9940,10 +9946,12 @@
     </ol><br><br>
     <div class="sendapplicationdata"><br><br>
         <form align="center">
-            <sm-input id="ar9" placeholder="Enter array of shares"></sm-input><br><br>
-            <sm-button variant="primary" onclick="button1()" >PUSH</sm-button><br><br>
-            <sm-input id="ar8" placeholder="Enter original string"></sm-input><br><br>
-            <sm-button variant="primary" onclick="verifysecret()">VERIFY</sm-button><br><br>
+            <sm-input id="ar9"  placeholder="Enter array of shares" animate></sm-input><br><br>
+            <sm-button variant="primary"  onclick="button1()" >PUSH</sm-button><br><br>
+            <sm-input id="ar8" placeholder="Enter original string" animate></sm-input><br><br>
+            <sm-button variant="primary" onclick="verifysecret()">VERIFY</sm-button>
+            <sm-button  variant="primary" onclick="resetbtn1()">RESET</sm-button>
+            <br><br>
         </form>
         <div class="innerhtml">
             <div id="write21"></div>

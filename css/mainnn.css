@@ -25,14 +25,7 @@ h3{text-decoration:underline;}
 {
     font-weight: bold;
     text-align: center;
-}
+    contain:content;
+    }
 
-.button
-{
-    background-color:honeydew;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border:solid black;
-    transform: 2px;
-}
+
