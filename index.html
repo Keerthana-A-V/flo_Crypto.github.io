@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flocloud application</title>
+    <title style="text-decoration: underline;">floCrypto Operations</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/mainnn.css">
 
@@ -9471,7 +9471,7 @@
             </svg>
             <span>
                 <h5>RanchiMall</h5>
-                <h4>App Name</h4>
+                <h4>flo Crypto Operations</h4>
             </span>
         </div>
         <label class="toggle" title="Change theme">
@@ -9520,13 +9520,13 @@
     </nav>
     <main>
         <section class="page" id="home_page">
-            <h1>flocloud api </h1>
+           <!-- <h1 style="text-decoration: underline;">flo Crypto Operations </h1>
             <p>
                <b>floCloudAPI</b> operations can interact with floSupernode cloud to send and retrieve data for applications.<br>
  floCloudAPI uses <b>floSupernode module</b> for backend interactions.<br> FLO Cloud API functions are promisified and resolves the data or status.<br>
-            </p>
+            </p>-->
 
-            <h3>Options</h3>
+            <!--<h3>Options</h3>
 
             <div class="options-tab">
                 <div class="option">
@@ -9545,7 +9545,7 @@
                             points="17.04 35.97 14.57 33.5 40.15 7.9 32.75 0.5 55.52 0.5 55.52 23.28 48.12 15.87 23.86 40.14 15.88 48.13 8.48 40.72 8.48 63.5 31.25 63.5 23.85 56.1 49.43 30.5 46.96 28.03" />
                     </svg>
                     <h4 >FLO Crypto Operations</h4>
-                </div>
+                </div>-->
  
             </div>
         </section>
@@ -9734,40 +9734,49 @@
         <div class="sendapplicationdata">
             <form align="center">
                 <h3>Data Encryption </h3><br><br>
-                <sm-input id="t1" placeholder="enter data" animate></sm-input><br><br>
-                <sm-input id="t2" placeholder="enter public key" animate></sm-input><br><br>
-
-                 <sm-input id="t3" placeholder="enter private key" animate></sm-input><br><br>
-                 <sm-button variant="primary" onclick="crypto()">Encryt and Decrypt</sm-button><br><br>
+                <sm-input id="t1" placeholder="Enter data" animate></sm-input><br><br>
+                <sm-input id="t2" placeholder="Enter public key" animate></sm-input><br><br>
+<sm-button variant="primary" onclick="crypto()">ENCRYPT</sm-button><br><br>
                 
             </form>
             <div class="innerhtml">
-            <div id="w1"></div>
-            <div id="w2"></div><br>
+            <div id="w1"></div><br>
             </div>
-            <script>
-                 function crypto()
-    {
-        let s1=document.getElementById("t1").value;
-        let s2=document.getElementById("t2").value;
-        let s3=document.getElementById("t3").value;
-
-        var ob=floCrypto.encryptData(s1,s2)
-        document.getElementById("w1").innerHTML="Encrypted Data: "+ob.secret;
-        //alert(ob.secret);
-        var obs=floCrypto.decryptData(ob,s3)
-        document.getElementById("w2").innerHTML="Decrypted Data: "+obs;
-
-        //alert(obs);
-        
-    }
-            </script>
-    
         </div>
 
 </div>
-</div><br>
+</div><br><br>
+<!--end of encrypt data-->
+<!--decrypr data-->
+<div>
+<h3>Decrypt Data</h3><br><br>
+<ol  class="fontsize">
+    <li>decryptData decrypts the given data using private-key</li>
 
+        <li>data - encrypted data to decrypt (Object that was returned from encryptData)</li>
+            <li>privateKey - private key of the recipient</li>
+                <li>Returns : Decrypted Data (String)</li>
+</ol><br><br>
+<div class="sendapplicationdata">
+<form align="center"><br><br>
+    <h3>Decrypt Data</h3><br><br>
+
+    <sm-input id="t8" placeholder="enter encrypted data" animate></sm-input><br><br>
+
+    <sm-input id="t6" placeholder=" Enter Xvalue" animate></sm-input><br><br>
+    <sm-input id="t7" placeholder=" Enter Yvalue" animate></sm-input><br><br>
+    <sm-input id="t3" placeholder="Enter private key" animate></sm-input><br><br>
+
+                     <sm-button variant="primary" onclick="crypto1()"> Decrypt</sm-button><br><br>
+    
+</form>
+<div class="innerhtml">
+    <div id="w2"></div><br>
+    </div>
+</div>
+
+</div><br><br>
+<!--end of decryprt data-->
 
 
 <!--Verify signature-->

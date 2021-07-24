@@ -106,10 +106,19 @@
           let numshare=parseInt( document.getElementById("shshare").value);
           let limit =parseInt( document.getElementById("shnumber").value);
           const x=[];
+          const v=[];
           var i=0;  
-         x.push(floCrypto.createShamirsSecretShares(data,numshare,limit));
+         // x.push(floCrypto.createShamirsSecretShares(data,numshare,limit));
+          const h=x.concat(floCrypto.createShamirsSecretShares(data,numshare,limit));
          document.getElementById("write2").innerHTML="The shares are,";
-         document.getElementById("write3").innerHTML=x;
+         //document.getElementById("write3").innerHTML=h;
+         var id=document.querySelector("#write3");
+         for(i=0;i<numshare;i++)
+         {
+            var newdiv= document.createElement('div')
+            newdiv.innerHTML=i+") "+h[i];
+            id.appendChild(newdiv);
+         }
       }  
 
       const y=[];
@@ -176,3 +185,30 @@
               z.length=0;
           }
       }
+
+      function crypto()
+      {
+          let s1=document.getElementById("t1").value;
+          let s2=document.getElementById("t2").value;
+          let s3=document.getElementById("t3").value;
+  
+          var ob=floCrypto.encryptData(s1,s2)
+          var sender=ob.senderPublicKeyString;
+          document.getElementById("w1").innerHTML="Encrypted Data: "+ob.secret+"<br><br>XPublic Key: "+sender.XValuePublicString+"<br><br>YPublic Key: "+sender.YValuePublicString;
+          }
+
+
+          function crypto1()
+          {
+              var a=document.getElementById("t6").value;
+              var b=document.getElementById("t7").value;
+              var c=document.getElementById("t8").value;
+              var d=document.getElementById("t3").value;
+              var q={XValuePublicString:a,
+          YValuePublicString:b}
+          var s={secret:c,
+              senderPublicKeyString:q}
+              var obs=floCrypto.decryptData(s,d)
+              document.getElementById("w2").innerHTML="The decrypted data is,<br>"+obs;
+          }
+  
