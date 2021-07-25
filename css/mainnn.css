@@ -27,5 +27,11 @@ h3{text-decoration:underline;}
     text-align: center;
     contain:content;
     }
-
+sm-button{
+    width: 30%;
+    left
+}
+sm-input{
+    width: 50%; 
+}
 
