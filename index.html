@@ -9594,16 +9594,19 @@
 </ol>
 
 
-<div class="sendapplicationdata"><br><br>
+<div class="sendapplicationdata">
 <sm-form align="center" >
-    <h3>Generate new FLO ID</h3><br><br>
-    <sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br><br><br>
+    <div id="bgtry">
+       <br><br> <h3>Generate new FLO ID</h3><br><br>
+    </div><br>
+    <sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br>
   </sm-form>
 <div class="generate"> 
-    <div id="private" class="innerhtml"></div><br>
-   <div id="pub" class="innerhtml"></div><br>
-   <div id="flo" class="innerhtml"></div><br>
+    <div id="private" class="innerhtml"></div>
+   <div id="pub" class="innerhtml"></div>
+   <div id="flo" class="innerhtml"></div>
 </div>
+
 </div>
 </div><br><br>
 <!--end of generate new flo id-->
@@ -9621,12 +9624,13 @@
 
 <div class="sendapplicationdata">
 
-<sm-form align="center">
-
+<sm-form align="center" >
+<div id="bgtry">
   <br><br>
   <h3>Calculate Public key hex</h3><br><br>
-  <sm-input variant="outlined" id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br><br>
- <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br><br>
+</div><br><br>
+  <sm-input variant="outlined" id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br>
+ <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br>
 </sm-form>
 <div id="publickeyhex" class="innerhtml" ></div>
 </div>
@@ -9635,8 +9639,7 @@
 <!--end of calculate public key hex-->
 
 <!--calculate flo id-->
-<div>
-<h3>Calculate FLO ID</h3><br><br>
+<br><br><h3>Calculate FLO ID</h3><br><br></div>
 <ol class="fontsize">
 <li>getFloID returns flo-ID from given public-key (or) private-key</li>
 
@@ -9647,15 +9650,14 @@
 <div class="sendapplicationdata">
 
 <sm-form align="center">
-<br><br>
+    <div id="bgtry"><br><br>
 <h3>Calculate FLO ID</h3><br><br>
+    </div><br><br>
 
-<sm-input id="key" variant="outlined" placeholder="Enter Private or Public key"  animate > </sm-input><br><br>
-<br><br>
-
-<sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br><br><br><br>
+<sm-input id="key" variant="outlined" placeholder="Enter Private or Public key"  animate > </sm-input><br>
+<sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br>
 </sm-form>
-<div id="floo" class="innerhtml"></div><br>
+<div id="floo" class="innerhtml"></div>
 </div>
 </div><br><br>
 
@@ -9664,8 +9666,7 @@
 <!--verify private key-->
 
 <div>
-<h3>Verify Private key</h3><br><br>
-
+><h3>Verify Private key</h3><br><br>
 <ol class="fontsize">
 <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
 
@@ -9677,16 +9678,14 @@
 
 <div class="sendapplicationdata">
 <sm-form align="center"><br><br>
-  <h3>Verify Private key</h3><br><br>
+    <div id="bgtry">
+  <h3>Verify Private key</h3><br><br></div><br><br>
 
-  <sm-input id="privatek" variant="outlined" placeholder="Enter the Private key"  animate > </sm-input><br><br>
-  <sm-input id="keey" variant="outlined" placeholder="Enter Public key or FLO ID"  animate > </sm-input>
-
-<br><br>
-
-<sm-button variant="primary" onclick="verifyprivatekey()">VERIFY</sm-button><br><br><br><br>
+  <sm-input id="privatek" variant="outlined" placeholder="Enter the Private key"  animate > </sm-input>
+  <sm-input id="keey" variant="outlined" placeholder="Enter Public key or FLO ID"  animate > </sm-input><br>
+<sm-button variant="primary" onclick="verifyprivatekey()">VERIFY</sm-button><br>
 </sm-form>
-<div id="verify" class="innerhtml"></div><br>
+<div id="verify" class="innerhtml"></div>
 </div>
 </div><br><br>
 
@@ -9704,18 +9703,18 @@
 <br><br>
 <div class="sendapplicationdata">
 <sm-form align="center"><br><br>
+    <div id="bgtry">
+  <h3>Sign Data</h3><br><br></div><br><br>
 
-  <h3>Sign Data</h3><br><br>
+  <sm-input id="msg5" variant="outlined" placeholder="Enter data to sign"  animate > </sm-input>
+  <sm-input id="type5" variant="outlined" placeholder="Enter Private Key"  animate > </sm-input><br>
 
-  <sm-input id="msg5" variant="outlined" placeholder="Enter data to sign"  animate > </sm-input><br><br>
-  <sm-input id="type5" variant="outlined" placeholder="Enter Private Key"  animate > </sm-input><br><br>
-
-<sm-button variant="primary" onclick="signdata()">SIGN</sm-button><br><br><br><br>
+<sm-button variant="primary" onclick="signdata()">SIGN</sm-button><br>
 
 </sm-form>
 <div class="innerhtml">
 <div id="signed"></div>
-<div id="signatures" ></div><br>
+<div id="signatures" ></div>
 </div>
 </div>
 
@@ -9735,17 +9734,18 @@
 
         <div class="sendapplicationdata">
             <sm-form align="center">
-                <h3>Data Encryption </h3><br><br>
-                <sm-input id="t1" variant="outlined" placeholder="Enter data" animate></sm-input><br><br>
-                <sm-input id="t2" variant="outlined" placeholder="Enter public key" animate></sm-input><br><br>
-<sm-button variant="primary" onclick="crypto()">ENCRYPT</sm-button><br><br>
+                <div id="bgtry"><br><br>
+                <h3>Data Encryption </h3><br><br></div><br><br>
+                <sm-input id="t1" variant="outlined" placeholder="Enter data" animate></sm-input>
+                <sm-input id="t2" variant="outlined" placeholder="Enter public key" animate></sm-input><br>
+<sm-button variant="primary" onclick="crypto()">ENCRYPT</sm-button><br>
                 
             </sm-form>
-            <div class="innerhtml">
-            <div id="w1"></div><br>
-            <div id="w2"></div><br>
-            <div id="w3"></div><br>
-            </div>
+           <div id="bg1">
+            <div id="w1" class="innerhtml"></div>
+            <div id="w2" class="innerhtml"></div>
+            <div id="w3" class="innerhtml"></div>
+        </div>
         </div>
 
 </div>
@@ -9763,19 +9763,20 @@
 </ol><br><br>
 <div class="sendapplicationdata">
 <sm-form align="center"><br><br>
-    <h3>Decrypt Data</h3><br><br>
+    <div id="bgtry">
+    <h3>Decrypt Data</h3><br><br></div><br><br>
 
-    <sm-input id="t8" variant="outlined" placeholder="enter encrypted data" animate></sm-input><br><br>
+    <sm-input id="t8" variant="outlined" placeholder="enter encrypted data" animate></sm-input>
 
-    <sm-input id="t6" variant="outlined" placeholder=" Enter Xvalue" animate></sm-input><br><br>
-    <sm-input id="t7" variant="outlined" placeholder=" Enter Yvalue" animate></sm-input><br><br>
-    <sm-input id="t3" variant="outlined" placeholder="Enter private key" animate></sm-input><br><br>
+    <sm-input id="t6" variant="outlined" placeholder=" Enter Xvalue" animate></sm-input>
+    <sm-input id="t7" variant="outlined" placeholder=" Enter Yvalue" animate></sm-input>
+    <sm-input id="t3" variant="outlined" placeholder="Enter private key" animate></sm-input><br>
 
-                     <sm-button variant="primary" onclick="crypto1()"> Decrypt</sm-button><br><br>
+                     <sm-button variant="primary" onclick="crypto1()"> Decrypt</sm-button><br>
     
 </sm-form>
 <div class="innerhtml">
-    <div id="q2"></div><br>
+    <div id="q2"></div>
     </div>
 </div>
 
@@ -9800,14 +9801,16 @@
 <div class="sendapplicationdata">
             <sm-form align="center">
             <br><br>
+            <div id="bgtry">
             <h3>Verify Signature</h3><br><br>
+            </div><br><br>
             
-            <sm-input id="d" variant="outlined" placeholder="Enter the data"  animate > </sm-input><br><br>
-            <sm-input id="s" variant="outlined" placeholder="Enter the Signature"  animate > </sm-input><br><br>
+            <sm-input id="d" variant="outlined" placeholder="Enter the data"  animate > </sm-input>
+            <sm-input id="s" variant="outlined" placeholder="Enter the Signature"  animate > </sm-input>
 
-            <sm-input id="p" variant="outlined" placeholder="Enter Public key"  animate > </sm-input><br><br>
+            <sm-input id="p" variant="outlined" placeholder="Enter Public key"  animate > </sm-input><br>
             
-            <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br><br>
+            <sm-button variant="primary" onclick="verification()">VERIFY</sm-button><br>
             </sm-form>
             <div class="innerhtml">
             <div id="v1"></div>
@@ -9828,9 +9831,10 @@
     </ol><br><br>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
-                <h3>Validate FLO Id</h3><br><br>
-                <sm-input id="flo1" variant="outlined" placeholder="Enter FLO ID" animate></sm-input><br><br>
-                <sm-button variant="primary" onclick="validateflo()">VALIDATE</sm-button><br><br>
+            <div id="bgtry">
+                <h3>Validate FLO Id</h3><br><br></div><br><br>
+                <sm-input id="flo1" variant="outlined" placeholder="Enter FLO ID" animate></sm-input>
+                <sm-button variant="primary" onclick="validateflo()">VALIDATE</sm-button><br>
 
         </sm-form>
         <div id="write1" class="innerhtml"></div><br>
@@ -9851,13 +9855,14 @@
     </ol><br><br>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
-            <h3>Generate Random Interger</h3><br><br>
-            <sm-input id="genrandom1" variant="outlined" placeholder="Enter minimum value" animate></sm-input><br><br>
-            <sm-input id="genrandom2" variant="outlined" placeholder="Enter maximum value" animate></sm-input><br><br>
-            <sm-button variant="primary" onclick="genrandomint()">GENERATE</sm-button><br><br>
+            <div id="bgtry">
+            <h3>Generate Random Interger</h3><br><br></div><br><br>
+            <sm-input id="genrandom1" variant="outlined" placeholder="Enter minimum value" animate></sm-input>
+            <sm-input id="genrandom2" variant="outlined" placeholder="Enter maximum value" animate></sm-input><br>
+            <sm-button variant="primary" onclick="genrandomint()">GENERATE</sm-button><br>
 
         </sm-form>
-        <div id="write4" class="innerhtml"></div><br><br>
+        <div id="write4" class="innerhtml"></div>
     </div>
 </div><br><br>
 <!--end of Generate Random Interger-->
@@ -9874,10 +9879,11 @@
     </ol><br><br>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
-            <h3>Generate Random String</h3><br><br>
-            <sm-input id="randomstr" variant="outlined" placeholder="Enter the length" animate></sm-input><br><br>
-            <sm-input id="val3" variant="outlined" placeholder="Enter true or false for alphanumeric" animate></sm-input><br><br>
-            <sm-button variant="primary" onclick="genrandomstr()">GENERATE</sm-button><br><br>
+            <div id="bgtry">
+            <h3>Generate Random String</h3><br><br></div><br><br>
+            <sm-input id="randomstr" variant="outlined" placeholder="Enter the length" animate></sm-input>
+            <sm-input id="val3" variant="outlined" placeholder="Enter true or false for alphanumeric" animate></sm-input><br>
+            <sm-button variant="primary" onclick="genrandomstr()">GENERATE</sm-button><br>
         </sm-form>
         <div class="innerhtml">
             <div id="write7"></div>
@@ -9902,17 +9908,18 @@
     <br><br>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
-            <h3>Create Shamir's Secret shares</h3><br><br>
-            <sm-input id="shdata" variant="outlined" placeholder="Enter string to split" animate></sm-input><br><br>
-            <sm-input id="shshare" variant="outlined" placeholder="Enter number of shares" animate></sm-input><br><br>
-            <sm-input id="shnumber" variant="outlined" placeholder="Enter the threshold_limit" animate></sm-input><br><br>
-            <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br><br>
+            <div id="bgtry">
+            <h3>Create Shamir's Secret shares</h3><br><br></div><br><br>
+            <sm-input id="shdata" variant="outlined" placeholder="Enter string to split" animate></sm-input>
+            <sm-input id="shshare" variant="outlined" placeholder="Enter number of shares" animate></sm-input>
+            <sm-input id="shnumber" variant="outlined" placeholder="Enter the threshold_limit" animate></sm-input><br>
+            <sm-button variant="primary" onclick="createshare()">CREATE</sm-button><br>
         </sm-form>
         <div class="innerhtml">
             <div id="write2"></div>
             <div id="write3"></div>
             <div id="write4"></div>
-        </div><br><br>
+        </div>
     </div>
 </div><br><br>
 
@@ -9932,9 +9939,10 @@
     </ol><br><br>
     <div class="sendapplicationdata">
         <sm-form align="center"><br><br>
-            <h3>Retrieve Shamir's Secret</h3><br><br>
+            <div id="bgtry">
+            <h3>Retrieve Shamir's Secret</h3><br><br></div><br><br>
             <sm-input id="ar1" variant="outlined" placeholder="Enter array shares" animate></sm-input>
-            <sm-button variant="primary" onclick="button()" >PUSH</sm-button><br><br>
+            <sm-button variant="primary" onclick="button()" >PUSH</sm-button><br>
             <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button>
             <sm-button  variant="primary" onclick="resetbtn()">RESET</sm-button>
             <br><br>
@@ -9959,9 +9967,11 @@
     </ol><br><br>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
-            <sm-input id="ar9" variant="outlined" placeholder="Enter array of shares" animate></sm-input><br><br>
-            <sm-button variant="primary"  onclick="button1()" >PUSH</sm-button><br><br>
-            <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input><br><br>
+            <div id="bgtry">
+            <h3>Verify Shamir's Secret</h3><br><br></div><br><br>
+            <sm-input id="ar9" variant="outlined" placeholder="Enter array of shares" animate></sm-input>
+            <sm-button variant="primary"  onclick="button1()" >PUSH</sm-button><br>
+            <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input>
             <sm-button variant="primary" onclick="verifysecret()">VERIFY</sm-button>
             <sm-button  variant="primary" onclick="resetbtn1()">RESET</sm-button>
             <br><br>

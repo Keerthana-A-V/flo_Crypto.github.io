@@ -25,12 +25,23 @@ h3{text-decoration:underline;}
     font-weight: bold;
     text-align: center;
     contain:content;
+    margin-left:10px;
+    margin-right: 10px;
+    margin-bottom:10px;
+    background-color: blanchedalmond;
     }
 sm-button{
     width: 30%;
+    margin-left: 35%;
 }
 
 sm-input{
     width: 50%; 
+    margin-left: 25%;
+
+}
+#bgtry
+{
+     border-bottom:solid gray;
 }
 

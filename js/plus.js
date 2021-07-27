@@ -1,9 +1,8 @@
 
-
     function generatefloid()
     {
         let flo =floCrypto.generateNewID()
-        document.getElementById("private").innerHTML="Private key: " ; 
+        document.getElementById("private").innerHTML="Private key: "; 
         document.getElementById("pub").innerHTML="Public key: ";
         document.getElementById("flo").innerHTML="FLO ID: ";
     var id=document.querySelector("#pub");
@@ -29,9 +28,6 @@
          var newdiv= document.createElement('sm-copy')
          newdiv.value=pubkey;
          id.appendChild(newdiv);
-         
-
-    
       }
 
       function calcfloid()
@@ -209,7 +205,9 @@
 
             if(con==true)
          {
-            y.length=0;            
+            y.length=0;   
+            document.getElementById("write11").innerHTML=" ";
+         
          }
 
       }
@@ -219,6 +217,7 @@
           if(con1==true)
           {
               z.length=0;
+              document.getElementById("write21").innerHTML=" ";
           }
       }
 
