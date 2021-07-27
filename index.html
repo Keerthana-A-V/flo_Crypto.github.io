@@ -9592,6 +9592,16 @@
 
 <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
 </ol>
+<sm-popup id="my_popup">
+    <!--Popup content -->hello
+</sm-popup>
+<sm-button id="show_popup_button">Show popup</sm-button>
+<script>
+    const myPopup = document.getElementById('my_popup')
+    document.getElementById('show_popup_button').addEventListener('click', e => {
+        myPopup.show({myPopup});
+    })
+</script>
 
 
 <div class="sendapplicationdata">
