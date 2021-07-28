@@ -1,30 +1,47 @@
 
 
     function generatefloid()
-    {
-        let flo =floCrypto.generateNewID()
-        document.getElementById("private").innerHTML="Private key: " + flo.privKey; 
-        document.getElementById("pub").innerHTML="Public key: "+ flo.pubKey;
-        document.getElementById("flo").innerHTML="FLO ID: "+ flo.floID;
-        /* alert( "Private key: "+ flo.privKey);
-       alert("Public Key: "+flo.pubKey);
-       alert("FLO ID: "+flo.floID);*/
+    {        let flo =floCrypto.generateNewID()
+        document.getElementById("private").innerHTML="Private key: " ; 
+        document.getElementById("private").innerHTML="Private key: "; 
+        document.getElementById("pub").innerHTML="Public key: ";
+        document.getElementById("flo").innerHTML="FLO ID: ";
+    var id=document.querySelector("#pub");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=flo.pubKey;
+        id.appendChild(newdiv);
+        var id1=document.querySelector("#private");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=flo.privKey;
+        id1.appendChild(newdiv);
+        var id2=document.querySelector("#flo");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=flo.floID;
+        id2.appendChild(newdiv);
     }
       function publickeyhex()
       {
-          let privatekey = document.getElementById("idprivate").value;
-         var pubkey=floCrypto.getPubKeyHex(privatekey)
-         document.getElementById("publickeyhex").innerHTML="Public Key: "+pubkey;
+        let privatekey = document.getElementById("idprivate").value;
+        var pubkey=floCrypto.getPubKeyHex(privatekey)
+        document.getElementById("publickeyhex").innerHTML="Public Key: ";
+        var id=document.querySelector("#publickeyhex");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=pubkey;
+        id.appendChild(newdiv);
     
       }
 
       function calcfloid()
       {
-          let keyy= document.getElementById("key").value;
-         var floid =floCrypto.getFloID(keyy)
-         document.getElementById("floo").innerHTML="FLO ID: "+floid
-           // alert(floid);
+        let keyy= document.getElementById("key").value;
+        var floid =floCrypto.getFloID(keyy)
+        document.getElementById("floo").innerHTML="FLO ID: ";
+        var id=document.querySelector("#floo");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=floid;
+        id.appendChild(newdiv);
       }
+
       function verifyprivatekey()
       {
           let privatekey=document.getElementById("privatek").value;
@@ -48,9 +65,11 @@
          let data=document.getElementById("msg5").value;
          let privKey=document.getElementById("type5").value; 
          var signature =floCrypto.signData(data, privKey)
-         document.getElementById("signed").innerHTML="Signed data is,"
-         document.getElementById("signatures").innerHTML= signature
-        // alert(signature);
+         document.getElementById("signed").innerHTML="Signed data is,";
+         var id=document.querySelector("#signatures");
+         var newdiv= document.createElement('sm-copy')
+         newdiv.value=signature;
+         id.appendChild(newdiv);
       }
 
       function verification()
@@ -83,42 +102,47 @@
           }
       }
       function genrandomint()
-      {
-          let minval=document.getElementById("genrandom1").value;
-          let maxval=document.getElementById("genrandom2").value;
+      {   
+         let minval=document.getElementById("genrandom1").value;
+         let maxval=document.getElementById("genrandom2").value;
           var result= floCrypto.randInt(minval, maxval)
-          document.getElementById("write4").innerHTML="The random integer is : "+result;
-
+           document.getElementById("write4").innerHTML="The random integer is : ";
+         var id=document.querySelector("#write4");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=result;
+        id.appendChild(newdiv);
       }
       function genrandomstr()
       {
-          let str=document.getElementById("randomstr").value;
-          let val=document.getElementById("val3").value;
-          var randstring= floCrypto.randString(str, val)
-          document.getElementById("write7").innerHTML="Random string is,"
-          document.getElementById("write8").innerHTML=randstring
-
+        let str=document.getElementById("randomstr").value;
+        let val=document.getElementById("val3").value;
+        var randstring= floCrypto.randString(str, val)
+        document.getElementById("write7").innerHTML="Random string is: <br>"
+        var id=document.querySelector("#write7");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=randstring;
+        id.appendChild(newdiv);
       }
 
       function createshare()
       {
-          let data=document.getElementById("shdata").value;
-          let numshare=parseInt( document.getElementById("shshare").value);
-          let limit =parseInt( document.getElementById("shnumber").value);
-          const x=[];
-          const v=[];
-          var i=0;  
-         // x.push(floCrypto.createShamirsSecretShares(data,numshare,limit));
-          const h=x.concat(floCrypto.createShamirsSecretShares(data,numshare,limit));
-         document.getElementById("write2").innerHTML="The shares are,";
-         //document.getElementById("write3").innerHTML=h;
-         var id=document.querySelector("#write3");
-         for(i=0;i<numshare;i++)
-         {
-            var newdiv= document.createElement('div')
-            newdiv.innerHTML=i+") "+h[i];
-            id.appendChild(newdiv);
-         }
+        let data=document.getElementById("shdata").value;
+        let numshare=parseInt( document.getElementById("shshare").value);
+        let limit =parseInt( document.getElementById("shnumber").value);
+        const x=[];
+        const v=[];
+        var i=0;  
+       // x.push(floCrypto.createShamirsSecretShares(data,numshare,limit));
+        const h=x.concat(floCrypto.createShamirsSecretShares(data,numshare,limit));
+       document.getElementById("write2").innerHTML="The shares are,";
+       //document.getElementById("write3").innerHTML=h;
+       var id=document.querySelector("#write3");
+       for(i=0;i<numshare;i++)
+       {
+          var newdiv= document.createElement('sm-copy')
+          newdiv.value=h[i];
+          id.appendChild(newdiv);
+       }
       }  
 
       const y=[];
@@ -173,7 +197,8 @@
 
             if(con==true)
          {
-            y.length=0;            
+            y.length=0; 
+            document.getElementById("write11").innerHTML=" ";           
          }
 
       }
@@ -183,32 +208,56 @@
           if(con1==true)
           {
               z.length=0;
+              document.getElementById("write21").innerHTML=" ";           
+
           }
       }
 
       function crypto()
       {
-          let s1=document.getElementById("t1").value;
-          let s2=document.getElementById("t2").value;
-          let s3=document.getElementById("t3").value;
-  
-          var ob=floCrypto.encryptData(s1,s2)
-          var sender=ob.senderPublicKeyString;
-          document.getElementById("w1").innerHTML="Encrypted Data: "+ob.secret+"<br><br>XPublic Key: "+sender.XValuePublicString+"<br><br>YPublic Key: "+sender.YValuePublicString;
-          }
+        let s1=document.getElementById("t1").value;
+        let s2=document.getElementById("t2").value;
+        let s3=document.getElementById("t3").value;
+
+        var ob=floCrypto.encryptData(s1,s2)
+        var sender=ob.senderPublicKeyString;
+        document.getElementById("w1").innerHTML="Encrypted Data: ";
+        document.getElementById("w2").innerHTML="XPublic Key: ";
+        document.getElementById("w3").innerHTML="YPublic Key: ";
+        var id=document.querySelector("#w1");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=ob.secret;
+        id.appendChild(newdiv);  
+        var id=document.querySelector("#w2");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=sender.XValuePublicString;
+        id.appendChild(newdiv); 
+        var id=document.querySelector("#w3");
+        var newdiv= document.createElement('sm-copy')
+        newdiv.value=sender.YValuePublicString;
+        id.appendChild(newdiv);           }
 
 
           function crypto1()
           {
-              var a=document.getElementById("t6").value;
-              var b=document.getElementById("t7").value;
-              var c=document.getElementById("t8").value;
-              var d=document.getElementById("t3").value;
-              var q={XValuePublicString:a,
-          YValuePublicString:b}
-          var s={secret:c,
-              senderPublicKeyString:q}
-              var obs=floCrypto.decryptData(s,d)
-              document.getElementById("w2").innerHTML="The decrypted data is,<br>"+obs;
+            var a=document.getElementById("t6").value;//xvalue
+            var b=document.getElementById("t7").value;//yvalue
+            var c=document.getElementById("t8").value;//encrypted data
+            var d=document.getElementById("t3").value;//privkey
+            var q={XValuePublicString:a,
+        YValuePublicString:b}
+        var s={secret:c,
+            senderPublicKeyString:q}
+            var obs=floCrypto.decryptData(s,d)
+            document.getElementById("q2").innerHTML="The decrypted data is,<br>";
+            var id=document.querySelector("#q2");
+            var newdiv= document.createElement('sm-copy')
+            newdiv.value=obs;
+            id.appendChild(newdiv);          }
+
+          function ppp(id)
+          {
+              const mypop=document.getElementById(id);
+              mypop.show();
           }
   

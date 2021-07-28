@@ -1,9 +1,7 @@
 .sendapplicationdata{
 border:black solid 2px;
+border-radius: 50px;
 }
-
-.fontsize{
-font-size:25px}
 
 h3{text-decoration:underline;}
 
@@ -27,7 +25,7 @@ h3{text-decoration:underline;}
     contain:content;
     margin-left:10px;
     margin-right: 10px;
-    margin-bottom:10px;
+    margin-bottom:20px;
     background-color: blanchedalmond;
     }
 sm-button{
@@ -44,4 +42,12 @@ sm-input{
 {
      border-bottom:solid gray;
 }
+sm-popup
+{
+    --height:50%;
+    --width:70%;
 
+}
+a{cursor: pointer;
+color: blueviolet;
+text-decoration: underline;}
