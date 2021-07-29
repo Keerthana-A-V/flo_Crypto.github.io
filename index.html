@@ -9476,7 +9476,7 @@
                 <h4>flo Crypto Operations</h4>
             </span>
         </div>
-        <label class="toggle" title="Change theme">
+       <!--<label class="toggle" title="Change theme">
             <input type="checkbox" name="theme toggle" id="theme_toggle">
             <div class="switch">
                 <svg class="circle" viewBox="0 0 64 64">
@@ -9498,7 +9498,7 @@
                     <line x1="9.37" y1="9.37" x2="14.22" y2="14.22" />
                 </svg>
             </div>
-        </label>
+        </label>--> 
     </header>
     <nav id="navbar">
         <div class="navbar-item active" onclick= "showPage(this, 'home_page')">
@@ -9586,16 +9586,17 @@
 <!--generate new flo id-->
 <div>
 <h3>Generate new FLO ID:</h3>
-<a onclick="ppp('my_popup')">Read more>></a>
+<p>To generate new set of FLO ID, click the <b>GENERATE</b> button.
+<a onclick="ppp('my_popup')">Read more>>></a></p>
 <sm-popup id="my_popup">
     <h3>Generate new FLO ID:</h3><br>
 
-<ol >
+<ul >
 <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>
 
 <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
-</ol>
-</sm-popup><br><br>
+</ul>
+</sm-popup>
 
 <div class="sendapplicationdata">
 <sm-form align="center" >
@@ -9617,17 +9618,18 @@
 <!--calculate public key hex-->
 <div>
 <h3>Calculate Public Key HEX</h3>
-<a onclick="ppp('pubpop')">Read more>></a>
+<p>To get the Public key using your Private key, click the <b>CALCULATE</b> button. 
+<a onclick="ppp('pubpop')">Read more>>></a> </p>
 
-<sm-popup id="pubpop" ><br><br>
+<sm-popup id="pubpop" >
     <h3>Calculate Public Key HEX</h3>
-<ol >
+<ul >
 <li>getPubKeyHex returns public-key from given private-key</li>
 
 <li>privateKey - private key in WIF format (Hex)</li>
 <li>Returns : pubKey (string)</li>
-</ol>
-<br><br></sm-popup><br><br>
+</ul>
+<br><br></sm-popup>
 
 <div class="sendapplicationdata">
 
@@ -9646,17 +9648,18 @@
 <!--end of calculate public key hex-->
 
 <!--calculate flo id-->
-<br><br><h3>Calculate FLO ID</h3></div>
-<a onclick="ppp('clacpop')">Read more>></a><br><br>
+<br><br><h3>Calculate FLO ID</h3>
+<p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.
+<a onclick="ppp('clacpop')">Read more>>></a></p>
 <sm-popup id="clacpop">
     <h3>Calculate FLO ID</h3></div><br>
 
-<ol >
+<ul >
 <li>getFloID returns flo-ID from given public-key (or) private-key</li>
 
 <li>publickey_or_privateKey - public key or private key hex value</li>
 <li>Returns : floID (string)</li>
-</ol><br><br></sm-popup>
+</ul><br><br></sm-popup>
 
 <div class="sendapplicationdata">
 
@@ -9678,19 +9681,20 @@
 
 <div>
 <h3>Verify Private key</h3>
-<a onclick="ppp('verpop')">Read more>></a><br><br>
+<p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.
+<a onclick="ppp('verpop')">Read more>>></a></p>
 <sm-popup id="verpop"><br>
     <h3>Verify Private key</h3>
 
 <br><br>
-<ol >
+<ul >
 <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
 
 <li>privateKey - private key in WIF format (Hex)</li>
 <li>pubKey_floID - public Key or flo ID</li>
 <li>isfloID - boolean value (true: compare as flo ID, false: compare as public key) (optional, default is true)</li>
 <li>Returns : boolen (true or false)</li>
-</ol><br><br></sm-popup>
+</ul><br><br></sm-popup>
 
 <div class="sendapplicationdata">
 <sm-form align="center"><br><br>
@@ -9711,15 +9715,16 @@
 <!--sign data-->
 <div>
 <h3>Sign Data</h3>
-<a onclick="ppp('signpop')">Read more>></a><br><br>
+<p>To Sign the data, click on <b>SIGN</b> button.
+<a onclick="ppp('signpop')">Read more>>></a></p>
 <sm-popup id="signpop">
     <h3>Sign Data</h3><br>
 
-<ol>
+<ul>
 <li>signData signs the data using the private key</li>
 
 <li>data - data to sign</li>
-<li>privateKey - private key of the signer</li></ol>
+<li>privateKey - private key of the signer</li></ul>
 <br><br></sm-popup>
 <div class="sendapplicationdata">
 <sm-form align="center"><br><br>
@@ -9745,15 +9750,16 @@
 
 <div>
     <h3>Data Encryption </h3>
-    <a onclick="ppp('encpop')">Read more>></a><br><br>
+    <p>To Encrypt the data, click on <b>ENCRYPT</b> button.
+    <a onclick="ppp('encpop')">Read more>>></a></p>
     <sm-popup id="encpop">
     <h3>Data Encryption </h3><br><br>
-    <ol>
+    <ul>
         <li>encryptData encrypts the given data using public-key</li>
          <li>data - data to encrypt (String)</li>
         <li>publicKey - public key of the recipient</li>
         <li>Returns : Encrypted data (Object)</li>
-        </ol><br><br>
+        </ul><br><br>
     </sm-popup>
 
         <div class="sendapplicationdata">
@@ -9778,16 +9784,17 @@
 <!--decrypr data-->
 <div>
 <h3>Decrypt Data</h3>
-<a onclick="ppp('decpop')">Read more>></a><br><br>
+<p>To Decrypt data click on, <b>DECRYPT</b> button.
+<a onclick="ppp('decpop')">Read more>>></a> </p>
 <sm-popup id="decpop">
 <h3>Decrypt Data</h3><br><br>
-<ol >
+<ul >
     <li>decryptData decrypts the given data using private-key</li>
 
         <li>data - encrypted data to decrypt (Object that was returned from encryptData)</li>
             <li>privateKey - private key of the recipient</li>
                 <li>Returns : Decrypted Data (String)</li>
-</ol><br><br></sm-popup>
+</ul><br><br></sm-popup>
 <div class="sendapplicationdata">
 <sm-form align="center"><br><br>
     <div id="bgtry">
@@ -9815,18 +9822,19 @@
 
 <div>
     <h3>Verify Signature</h3>
-    <a onclick="ppp('verifypop')">Read more>></a><br><br>
+    <p>To Verify Signature ,click on <b>VERIFY </b>button.
+    <a onclick="ppp('verifypop')">Read more>>></a></p>
     <sm-popup id="verifypop">
         <h3>Verify Signature</h3><br><br>
 
-    <ol>
+    <ul>
         <li>verifySign verifies signatue of the data using public-key</li>
 
             <li>data - data of the given signature</li>
                 <li>signature - signature of the data</li>
                     <li>publicKey - public key of the signer</li>
                         <li>Returns : boolen (true or false) </li>
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
 
    
 <div class="sendapplicationdata">
@@ -9854,15 +9862,16 @@
 
 <div>
     <h3>Validate FLO Id</h3>
-    <a onclick="ppp('valpop')">Read more>></a><br><br>
+    <p>To Validate FLO ID click on, <b>VALIDATE </b>button.
+    <a onclick="ppp('valpop')">Read more>>></a></p>
     <sm-popup id="valpop">
         <h3>Validate FLO Id</h3><br><br>
-    <ol >
+    <ul >
       <li>validateAddr check if the given Address is valid or not</li> 
 
       <li>floID - flo ID to validate</li> 
         <li>Returns : boolen (true or false)</li> 
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
             <div id="bgtry">
@@ -9879,18 +9888,19 @@
 <!--Generate Random Interger-->
 <div>
     <h3>Generate Random Interger</h3>
-    <a onclick="ppp('genpop')">Read more>></a><br><br>
+    <p>To Generate Random integer click on, <b>GENERATE </b>button.
+    <a onclick="ppp('genpop')">Read more>>></a></p>
     <sm-popup id="genpop">
     <h3>Generate Random Interger</h3>
     <br><br>
-    <ol>
+    <ul>
        <li>randInt returns a randomly generated interger in a given range.</li> 
 
        <li>min - minimum value of the range</li> 
         <li>max - maximum value of the range</li> 
             <li>Returns : randomNum (Interger)</li> 
 
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
             <div id="bgtry">
@@ -9908,16 +9918,18 @@
 <!--Generate Random String-->
 <div>
     <h3>Generate Random String</h3>
-    <a onclick="ppp('strpop')">Read more>></a><br><br>
+    <p>To Generate Random string click on, <b>GENERATE</b> button.
+
+    <a onclick="ppp('strpop')">Read more>></a></p>
     <sm-popup id="strpop">
     <h3>Generate Random String</h3><br><br>
-    <ol>
+    <ul>
     <li>randString returns a randomly generated string of given length.</li> 
 
     <li>length - length of the string to be generated</li> 
         <li>alphaNumeric - boolean (true: generated string will only contain alphabets and digits,<br> false: generated string will also have symbols) (optional, default value is false)</li> 
             <li>Returns : randomString (String)</li> 
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
             <div id="bgtry">
@@ -9940,15 +9952,16 @@
 <!--Create Shamir's Secret shares-->
 <div>
     <h3>Create Shamir's Secret shares</h3>
-    <a onclick="ppp('shampop')">Read more>></a><br><br>
+    <p>To Create Shamir's Secret click on, <b>CREATE</b> button.
+    <a onclick="ppp('shampop')">Read more>></a></p>
     <sm-popup id="shampop">
     <h3>Create Shamir's Secret shares</h3><br><br>
-    <ol>
+    <ul>
      <li>str - string to be split</li>   
      <li>total_shares - total number of shares to be split into</li>   
     <li>threshold_limit - minimum number of shares required to reconstruct the secret str</li>   
     <li>Returns : Shares (Array of string)</li>   
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
 
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
@@ -9974,16 +9987,17 @@
 <!--Retrieve Shamir's Secret-->
 <div>
     <h3>Retrieve Shamir's Secret</h3>
-    <a onclick="ppp('retpop')">Read more>></a><br><br>
+    <p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.
+    <a onclick="ppp('retpop')">Read more>></a></p>
     <sm-popup id="retpop">
     <h3>Retrieve Shamir's Secret</h3><br><br>
-    <ol >
+    <ul >
         <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
 
             <li> sharesArray - Array of shares</li>
                 <li>Returns : retrivedData (String)</li>
 
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
     <div class="sendapplicationdata">
         <sm-form align="center"><br><br>
             <div id="bgtry">
@@ -9991,7 +10005,7 @@
             <sm-input id="ar1" variant="outlined" placeholder="Enter array shares" animate></sm-input>
             <sm-button variant="primary" onclick="button()" >PUSH</sm-button><br>
             <sm-button variant="primary" onclick="retrievesecret()">RETRIEVE</sm-button>
-            <sm-button  variant="primary" onclick="resetbtn()">RESET</sm-button>
+            <sm-button  variant="outlined" onclick="resetbtn()">RESET</sm-button>
             <br><br>
         </sm-form>
         <div class="innerhtml">
@@ -10004,17 +10018,18 @@
 <!--Verify Shamir's Secret-->
 <div>
     <h3>Verify Shamir's Secret</h3>
-    <a onclick="ppp('veripop')">Read more>></a><br><br>
+    <p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.
+    <a onclick="ppp('veripop')">Read more>></a></p>
     <sm-popup id="veripop">
     <h3>Verify Shamir's Secret</h3><br><br>
-    <ol>
+    <ul>
         <li>verifyShamirsSecret verfies the validity of the created shares.</li>
 
             <li>sharesArray - Array of shares</li>
             <li>str - originalData (string).</li>
             <li>Returns : boolen (true or false)</li>
 
-    </ol><br><br></sm-popup>
+    </ul><br><br></sm-popup>
     <div class="sendapplicationdata"><br><br>
         <sm-form align="center">
             <div id="bgtry">
@@ -10023,7 +10038,7 @@
             <sm-button variant="primary"  onclick="button1()" >PUSH</sm-button><br>
             <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input>
             <sm-button variant="primary" onclick="verifysecret()">VERIFY</sm-button>
-            <sm-button  variant="primary" onclick="resetbtn1()">RESET</sm-button>
+            <sm-button  variant="outlined" onclick="resetbtn1()">RESET</sm-button>
             <br><br>
         </sm-form>
         <div class="innerhtml">

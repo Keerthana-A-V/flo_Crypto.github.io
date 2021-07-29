@@ -1,8 +1,7 @@
 .sendapplicationdata{
-border:black solid 2px;
+border:solid 2px;
 border-radius: 50px;
 }
-
 h3{text-decoration:underline;}
 
 .generate{
@@ -28,6 +27,7 @@ h3{text-decoration:underline;}
     margin-bottom:20px;
     background-color: blanchedalmond;
     }
+
 sm-button{
     width: 30%;
     margin-left: 35%;
@@ -46,8 +46,14 @@ sm-popup
 {
     --height:50%;
     --width:70%;
+    font-family: sans-serif;
+    font-style: italic;
 
 }
 a{cursor: pointer;
 color: blueviolet;
-text-decoration: underline;}
+text-decoration: underline;
+}
+ul{margin-left: 20px;
+}
+
