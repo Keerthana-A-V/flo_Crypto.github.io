@@ -2,11 +2,10 @@
 
     function generatefloid()
     {        let flo =floCrypto.generateNewID()
-        document.getElementById("private").innerHTML="Private key: " ; 
         document.getElementById("private").innerHTML="Private key: "; 
         document.getElementById("pub").innerHTML="Public key: ";
         document.getElementById("flo").innerHTML="FLO ID: ";
-    var id=document.querySelector("#pub");
+        var id=document.querySelector("#pub");
         var newdiv= document.createElement('sm-copy')
         newdiv.value=flo.pubKey;
         id.appendChild(newdiv);
@@ -106,8 +105,8 @@
          let minval=document.getElementById("genrandom1").value;
          let maxval=document.getElementById("genrandom2").value;
           var result= floCrypto.randInt(minval, maxval)
-           document.getElementById("write4").innerHTML="The random integer is : ";
-         var id=document.querySelector("#write4");
+           document.getElementById("write41").innerHTML="The random integer is : ";
+         var id=document.querySelector("#write41");
         var newdiv= document.createElement('sm-copy')
         newdiv.value=result;
         id.appendChild(newdiv);
@@ -260,4 +259,13 @@
               const mypop=document.getElementById(id);
               mypop.show();
           }
+
+
+
+
+
+
+
+
+
   
