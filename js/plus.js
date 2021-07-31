@@ -197,7 +197,8 @@
             if(con==true)
          {
             y.length=0; 
-            document.getElementById("write11").innerHTML=" ";           
+            document.getElementById("write11").innerHTML=" ";     
+            document.getElementById("ar1").value=" ";      
          }
 
       }
@@ -207,7 +208,11 @@
           if(con1==true)
           {
               z.length=0;
-              document.getElementById("write21").innerHTML=" ";           
+              document.getElementById("write21").innerHTML=" ";   
+              document.getElementById("ar9").value=" ";     
+              document.getElementById("ar8").value=" ";      
+ 
+        
 
           }
       }

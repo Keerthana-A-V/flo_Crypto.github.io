@@ -57,63 +57,100 @@
             <theme-toggle></theme-toggle>
         </header>
         <sm-tab-header target="sections">
-            <sm-tab>FLO ID</sm-tab>
-            <sm-tab>Key</sm-tab>
+            <sm-tab>Generate</sm-tab>
+            <sm-tab>Verify</sm-tab>
             <sm-tab>Shamir's Secret</sm-tab>
-            <sm-tab>signature</sm-tab>
             <sm-tab>Encrypt&Decrypt</sm-tab>
-            <sm-tab>Random Data</sm-tab>
         </sm-tab-header>
         <sm-tab-panels id="sections">
             <section class="section">
                 <div class="section__header">
                     <div class="grid">
-                        <h3>FLO ID</h3>
+                        <h3>Generate</h3>
                         <p>
-                            In this page we have Calculate FLO ID,Generate FLO ID.
+                            In this page we have Calculate FLO ID,Generate FLO ID,Calculate public key,Verify Private key,Validate FLO ID,Generate random integer,
+                            Generate random string.
                         </p>
                     </div>
                     <sm-menu align-options="right">
-                       <a href="#calcu" class="option"><menu-option >Calculate</menu-option></a>
-                       <a href="#gengen"  class="option"><menu-option >Generate</menu-option></a>
-                        <menu-option>third option</menu-option>
+                       <a href="#calcu" class="option"><menu-option >Calculate FLO ID</menu-option></a>
+                       <a href="#gengen"  class="option"><menu-option >Generate FLO ID</menu-option></a>
+                      <a href="#oppub" class="option"> <menu-option>Public key</menu-option></a>
+                      <a href="#opint" class="option"><menu-option>Random Integer</menu-option></a>
+                      <a href="#opstr" class="option"><menu-option>Random string</menu-option></a>
+                      <a href="#opsignature" class="option"><menu-option>Sign data</menu-option></a>
+
                     </sm-menu>
                 </div>
                 <sm-carousel>
                     <div class="card">
-                        <h3>Card</h3>
+                    <a href="#gengen" class="option"><h3>Generate FLO ID</h3></a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
+                            To generate a new set of FLO ID,private key, Public key.
                         </p>
                     </div>
                     <div class="card">
-                        <h3>Card</h3>
+                        <a href="#calcu" class="option"><h3>Calculate FLO ID</h3></a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
+                            To calculate FLO ID using Private or Public key.
                         </p>
                     </div>
                     <div class="card">
-                        <h3>Card</h3>
+                     <a href="#oppub" class="option"><h3>Calculate Public key</h3></a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
+                            To Calculate Public key using private key.
                         </p>
                     </div>
                     <div class="card">
-                        <h3>Card</h3>
+                     <a href="#opint" class="option"> <h3>Random Integer</h3></a>  
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
+                            To Generate a Random Integer by providing minimum and maximum values.
                         </p>
                     </div>
+                    <div class="card">
+                       <a href="#opstr" class="option"><h3>Random String</h3></a> 
+                        <p>
+                            To Generate Random String by its length.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <a href="#opsignature" class="option"><h3>Sign Data</h3></a> 
+                         <p>
+                             To sign data using Private key.
+                         </p>
+                     </div>
                 </sm-carousel>
 
+<!--generate new flo id-->
+<div id="gengen"><br>
+    <h3>Generate new FLO ID:</h3><br>
+    <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.<br>
+  <a onclick="ppp('my_popup')">Read more>>></a></p>
+ <sm-popup id="my_popup">
+ <h3>Generate new FLO ID:</h3><br>
+  <ul >
+<li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>                                  
+ <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
+  </ul>
+  </sm-popup>
+<div class="sendapplicationdata">
+<sm-form align="center" >
+<sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br>
+ </sm-form>
+ <div class="generate"> 
+<div id="private" class="innerhtml"></div>
+ <div id="pub" class="innerhtml"></div>
+                                     <div id="flo" class="innerhtml"></div>
+</div>
+                                  
+</div>
+</div>
+<!--end of generate new flo id-->
 
-                
-
-
-        <!--calculate flo id-->
+<!--calculate flo id-->
 <div id="calcu">
-    <br><br><h3>Calculate FLO ID</h3>
-    <p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.
+   <h3>Calculate FLO ID</h3>
+    <p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.<br>
     <a onclick="ppp('clacpop')">Read more>>></a></p>
     <sm-popup id="clacpop">
     <h3>Calculate FLO ID</h3><br>
@@ -122,92 +159,19 @@
     <li>publickey_or_privateKey - public key or private key hex value</li>
     <li>Returns : floID (string)</li>
     </ul><br><br></sm-popup>
-
 <div>
-
 <sm-form align="center">
-    <div><br><br>
-    </div>
-
 <sm-input id="key" variant="outlined" placeholder="Enter Private or Public key"  animate > </sm-input><br>
 <sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br>
 </sm-form>
 <div id="floo" class="innerhtml"></div>
 </div>
-</div><br><br>
+</div>
 
 <!--end of calculate flo id-->
-<!--generate new flo id-->
- <div id="gengen"><br><br>
-      <h3>Generate new FLO ID:</h3><br>
-      <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.
-    <a onclick="ppp('my_popup')">Read more>>></a></p>
-                                    <sm-popup id="my_popup">
-                                        <h3>Generate new FLO ID:</h3><br>
-                                    
-                                    <ul >
-                                    <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>
-                                    
-                                    <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
-                                    </ul>
-                                    </sm-popup>
-                                    
-                                    <div class="sendapplicationdata">
-                                    <sm-form align="center" >
-                                        <sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br><br><br>
-                                     </sm-form>
-                                    <div class="generate"> 
-                                        <div id="private" class="innerhtml"></div>
-                                       <div id="pub" class="innerhtml"></div>
-                                       <div id="flo" class="innerhtml"></div>
-</div>
-                                    
-                </div>
-  </div><br><br>
-  <!--end of generate new flo id-->
-            </section>
-            <section class="section">
-                <div class="section__header">
-                    <div class="grid">
-                        <h3>Key</h3>
-                        <p>
-                            In this page we have,Calculte Public key and private key.
-                        </p>
-                    </div>
-                    <sm-menu align-options="right">
-                        <menu-option>Public Key</menu-option>
-                        <menu-option>Private Key</menu-option>
-                    </sm-menu>
-                </div>
-                <sm-carousel>
-                    <div class="card">
-                        <h3>Card</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Card</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Card</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Card</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                        </p>
-                    </div>
-                </sm-carousel>
 
-                <!--calculate public key hex-->
-<div><br><br>
+<!--calculate public key hex-->
+  <div id="oppub">
     <h3>Calculate Public Key HEX</h3>
     <p>To get the Public key using your Private key, click the <b>CALCULATE</b> button. <br>
     <a onclick="ppp('pubpop')">Read more>>></a> </p>
@@ -221,349 +185,20 @@
     <li>Returns : pubKey (string)</li>
     </ul>
     <br><br></sm-popup>
-    
     <div>
-    
     <sm-form align="center" >
-    <div>
-      <br><br>
-      <h3>Calculate Public key hex</h3><br><br>
-    </div><br><br>
       <sm-input variant="outlined" id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br>
      <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br>
     </sm-form>
     <div id="publickeyhex" class="innerhtml" ></div>
     </div>
-    </div><br><br>
-    
-    <!--end of calculate public key hex-->
-</section>
-        <section class="section">
-            <div class="section__header">
-                <div class="grid">
-                    <h3>Shamir's Secret</h3>
-                    <p>
-                        In this page we have Create , Retrieve and verify Shamir's Secret shares.
-                    </p>
-                </div>
-                <sm-menu align-options="right">
-                    <menu-option>Create</menu-option>
-                    <menu-option>Retrieve</menu-option>
-                    <menu-option>Verify</menu-option>
-                </sm-menu>
-            </div>
-            <sm-carousel>
-                <div class="card">
-                    <h3>Card</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>Card</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>Card</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>Card</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                    </p>
-                </div>
-            </sm-carousel>
-
-            <!--Create Shamir's Secret shares-->
-<div><br><br>
-    <h3>Create Shamir's Secret shares</h3>
-    <p>To Create Shamir's Secret click on, <b>CREATE</b> button.
-    <a onclick="ppp('shampop')">Read more>></a></p>
-    <sm-popup id="shampop">
-    <h3>Create Shamir's Secret shares</h3><br><br>
-    <ul>
-     <li>str - string to be split</li>   
-     <li>total_shares - total number of shares to be split into</li>   
-    <li>threshold_limit - minimum number of shares required to reconstruct the secret str</li>   
-    <li>Returns : Shares (Array of string)</li>   
-    </ul><br><br></sm-popup>
-
-    <div ><br><br>
-        <sm-form align="center">
-            <div >
-            <sm-input id="shdata" variant="outlined" placeholder="Enter string to split" animate></sm-input><br>
-            <sm-input id="shshare" variant="outlined" placeholder="Enter number of shares" animate></sm-input><br>
-            <sm-input id="shnumber" variant="outlined" placeholder="Enter the threshold_limit" animate></sm-input><br>
-            <sm-button variant="primary" onclick="createshare()" style="margin-left: 5%;width: 20%;">CREATE</sm-button><br>
-        </sm-form>
-        <div class="innerhtml">
-            <div id="write2"></div>
-            <div id="write3"></div>
-            <div id="write4"></div>
-        </div>
     </div>
-</div><br><br>
-<!--end of Create Shamir's Secret shares-->
+<!--end of calculate public key hex-->
 
-<!--Retrieve Shamir's Secret-->
-<div>
-    <h3>Retrieve Shamir's Secret</h3>
-    <p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.
-    <a onclick="ppp('retpop')">Read more>></a></p>
-    <sm-popup id="retpop">
-    <h3>Retrieve Shamir's Secret</h3><br><br>
-    <ul >
-        <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
-
-            <li> sharesArray - Array of shares</li>
-                <li>Returns : retrivedData (String)</li>
-
-    </ul><br><br></sm-popup>
-    <div >
-        <sm-form align="center"><br><br>
-            <div>
-            <sm-input id="ar1" variant="outlined" placeholder="Enter array shares" animate></sm-input><br>
-            <sm-button variant="primary" onclick="button()" style="margin-left: 5%;width: 20%;" >PUSH</sm-button><br><br>
-            <sm-button variant="primary" onclick="retrievesecret()" style="margin-left: 5%;width: 20%;">RETRIEVE</sm-button>
-            <sm-button  variant="outlined" onclick="resetbtn()" style="margin-left: 5%;width: 20%;">RESET</sm-button>
-            <br><br>
-        </sm-form>
-        <div class="innerhtml">
-
-        <div id="write11"></div>
-    </div></div>
-</div><br><br>
-<!-- end of Retrieve Shamir's Secret-->
-
-<!--Verify Shamir's Secret-->
-<div>
-    <h3>Verify Shamir's Secret</h3>
-    <p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.
-    <a onclick="ppp('veripop')">Read more>></a></p>
-    <sm-popup id="veripop">
-    <h3>Verify Shamir's Secret</h3><br><br>
-    <ul>
-        <li>verifyShamirsSecret verfies the validity of the created shares.</li>
-
-            <li>sharesArray - Array of shares</li>
-            <li>str - originalData (string).</li>
-            <li>Returns : boolen (true or false)</li>
-
-    </ul><br><br></sm-popup>
-    <div><br><br>
-        <sm-form align="center">
-            <div>
-            <sm-input id="ar9" variant="outlined" placeholder="Enter array of shares" animate></sm-input><br>
-            <sm-button variant="primary"  onclick="button1()" style="margin-left: 5%;width: 20%;">PUSH</sm-button><br><br>
-            <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input><br><br>
-            <sm-button variant="primary" onclick="verifysecret()" style="margin-left: 5%;width: 20%;">VERIFY</sm-button>
-            <sm-button  variant="outlined" onclick="resetbtn1()" style="margin-left: 5%;width: 20%;">RESET</sm-button>
-            <br><br>
-        </sm-form>
-        <div class="innerhtml">
-            <div id="write21"></div>
-        </div>
-    </div>
-</div>
-<!--end of Verify Shamir's Secret-->
-        </section>
-
-    <section class="section">
-        <div class="section__header">
-            <div class="grid">
-                <h3>Signature</h3>
-                <p>
-                    In this page we have,Sign data and Verify signature.
-                </p>
-            </div>
-            <sm-menu align-options="right">
-                <menu-option>Sign data</menu-option>
-                <menu-option>Verify Sign</menu-option>
-            </sm-menu>
-        </div>
-        <sm-carousel>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-        </sm-carousel>
-        <!--sign data-->
-        <div><br>
-            <h3>Sign Data</h3>
-            <p>To Sign the data, click on <b>SIGN</b> button.
-            <a onclick="ppp('signpop')">Read more>>></a></p>
-            <sm-popup id="signpop">
-                <h3>Sign Data</h3><br>
-            
-            <ul>
-            <li>signData signs the data using the private key</li>
-            
-            <li>data - data to sign</li>
-            <li>privateKey - private key of the signer</li></ul>
-            <br><br></sm-popup>
-            <div>
-            <sm-form align="center"><br><br>
-                <div>    
-              <sm-input id="msg5" variant="outlined" placeholder="Enter data to sign"  animate > </sm-input><br>
-              <sm-input id="type5" variant="outlined" placeholder="Enter Private Key"  animate > </sm-input><br>
-            
-            <sm-button variant="primary" onclick="signdata()" style="margin-left: 5%;width: 20%;">SIGN</sm-button><br><br>
-            
-            </sm-form>
-            <div class="innerhtml">
-            <div id="signed"></div>
-            <div id="signatures" ></div>
-            </div>
-            </div>
-            
-            </div><br><br>
-            <!--end of sign data-->
-<!--Verify signature-->
-
-<div>
-    <h3>Verify Signature</h3>
-    <p>To Verify Signature ,click on <b>VERIFY </b>button.
-    <a onclick="ppp('verifypop')">Read more>>></a></p>
-    <sm-popup id="verifypop">
-        <h3>Verify Signature</h3><br><br>
-
-    <ul>
-        <li>verifySign verifies signatue of the data using public-key</li>
-
-            <li>data - data of the given signature</li>
-                <li>signature - signature of the data</li>
-                    <li>publicKey - public key of the signer</li>
-                        <li>Returns : boolen (true or false) </li>
-    </ul><br><br></sm-popup>
-
-   
-<div >
-            <sm-form align="center">
-            <br><br>
-            <div >
-            <sm-input id="d" variant="outlined" placeholder="Enter the data"  animate > </sm-input><br>
-            <sm-input id="s" variant="outlined" placeholder="Enter the Signature"  animate > </sm-input><br>
-
-            <sm-input id="p" variant="outlined" placeholder="Enter Public key"  animate > </sm-input><br>
-            
-            <sm-button variant="primary" onclick="verification()" style="margin-left: 5%;width: 20%;">VERIFY</sm-button><br>
-            </sm-form>
-            <div class="innerhtml">
-            <div id="v1"></div>
-            </div>
-</div>
-</div><br>
-<!--end of Verify signature-->
-    </section>
-    <section class="section">
-        <div class="section__header">
-            <div class="grid">
-                <h3>Key</h3>
-                <p>
-                    In this page we have,Calculte Public key and private key.
-                </p>
-            </div>
-            <sm-menu align-options="right">
-                <menu-option>Public Key</menu-option>
-                <menu-option>Private Key</menu-option>
-            </sm-menu>
-        </div>
-        <sm-carousel>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-        </sm-carousel>
-        
-    </section>
-    <section class="section">
-        <div class="section__header">
-            <div class="grid">
-               <br> <h3>Random data</h3>
-                <p>
-                    In this page we have,Random Integer and String generator.
-                </p>
-            </div>
-            <sm-menu align-options="right">
-                <menu-option>Integer</menu-option>
-                <menu-option>String</menu-option>
-            </sm-menu>
-        </div>
-        <sm-carousel>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-            <div class="card">
-                <h3>Card</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
-                </p>
-            </div>
-        </sm-carousel>
 <!--Generate Random Interger-->
-<div>
+<div id="opint">
     <h3>Generate Random Interger</h3>
-    <p>To Generate Random integer click on, <b>GENERATE </b>button.
+    <p>To Generate Random integer click on, <b>GENERATE </b>button.<br>
     <a onclick="ppp('genpop')">Read more>>></a></p>
     <sm-popup id="genpop">
     <h3>Generate Random Interger</h3>
@@ -581,14 +216,423 @@
             <div>
             <sm-input id="genrandom1" variant="outlined" placeholder="Enter minimum value" animate></sm-input><br>
             <sm-input id="genrandom2" variant="outlined" placeholder="Enter maximum value" animate></sm-input><br>
-            <sm-button variant="primary" onclick="genrandomint()"  style="margin-left: 5%;width: 20%;">GENERATE</sm-button><br>
+            <sm-button variant="primary" onclick="genrandomint()"  style="margin-left: 5%;width: 30%;">GENERATE</sm-button><br><br>
 
         </sm-form>
         <div id="write41" class="innerhtml"></div>
     </div>
-</div><br><br>
+</div>
 <!--end of Generate Random Interger-->
+
+<!--Generate Random String-->
+<div id="opstr">
+    <h3>Generate Random String</h3>
+    <p>To Generate Random string click on, <b>GENERATE</b> button.<br>
+
+    <a onclick="ppp('strpop')">Read more>></a></p>
+    <sm-popup id="strpop">
+    <h3>Generate Random String</h3><br><br>
+    <ul>
+    <li>randString returns a randomly generated string of given length.</li> 
+
+    <li>length - length of the string to be generated</li> 
+        <li>alphaNumeric - boolean (true: generated string will only contain alphabets and digits,<br> false: generated string will also have symbols) (optional, default value is false)</li> 
+            <li>Returns : randomString (String)</li> 
+    </ul><br><br></sm-popup>
+    <div><br><br>
+        <sm-form align="center">
+            <div>
+            <sm-input id="randomstr" variant="outlined" placeholder="Enter the length" animate></sm-input><br>
+            <sm-input id="val3" variant="outlined" placeholder="Enter true or false for alphanumeric" animate></sm-input><br>
+            <sm-button variant="primary" onclick="genrandomstr()"  style="margin-left: 5%;width: 30%;">GENERATE</sm-button><br><br>
+        </sm-form>
+        <div class="innerhtml">
+            <div id="write7"></div>
+            <div id="write8"></div>
+
+        </div>
+    </div>
+</div>
+<!--end of Generate Random String-->
+
+<!--sign data-->
+<div id="opsignature"><br>
+            <h3>Sign Data</h3>
+            <p>To Sign the data, click on <b>SIGN</b> button.<br>
+            <a onclick="ppp('signpop')">Read more>>></a></p>
+            <sm-popup id="signpop">
+                <h3>Sign Data</h3><br>
+            <ul>
+            <li>signData signs the data using the private key</li>           
+            <li>data - data to sign</li>
+            <li>privateKey - private key of the signer</li></ul>
+            <br><br></sm-popup>
+            <div>
+            <sm-form align="center">
+                <div>    
+              <sm-input id="msg5" variant="outlined" placeholder="Enter data to sign"  animate > </sm-input><br>
+              <sm-input id="type5" variant="outlined" placeholder="Enter Private Key"  animate > </sm-input><br>
+            
+            <sm-button variant="primary" onclick="signdata()" style="margin-left: 5%;width: 30%;">SIGN</sm-button><br><br>
+            
+            </sm-form>
+            <div class="innerhtml">
+            <div id="signed"></div>
+            <div id="signatures" ></div>
+            </div>
+            </div>
+            
+</div><br><br>
+<!--end of sign data-->
+</section>
+
+<section class="section">
+        <div class="section__header">
+            <div class="grid">
+                <h3>Verify</h3>
+                <p>
+                    In this page we have,Verify Private key, Validate FLO ID, Verify signature.
+                </p>
+            </div>
+            <sm-menu align-options="right">
+                <a href="#opver" class="option"><menu-option>Verify Private key</menu-option></a>
+                <a href="#opvalidate" class="option"><menu-option>Validate FLo ID</menu-option> </a>
+                <a href="#opversign" class="option"><menu-option>Verify Signature</menu-option></a> 
+            </sm-menu>
+        </div>
+        <sm-carousel>
+            <div class="card">
+                <a href="#opver" class="option"> <h3>Verify Private Key</h3></a>
+                 <p>
+                     To Verify Private key using Public key or FLO Id.
+                 </p>
+             </div>
+             <div class="card">
+                <a href="#opvalidate" class="option"><h3>Validate FLO ID</h3></a> 
+                 <p>
+                     To Validate FLO ID is correct or not.
+                 </p>
+             </div>
+             <div class="card">
+                <a href="#opversign" class="option"><h3>Verify Signature</h3></a> 
+                 <p>
+                     To Verify Signature using the Public key.
+                 </p>
+             </div>
+        </sm-carousel>
+
+<!--verify private key-->
+<div id="opver">
+    <h3>Verify Private key</h3>
+    <p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.<br>
+    <a onclick="ppp('verpop')">Read more>>></a></p>
+    <sm-popup id="verpop"><br>
+        <h3>Verify Private key</h3>
+    <br><br>
+    <ul >
+    <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
+    <li>privateKey - private key in WIF format (Hex)</li>
+    <li>pubKey_floID - public Key or flo ID</li>
+    <li>isfloID - boolean value (true: compare as flo ID, false: compare as public key) (optional, default is true)</li>
+    <li>Returns : boolen (true or false)</li>
+    </ul><br><br></sm-popup>
+    <div>
+    <sm-form align="center">
+        <div>    
+      <sm-input id="privatek" variant="outlined" placeholder="Enter the Private key"  animate > </sm-input><br>
+      <sm-input id="keey" variant="outlined" placeholder="Enter Public key or FLO ID"  animate > </sm-input><br>
+    <sm-button variant="primary" onclick="verifyprivatekey()"  style="margin-left: 5%;width: 30%;">VERIFY</sm-button><br><br>
+    </sm-form>
+    <div id="verify" class="innerhtml"></div>
+    </div>
+    </div>
+<!--end of verify private key-->
+
+<!--validate flo id-->
+<div id="opvalidate">
+    <h3>Validate FLO Id</h3>
+    <p>To Validate FLO ID click on, <b>VALIDATE </b>button.<br>
+    <a onclick="ppp('valpop')">Read more>>></a></p>
+    <sm-popup id="valpop">
+        <h3>Validate FLO Id</h3>
+    <ul >
+      <li>validateAddr check if the given Address is valid or not</li> 
+
+      <li>floID - flo ID to validate</li> 
+        <li>Returns : boolen (true or false)</li> 
+    </ul><br><br></sm-popup>
+    <div>
+        <sm-form align="center">
+            <div>
+                <sm-input id="flo1" variant="outlined" placeholder="Enter FLO ID" animate></sm-input><br>
+                <sm-button variant="primary" onclick="validateflo()"   style="margin-left: 5%;width: 30%;">VALIDATE</sm-button><br><br>
+        </sm-form>
+        <div id="write1" class="innerhtml"></div><br>
+    </div>
+</div>
+<!--end of validate flo id-->
+<!--Verify signature-->
+<div id="opversign">
+    <h3>Verify Signature</h3>
+    <p>To Verify Signature ,click on <b>VERIFY </b>button.<br>
+    <a onclick="ppp('verifypop')">Read more>>></a></p>
+    <sm-popup id="verifypop">
+        <h3>Verify Signature</h3><br><br>
+    <ul>
+        <li>verifySign verifies signatue of the data using public-key</li>
+
+            <li>data - data of the given signature</li>
+                <li>signature - signature of the data</li>
+                    <li>publicKey - public key of the signer</li>
+                        <li>Returns : boolen (true or false) </li>
+    </ul><br><br></sm-popup>
+
+   
+<div >
+            <sm-form align="center">
+            <div >
+            <sm-input id="d" variant="outlined" placeholder="Enter the data"  animate > </sm-input><br>
+            <sm-input id="s" variant="outlined" placeholder="Enter the Signature"  animate > </sm-input><br>
+
+            <sm-input id="p" variant="outlined" placeholder="Enter Public key"  animate > </sm-input><br>
+            
+            <sm-button variant="primary" onclick="verification()" style="margin-left: 5%;width: 30%;">VERIFY</sm-button><br><br>
+            </sm-form>
+            <div class="innerhtml">
+            <div id="v1"></div>
+            </div>
+</div>
+</div>
+<!--end of Verify signature-->
     </section>
+    <section class="section">
+        <div class="section__header">
+            <div class="grid">
+                <h3>Shamir's Secret</h3>
+                <p>
+                    In this page we have Create , Retrieve and verify Shamir's Secret shares.
+                </p>
+            </div>
+            <sm-menu align-options="right">
+              <a href="#opcr" class="option"><menu-option>Create</menu-option></a>  
+              <a href="#oprr" class="option"><menu-option>Retrieve</menu-option></a>  
+              <a href="#opvr" class="option"><menu-option>Verify</menu-option></a>  
+            </sm-menu>
+        </div>
+        <sm-carousel>
+            <div class="card">
+                <a href="#opcr" class="option">  <h3>Create Shamir's Secret Shares</h3></a>
+                <p>
+                   To Create Shamir's Secret Shares By providing the number of shares and threshold limit.
+                </p>
+            </div>
+            <div class="card">
+                <a href="#oprr" class="option">  <h3>Retrieve Shamir's Secret</h3></a>
+                <p>
+                    To retrieve Shamir's secret by providing Shares created.
+            </div>
+            <div class="card">
+                <a href="#opvr" class="option"> <h3>Verify shamir's Secret</h3></a>
+                <p>
+                    To Verify Shamirs Secret shares by providing the shares and the original strig.
+                </p>
+            </div>
+           <!-- <div class="card">
+                <h3>Card</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, officia.
+                </p>
+            </div>-->
+        </sm-carousel><br><br>
+
+        <!--Create Shamir's Secret shares-->
+<div id="opcr">
+<h3>Create Shamir's Secret shares</h3>
+<p>To Create Shamir's Secret click on, <b>CREATE</b> button.<br>
+<a onclick="ppp('shampop')">Read more>></a></p>
+<sm-popup id="shampop">
+<h3>Create Shamir's Secret shares</h3><br><br>
+<ul>
+ <li>str - string to be split</li>   
+ <li>total_shares - total number of shares to be split into</li>   
+<li>threshold_limit - minimum number of shares required to reconstruct the secret str</li>   
+<li>Returns : Shares (Array of string)</li>   
+</ul><br><br></sm-popup>
+<div >
+    <sm-form align="center">
+        <div >
+        <sm-input id="shdata" variant="outlined" placeholder="Enter string to split" animate></sm-input><br>
+        <sm-input id="shshare" variant="outlined" placeholder="Enter number of shares" animate></sm-input><br>
+        <sm-input id="shnumber" variant="outlined" placeholder="Enter the threshold_limit" animate></sm-input><br>
+        <sm-button variant="primary" onclick="createshare()" style="margin-left: 5%;width: 30%;">CREATE</sm-button><br><br>
+    </sm-form>
+    <div class="innerhtml">
+        <div id="write2"></div>
+        <div id="write3"></div>
+        <div id="write4"></div>
+    </div>
+</div>
+</div>
+<!--end of Create Shamir's Secret shares-->
+
+<!--Retrieve Shamir's Secret-->
+<div id="oprr">
+<h3>Retrieve Shamir's Secret</h3>
+<p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.<br>
+<a onclick="ppp('retpop')">Read more>></a></p>
+<sm-popup id="retpop">
+<h3>Retrieve Shamir's Secret</h3><br><br>
+<ul >
+    <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
+
+        <li> sharesArray - Array of shares</li>
+            <li>Returns : retrivedData (String)</li>
+
+</ul><br><br></sm-popup>
+<div >
+    <sm-form align="center"><br><br>
+        <div>
+        <sm-input id="ar1" variant="outlined" placeholder="Enter array shares" animate></sm-input><br>
+        <sm-button variant="primary" onclick="button()" style="margin-left: 5%;width: 30%;" >PUSH</sm-button><br><br>
+        <sm-button variant="primary" onclick="retrievesecret()" style="margin-left: 5%;width: 30%;">RETRIEVE</sm-button>
+        <sm-button  variant="outlined" onclick="resetbtn()" style="margin-left: 5%;width: 30%;">RESET</sm-button>
+        <br><br>
+    </sm-form>
+    <div class="innerhtml">
+
+    <div id="write11"></div>
+</div></div>
+</div>
+<!-- end of Retrieve Shamir's Secret-->
+
+<!--Verify Shamir's Secret-->
+<div id="opvr">
+<h3>Verify Shamir's Secret</h3>
+<p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.<br>
+<a onclick="ppp('veripop')">Read more>></a></p>
+<sm-popup id="veripop">
+<h3>Verify Shamir's Secret</h3><br><br>
+<ul>
+    <li>verifyShamirsSecret verfies the validity of the created shares.</li>
+
+        <li>sharesArray - Array of shares</li>
+        <li>str - originalData (string).</li>
+        <li>Returns : boolen (true or false)</li>
+
+</ul><br><br></sm-popup>
+<div>
+    <sm-form align="center">
+        <div>
+        <sm-input id="ar9" variant="outlined" placeholder="Enter array of shares" animate></sm-input><br>
+        <sm-button variant="primary"  onclick="button1()" style="margin-left: 5%;width: 30%;">PUSH</sm-button><br><br>
+        <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input><br><br>
+        <sm-button variant="primary" onclick="verifysecret()" style="margin-left: 5%;width: 30%;">VERIFY</sm-button>
+        <sm-button  variant="outlined" onclick="resetbtn1()" style="margin-left: 5%;width: 30%;">RESET</sm-button>
+    </sm-form>
+    <div class="innerhtml">
+        <div id="write21"></div>
+    </div>
+</div>
+</div>
+<!--end of Verify Shamir's Secret-->
+    </section>
+    <section class="section">
+        <div class="section__header">
+            <div class="grid">
+                <h3>Encrypt&Decrypt</h3>
+                <p>
+                    In this page we have,Encryption and Decryption of data.
+                </p>
+            </div>
+            <sm-menu align-options="right">
+             <a href="#openc" class="option"> <menu-option>Encrypt</menu-option></a>  
+               <a href="#opdec" class="option"> <menu-option>Decrypt</menu-option></a>  
+            </sm-menu>
+        </div>
+        <sm-carousel>
+            <div class="card">
+                <a href="#openc" class="option">  <h3>Encrypt Data</h3></a>
+                <p>
+                   To Encrypt the data using Public key.
+                </p>
+            </div>
+            <div class="card">
+                <a href="#opdec" class="option">  <h3>Decrypt Data</h3></a>
+                <p>
+                    To Decrypt the data using Private key.
+                </p>
+            </div>
+        </sm-carousel>
+
+<!--encrypt and decrypt-->
+<br><br>
+<div id="openc">
+    <h3>Data Encryption </h3>
+    <p>To Encrypt the data, click on <b>ENCRYPT</b> button.<br>
+    <a onclick="ppp('encpop')">Read more>>></a></p>
+    <sm-popup id="encpop">
+    <h3>Data Encryption </h3><br><br>
+    <ul>
+        <li>encryptData encrypts the given data using public-key</li>
+         <li>data - data to encrypt (String)</li>
+        <li>publicKey - public key of the recipient</li>
+        <li>Returns : Encrypted data (Object)</li>
+        </ul><br><br>
+    </sm-popup>
+
+        <div>
+            <sm-form align="center">
+                <div>
+                <sm-input id="t1" variant="outlined" placeholder="Enter data" animate></sm-input><br>
+                <sm-input id="t2" variant="outlined" placeholder="Enter public key" animate></sm-input><br>
+                <sm-button variant="primary" onclick="crypto()"  style="margin-left: 5%;width: 30%;">ENCRYPT</sm-button><br>               
+            </sm-form>
+           <div id="bg1">
+            <div id="w1" class="innerhtml"></div>
+            <div id="w2" class="innerhtml"></div>
+            <div id="w3" class="innerhtml"></div>
+        </div>
+        </div>
+
+</div>
+</div>
+<!--end of encrypt data-->
+
+<!--decrypr data-->
+<div id="opdec">
+    <h3>Decrypt Data</h3>
+    <p>To Decrypt data click on, <b>DECRYPT</b> button.<br>
+    <a onclick="ppp('decpop')">Read more>>></a> </p>
+    <sm-popup id="decpop">
+    <h3>Decrypt Data</h3><br><br>
+    <ul >
+        <li>decryptData decrypts the given data using private-key</li>
+    
+            <li>data - encrypted data to decrypt (Object that was returned from encryptData)</li>
+                <li>privateKey - private key of the recipient</li>
+                    <li>Returns : Decrypted Data (String)</li>
+    </ul><br><br></sm-popup>
+    <div>
+    <sm-form align="center">
+        <div >    
+        <sm-input id="t8" variant="outlined" placeholder="enter encrypted data" animate></sm-input><br>
+    
+        <sm-input id="t6" variant="outlined" placeholder=" Enter Xvalue" animate></sm-input><br>
+        <sm-input id="t7" variant="outlined" placeholder=" Enter Yvalue" animate></sm-input><br>
+        <sm-input id="t3" variant="outlined" placeholder="Enter private key" animate></sm-input><br>
+    
+                         <sm-button variant="primary" onclick="crypto1()" style="margin-left: 5%;width: 30%;"> Decrypt</sm-button><br><br>
+        
+    </sm-form>
+    <div class="innerhtml">
+        <div id="q2"></div>
+        </div>
+    </div>
+    
+    </div>
+    <!--end of decryprt data-->
+    </section>
+
 
 
         </sm-tab-panels>
