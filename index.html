@@ -72,7 +72,7 @@
                             Generate random string.
                         </p>
                     </div>
-                    <sm-menu align-options="right">
+                   <!-- <sm-menu align-options="right">
                        <a href="#calcu" class="option"><menu-option >Calculate FLO ID</menu-option></a>
                        <a href="#gengen"  class="option"><menu-option >Generate FLO ID</menu-option></a>
                       <a href="#oppub" class="option"> <menu-option>Public key</menu-option></a>
@@ -80,7 +80,7 @@
                       <a href="#opstr" class="option"><menu-option>Random string</menu-option></a>
                       <a href="#opsignature" class="option"><menu-option>Sign data</menu-option></a>
 
-                    </sm-menu>
+                    </sm-menu>-->
                 </div>
                 <sm-carousel>
                     <div class="card">
@@ -125,14 +125,15 @@
 <div id="gengen"><br>
     <h3>Generate new FLO ID:</h3><br>
     <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.<br>
-  <a onclick="ppp('my_popup')">Read more>>></a></p>
+  <a onclick="ppp('my_popup')" class="readmore" id="readmore">Read more>>></a></p>
+  <div id="popupp">
  <sm-popup id="my_popup">
  <h3>Generate new FLO ID:</h3><br>
   <ul >
 <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>                                  
  <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
   </ul>
-  </sm-popup>
+  </sm-popup></div>
 <div class="sendapplicationdata">
 <sm-form align="center" >
 <sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br>
@@ -151,7 +152,7 @@
 <div id="calcu">
    <h3>Calculate FLO ID</h3>
     <p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.<br>
-    <a onclick="ppp('clacpop')">Read more>>></a></p>
+    <a onclick="ppp('clacpop')"  class="readmore">Read more>>></a></p>
     <sm-popup id="clacpop">
     <h3>Calculate FLO ID</h3><br>
     <ul>
@@ -161,20 +162,19 @@
     </ul><br><br></sm-popup>
 <div>
 <sm-form align="center">
-<sm-input id="key" variant="outlined" placeholder="Enter Private or Public key"  animate > </sm-input><br>
+<sm-input id="key" variant="outlined" placeholder="Enter Private or Public key" class="inp" animate > </sm-input><br>
 <sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br>
 </sm-form>
 <div id="floo" class="innerhtml"></div>
 </div>
 </div>
-
 <!--end of calculate flo id-->
 
 <!--calculate public key hex-->
   <div id="oppub">
     <h3>Calculate Public Key HEX</h3>
     <p>To get the Public key using your Private key, click the <b>CALCULATE</b> button. <br>
-    <a onclick="ppp('pubpop')">Read more>>></a> </p>
+    <a onclick="ppp('pubpop')"  class="readmore">Read more>>></a> </p>
     
     <sm-popup id="pubpop" >
         <h3>Calculate Public Key HEX</h3><br>
@@ -195,20 +195,20 @@
     </div>
 <!--end of calculate public key hex-->
 
-<!--Generate Random Interger-->
+<!--Generate Random Integer-->
 <div id="opint">
-    <h3>Generate Random Interger</h3>
+    <h3>Generate Random Integer</h3>
     <p>To Generate Random integer click on, <b>GENERATE </b>button.<br>
-    <a onclick="ppp('genpop')">Read more>>></a></p>
+    <a onclick="ppp('genpop')"  class="readmore">Read more>>></a></p>
     <sm-popup id="genpop">
-    <h3>Generate Random Interger</h3>
+    <h3>Generate Random Integer</h3>
     <br><br>
     <ul>
-       <li>randInt returns a randomly generated interger in a given range.</li> 
+       <li>randInt returns a randomly generated integer in a given range.</li> 
 
        <li>min - minimum value of the range</li> 
         <li>max - maximum value of the range</li> 
-            <li>Returns : randomNum (Interger)</li> 
+            <li>Returns : randomNum (Integer)</li> 
 
     </ul><br><br></sm-popup>
     <div><br><br>
@@ -222,14 +222,14 @@
         <div id="write41" class="innerhtml"></div>
     </div>
 </div>
-<!--end of Generate Random Interger-->
+<!--end of Generate Random Integer-->
 
 <!--Generate Random String-->
 <div id="opstr">
     <h3>Generate Random String</h3>
     <p>To Generate Random string click on, <b>GENERATE</b> button.<br>
 
-    <a onclick="ppp('strpop')">Read more>></a></p>
+    <a onclick="ppp('strpop')"  class="readmore">Read more>>></a></p>
     <sm-popup id="strpop">
     <h3>Generate Random String</h3><br><br>
     <ul>
@@ -259,7 +259,7 @@
 <div id="opsignature"><br>
             <h3>Sign Data</h3>
             <p>To Sign the data, click on <b>SIGN</b> button.<br>
-            <a onclick="ppp('signpop')">Read more>>></a></p>
+            <a onclick="ppp('signpop')"  class="readmore">Read more>>></a></p>
             <sm-popup id="signpop">
                 <h3>Sign Data</h3><br>
             <ul>
@@ -294,11 +294,11 @@
                     In this page we have,Verify Private key, Validate FLO ID, Verify signature.
                 </p>
             </div>
-            <sm-menu align-options="right">
+         <!--   <sm-menu align-options="right">
                 <a href="#opver" class="option"><menu-option>Verify Private key</menu-option></a>
                 <a href="#opvalidate" class="option"><menu-option>Validate FLo ID</menu-option> </a>
                 <a href="#opversign" class="option"><menu-option>Verify Signature</menu-option></a> 
-            </sm-menu>
+            </sm-menu>-->
         </div>
         <sm-carousel>
             <div class="card">
@@ -325,7 +325,7 @@
 <div id="opver">
     <h3>Verify Private key</h3>
     <p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.<br>
-    <a onclick="ppp('verpop')">Read more>>></a></p>
+    <a onclick="ppp('verpop')"  class="readmore">Read more>>></a></p>
     <sm-popup id="verpop"><br>
         <h3>Verify Private key</h3>
     <br><br>
@@ -352,7 +352,7 @@
 <div id="opvalidate">
     <h3>Validate FLO Id</h3>
     <p>To Validate FLO ID click on, <b>VALIDATE </b>button.<br>
-    <a onclick="ppp('valpop')">Read more>>></a></p>
+    <a onclick="ppp('valpop')"  class="readmore">Read more>>></a></p>
     <sm-popup id="valpop">
         <h3>Validate FLO Id</h3>
     <ul >
@@ -375,7 +375,7 @@
 <div id="opversign">
     <h3>Verify Signature</h3>
     <p>To Verify Signature ,click on <b>VERIFY </b>button.<br>
-    <a onclick="ppp('verifypop')">Read more>>></a></p>
+    <a onclick="ppp('verifypop')"  class="readmore">Read more>>></a></p>
     <sm-popup id="verifypop">
         <h3>Verify Signature</h3><br><br>
     <ul>
@@ -413,11 +413,11 @@
                     In this page we have Create , Retrieve and verify Shamir's Secret shares.
                 </p>
             </div>
-            <sm-menu align-options="right">
+           <!-- <sm-menu align-options="right">
               <a href="#opcr" class="option"><menu-option>Create</menu-option></a>  
               <a href="#oprr" class="option"><menu-option>Retrieve</menu-option></a>  
               <a href="#opvr" class="option"><menu-option>Verify</menu-option></a>  
-            </sm-menu>
+            </sm-menu>-->
         </div>
         <sm-carousel>
             <div class="card">
@@ -449,7 +449,7 @@
 <div id="opcr">
 <h3>Create Shamir's Secret shares</h3>
 <p>To Create Shamir's Secret click on, <b>CREATE</b> button.<br>
-<a onclick="ppp('shampop')">Read more>></a></p>
+<a onclick="ppp('shampop')"  class="readmore">Read more> >></a></p>
 <sm-popup id="shampop">
 <h3>Create Shamir's Secret shares</h3><br><br>
 <ul>
@@ -479,7 +479,7 @@
 <div id="oprr">
 <h3>Retrieve Shamir's Secret</h3>
 <p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.<br>
-<a onclick="ppp('retpop')">Read more>></a></p>
+<a onclick="ppp('retpop')"  class="readmore">Read more>>></a></p>
 <sm-popup id="retpop">
 <h3>Retrieve Shamir's Secret</h3><br><br>
 <ul >
@@ -509,7 +509,7 @@
 <div id="opvr">
 <h3>Verify Shamir's Secret</h3>
 <p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.<br>
-<a onclick="ppp('veripop')">Read more>></a></p>
+<a onclick="ppp('veripop')"  class="readmore">Read more>>></a></p>
 <sm-popup id="veripop">
 <h3>Verify Shamir's Secret</h3><br><br>
 <ul>
@@ -544,10 +544,10 @@
                     In this page we have,Encryption and Decryption of data.
                 </p>
             </div>
-            <sm-menu align-options="right">
+           <!-- <sm-menu align-options="right">
              <a href="#openc" class="option"> <menu-option>Encrypt</menu-option></a>  
                <a href="#opdec" class="option"> <menu-option>Decrypt</menu-option></a>  
-            </sm-menu>
+            </sm-menu>-->
         </div>
         <sm-carousel>
             <div class="card">
@@ -569,7 +569,7 @@
 <div id="openc">
     <h3>Data Encryption </h3>
     <p>To Encrypt the data, click on <b>ENCRYPT</b> button.<br>
-    <a onclick="ppp('encpop')">Read more>>></a></p>
+    <a onclick="ppp('encpop')" class="readmore">Read more>>></a></p>
     <sm-popup id="encpop">
     <h3>Data Encryption </h3><br><br>
     <ul>
@@ -602,7 +602,7 @@
 <div id="opdec">
     <h3>Decrypt Data</h3>
     <p>To Decrypt data click on, <b>DECRYPT</b> button.<br>
-    <a onclick="ppp('decpop')">Read more>>></a> </p>
+    <a onclick="ppp('decpop')" class="readmore">Read more>>></a> </p>
     <sm-popup id="decpop">
     <h3>Decrypt Data</h3><br><br>
     <ul >

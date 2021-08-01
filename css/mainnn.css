@@ -22,7 +22,6 @@ h3{text-decoration:underline;}
     margin-left:10px;
     margin-right: 10px;
     margin-bottom:20px;
-    background-color: blanchedalmond;
     }
 
 sm-button{
@@ -31,22 +30,17 @@ sm-button{
 }
 
 sm-input{
-    width: 50%; 
-    margin-left: 25%;
-    contain:content;
-
+contain:content;
 }
 
 sm-popup
-{
+{  
     font-family: sans-serif;
     font-style: italic;
-
 }
-a{cursor: pointer;
+.readmore{cursor: pointer;
 color: blueviolet;
 text-decoration: underline;
 }
 ul{margin-left: 20px;
 }
-.option{color:rgb(85, 59, 59);text-decoration: none;}

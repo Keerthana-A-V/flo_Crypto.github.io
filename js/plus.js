@@ -259,18 +259,8 @@
             newdiv.value=obs;
             id.appendChild(newdiv);          }
 
-          function ppp(id)
+         function ppp(id)
           {
-              const mypop=document.getElementById(id);
-              mypop.show();
+            const mypop=document.getElementById(id);
+            mypop.show();
           }
-
-
-
-
-
-
-
-
-
-  
