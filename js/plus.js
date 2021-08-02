@@ -257,9 +257,10 @@
             var id=document.querySelector("#q2");
             var newdiv= document.createElement('sm-copy')
             newdiv.value=obs;
-            id.appendChild(newdiv);          }
+            id.appendChild(newdiv);          
+          }
 
-         function ppp(id)
+          function ppp(id)
           {
             const mypop=document.getElementById(id);
             mypop.show();

@@ -37,6 +37,7 @@ sm-popup
 {  
     font-family: sans-serif;
     font-style: italic;
+    scroll-behavior: smooth;
 }
 .readmore{cursor: pointer;
 color: blueviolet;

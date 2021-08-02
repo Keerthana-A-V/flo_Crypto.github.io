@@ -121,19 +121,20 @@
                      </div>
                 </sm-carousel>
 
+        
 <!--generate new flo id-->
 <div id="gengen"><br>
     <h3>Generate new FLO ID:</h3><br>
     <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.<br>
   <a onclick="ppp('my_popup')" class="readmore" id="readmore">Read more>>></a></p>
-  <div id="popupp">
+
  <sm-popup id="my_popup">
  <h3>Generate new FLO ID:</h3><br>
   <ul >
 <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>                                  
  <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
   </ul>
-  </sm-popup></div>
+  </sm-popup>
 <div class="sendapplicationdata">
 <sm-form align="center" >
 <sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br>
@@ -319,54 +320,57 @@
                      To Verify Signature using the Public key.
                  </p>
              </div>
-        </sm-carousel>
+        </sm-carousel><br>
 
 <!--verify private key-->
 <div id="opver">
     <h3>Verify Private key</h3>
     <p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.<br>
-    <a onclick="ppp('verpop')"  class="readmore">Read more>>></a></p>
-    <sm-popup id="verpop"><br>
+        <a onclick="ppp('verpop')" class="readmore">Read more>>></a></p>
+<sm-popup id='verpopup'><br>
         <h3>Verify Private key</h3>
     <br><br>
-    <ul >
+    <ul>
     <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
     <li>privateKey - private key in WIF format (Hex)</li>
     <li>pubKey_floID - public Key or flo ID</li>
     <li>isfloID - boolean value (true: compare as flo ID, false: compare as public key) (optional, default is true)</li>
-    <li>Returns : boolen (true or false)</li>
-    </ul><br><br></sm-popup>
-    <div>
+    <li>Returns : boolen (true or false)</li><br><br>
+    </ul>
+</sm-popup>
+<div>
     <sm-form align="center">
-        <div>    
+<div>
       <sm-input id="privatek" variant="outlined" placeholder="Enter the Private key"  animate > </sm-input><br>
       <sm-input id="keey" variant="outlined" placeholder="Enter Public key or FLO ID"  animate > </sm-input><br>
-    <sm-button variant="primary" onclick="verifyprivatekey()"  style="margin-left: 5%;width: 30%;">VERIFY</sm-button><br><br>
+      <sm-button variant="primary" onclick="verifyprivatekey()"  style="margin-left: 5%;width: 30%;">VERIFY</sm-button><br><br>
+</div>
     </sm-form>
-    <div id="verify" class="innerhtml"></div>
-    </div>
-    </div>
+     <div id="verify" class="innerhtml"></div>
+</div>
+</div>
 <!--end of verify private key-->
 
 <!--validate flo id-->
 <div id="opvalidate">
     <h3>Validate FLO Id</h3>
     <p>To Validate FLO ID click on, <b>VALIDATE </b>button.<br>
-    <a onclick="ppp('valpop')"  class="readmore">Read more>>></a></p>
-    <sm-popup id="valpop">
-        <h3>Validate FLO Id</h3>
+<a class="readmore" onclick="ppp('valpopup')" >Read more>>></a> </p>
+   <sm-popup id="valpopup">
+        <h3>Validate FLO Id</h3><br><br>
     <ul >
       <li>validateAddr check if the given Address is valid or not</li> 
 
       <li>floID - flo ID to validate</li> 
-        <li>Returns : boolen (true or false)</li> 
-    </ul><br><br></sm-popup>
+        <li>Returns : boolen (true or false)</li> <br><br>
+    </ul></sm-popup>
     <div>
         <sm-form align="center">
             <div>
                 <sm-input id="flo1" variant="outlined" placeholder="Enter FLO ID" animate></sm-input><br>
                 <sm-button variant="primary" onclick="validateflo()"   style="margin-left: 5%;width: 30%;">VALIDATE</sm-button><br><br>
-        </sm-form>
+            </div>
+            </sm-form>
         <div id="write1" class="innerhtml"></div><br>
     </div>
 </div>
@@ -375,8 +379,8 @@
 <div id="opversign">
     <h3>Verify Signature</h3>
     <p>To Verify Signature ,click on <b>VERIFY </b>button.<br>
-    <a onclick="ppp('verifypop')"  class="readmore">Read more>>></a></p>
-    <sm-popup id="verifypop">
+    <a onclick="ppp('verifypopup')"  class="readmore"> Read more>>></a></p>
+    <sm-popup id="verifypopup">
         <h3>Verify Signature</h3><br><br>
     <ul>
         <li>verifySign verifies signatue of the data using public-key</li>
@@ -386,18 +390,15 @@
                     <li>publicKey - public key of the signer</li>
                         <li>Returns : boolen (true or false) </li>
     </ul><br><br></sm-popup>
-
-   
 <div >
             <sm-form align="center">
             <div >
             <sm-input id="d" variant="outlined" placeholder="Enter the data"  animate > </sm-input><br>
             <sm-input id="s" variant="outlined" placeholder="Enter the Signature"  animate > </sm-input><br>
-
-            <sm-input id="p" variant="outlined" placeholder="Enter Public key"  animate > </sm-input><br>
-            
+            <sm-input id="p" variant="outlined" placeholder="Enter Public key"  animate > </sm-input><br>            
             <sm-button variant="primary" onclick="verification()" style="margin-left: 5%;width: 30%;">VERIFY</sm-button><br><br>
-            </sm-form>
+           </div>
+         </sm-form>
             <div class="innerhtml">
             <div id="v1"></div>
             </div>
@@ -465,6 +466,7 @@
         <sm-input id="shshare" variant="outlined" placeholder="Enter number of shares" animate></sm-input><br>
         <sm-input id="shnumber" variant="outlined" placeholder="Enter the threshold_limit" animate></sm-input><br>
         <sm-button variant="primary" onclick="createshare()" style="margin-left: 5%;width: 30%;">CREATE</sm-button><br><br>
+        </div>
     </sm-form>
     <div class="innerhtml">
         <div id="write2"></div>
@@ -496,7 +498,7 @@
         <sm-button variant="primary" onclick="button()" style="margin-left: 5%;width: 30%;" >PUSH</sm-button><br><br>
         <sm-button variant="primary" onclick="retrievesecret()" style="margin-left: 5%;width: 30%;">RETRIEVE</sm-button>
         <sm-button  variant="outlined" onclick="resetbtn()" style="margin-left: 5%;width: 30%;">RESET</sm-button>
-        <br><br>
+        <br><br>    </div>
     </sm-form>
     <div class="innerhtml">
 
@@ -527,7 +529,7 @@
         <sm-button variant="primary"  onclick="button1()" style="margin-left: 5%;width: 30%;">PUSH</sm-button><br><br>
         <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input><br><br>
         <sm-button variant="primary" onclick="verifysecret()" style="margin-left: 5%;width: 30%;">VERIFY</sm-button>
-        <sm-button  variant="outlined" onclick="resetbtn1()" style="margin-left: 5%;width: 30%;">RESET</sm-button>
+        <sm-button  variant="outlined" onclick="resetbtn1()" style="margin-left: 5%;width: 30%;">RESET</sm-button></div>
     </sm-form>
     <div class="innerhtml">
         <div id="write21"></div>
@@ -619,11 +621,9 @@
     
         <sm-input id="t6" variant="outlined" placeholder=" Enter Xvalue" animate></sm-input><br>
         <sm-input id="t7" variant="outlined" placeholder=" Enter Yvalue" animate></sm-input><br>
-        <sm-input id="t3" variant="outlined" placeholder="Enter private key" animate></sm-input><br>
-    
-                         <sm-button variant="primary" onclick="crypto1()" style="margin-left: 5%;width: 30%;"> Decrypt</sm-button><br><br>
-        
-    </sm-form>
+        <sm-input id="t3" variant="outlined" placeholder="Enter private key" animate></sm-input><br>    
+        <sm-button variant="primary" onclick="crypto1()" style="margin-left: 5%;width: 30%;"> Decrypt</sm-button><br><br>        
+        </div> </sm-form>
     <div class="innerhtml">
         <div id="q2"></div>
         </div>
@@ -632,10 +632,7 @@
     </div>
     <!--end of decryprt data-->
     </section>
-
-
-
-        </sm-tab-panels>
+</sm-tab-panels>
     </article>
     <script src="js/main_UI.js"></script>
     <script src="js/components.min.js"></script>
