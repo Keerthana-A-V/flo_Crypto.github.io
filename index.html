@@ -40,6 +40,130 @@
             <sm-button variant="no-outline" class="submit-btn" type="submit">OK</button>
         </div>
     </sm-popup>
+    <sm-popup id='verpopup'><br>
+        <h3>Verify Private key</h3>
+    <br><br>
+    <ul>
+    <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
+    <li>privateKey - private key in WIF format (Hex)</li>
+    <li>pubKey_floID - public Key or flo ID</li>
+    <li>isfloID - boolean value (true: compare as flo ID, false: compare as public key) (optional, default is true)</li>
+    <li>Returns : boolen (true or false)</li><br><br>
+    </ul>
+    </sm-popup>
+    <sm-popup id="my_popup">
+        <h3>Generate new FLO ID:</h3><br>
+         <ul >
+       <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>                                  
+        <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
+         </ul>
+         </sm-popup>
+         <sm-popup id="clacpop">
+            <h3>Calculate FLO ID</h3><br>
+            <ul>
+            <li>getFloID returns flo-ID from given public-key (or) private-key</li>
+            <li>publickey_or_privateKey - public key or private key hex value</li>
+            <li>Returns : floID (string)</li>
+            </ul><br><br></sm-popup>
+            <sm-popup id="pubpop" >
+                <h3>Calculate Public Key HEX</h3><br>
+            <ul >
+            <li>getPubKeyHex returns public-key from given private-key</li>
+            
+            <li>privateKey - private key in WIF format (Hex)</li>
+            <li>Returns : pubKey (string)</li>
+            </ul>
+            <br><br></sm-popup>
+            <sm-popup id="genpop">
+                <h3>Generate Random Integer</h3>
+                <br><br>
+                <ul>
+                   <li>randInt returns a randomly generated integer in a given range.</li> 
+            
+                   <li>min - minimum value of the range</li> 
+                    <li>max - maximum value of the range</li> 
+                        <li>Returns : randomNum (Integer)</li> 
+            
+                </ul><br><br></sm-popup>
+                <sm-popup id="strpop">
+                    <h3>Generate Random String</h3><br><br>
+                    <ul>
+                    <li>randString returns a randomly generated string of given length.</li> 
+                
+                    <li>length - length of the string to be generated</li> 
+                        <li>alphaNumeric - boolean (true: generated string will only contain alphabets and digits,<br> false: generated string will also have symbols) (optional, default value is false)</li> 
+                            <li>Returns : randomString (String)</li> 
+                    </ul><br><br></sm-popup>  
+                    <sm-popup id="signpop">
+                        <h3>Sign Data</h3><br>
+                    <ul>
+                    <li>signData signs the data using the private key</li>           
+                    <li>data - data to sign</li>
+                    <li>privateKey - private key of the signer</li></ul>
+                    <br><br></sm-popup>                 
+    <sm-popup id="valpopup">
+        <h3>Validate FLO Id</h3><br><br>
+    <ul >
+      <li>validateAddr check if the given Address is valid or not</li> 
+    
+      <li>floID - flo ID to validate</li> 
+        <li>Returns : boolen (true or false)</li> <br><br>
+    </ul></sm-popup>
+    <sm-popup id="verifypopup">
+        <h3>Verify Signature</h3><br><br>
+    <ul>
+        <li>verifySign verifies signatue of the data using public-key</li>
+    
+            <li>data - data of the given signature</li>
+                <li>signature - signature of the data</li>
+                    <li>publicKey - public key of the signer</li>
+                        <li>Returns : boolen (true or false) </li>
+    </ul><br><br></sm-popup>
+    <sm-popup id="shampop">
+        <h3>Create Shamir's Secret shares</h3><br><br>
+        <ul>
+         <li>str - string to be split</li>   
+         <li>total_shares - total number of shares to be split into</li>   
+        <li>threshold_limit - minimum number of shares required to reconstruct the secret str</li>   
+        <li>Returns : Shares (Array of string)</li>   
+        </ul><br><br></sm-popup>
+        <sm-popup id="retpop">
+            <h3>Retrieve Shamir's Secret</h3><br><br>
+            <ul >
+                <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
+            
+                    <li> sharesArray - Array of shares</li>
+                        <li>Returns : retrivedData (String)</li>
+            
+            </ul><br><br></sm-popup>
+            <sm-popup id="veripop">
+                <h3>Verify Shamir's Secret</h3><br><br>
+                <ul>
+                    <li>verifyShamirsSecret verfies the validity of the created shares.</li>
+                
+                        <li>sharesArray - Array of shares</li>
+                        <li>str - originalData (string).</li>
+                        <li>Returns : boolen (true or false)</li>
+                
+                </ul><br><br></sm-popup>
+                <sm-popup id="encpop">
+                    <h3>Data Encryption </h3><br><br>
+                    <ul>
+                        <li>encryptData encrypts the given data using public-key</li>
+                         <li>data - data to encrypt (String)</li>
+                        <li>publicKey - public key of the recipient</li>
+                        <li>Returns : Encrypted data (Object)</li>
+                        </ul><br><br>
+                    </sm-popup>
+                    <sm-popup id="decpop">
+                        <h3>Decrypt Data</h3><br><br>
+                        <ul >
+                            <li>decryptData decrypts the given data using private-key</li>
+                        
+                                <li>data - encrypted data to decrypt (Object that was returned from encryptData)</li>
+                                    <li>privateKey - private key of the recipient</li>
+                                        <li>Returns : Decrypted Data (String)</li>
+                        </ul><br><br></sm-popup>                
     <article id="home" class="page">
         <header id="main_header" class="full-bleed">
             <div id="logo">
@@ -128,13 +252,7 @@
     <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.<br>
   <a onclick="ppp('my_popup')" class="readmore" id="readmore">Read more>>></a></p>
 
- <sm-popup id="my_popup">
- <h3>Generate new FLO ID:</h3><br>
-  <ul >
-<li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>                                  
- <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
-  </ul>
-  </sm-popup>
+
 <div class="sendapplicationdata">
 <sm-form align="center" >
 <sm-button variant="primary" onclick="generatefloid()" >GENERATE</sm-button><br>
@@ -154,13 +272,7 @@
    <h3>Calculate FLO ID</h3>
     <p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.<br>
     <a onclick="ppp('clacpop')"  class="readmore">Read more>>></a></p>
-    <sm-popup id="clacpop">
-    <h3>Calculate FLO ID</h3><br>
-    <ul>
-    <li>getFloID returns flo-ID from given public-key (or) private-key</li>
-    <li>publickey_or_privateKey - public key or private key hex value</li>
-    <li>Returns : floID (string)</li>
-    </ul><br><br></sm-popup>
+
 <div>
 <sm-form align="center">
 <sm-input id="key" variant="outlined" placeholder="Enter Private or Public key" class="inp" animate > </sm-input><br>
@@ -176,16 +288,6 @@
     <h3>Calculate Public Key HEX</h3>
     <p>To get the Public key using your Private key, click the <b>CALCULATE</b> button. <br>
     <a onclick="ppp('pubpop')"  class="readmore">Read more>>></a> </p>
-    
-    <sm-popup id="pubpop" >
-        <h3>Calculate Public Key HEX</h3><br>
-    <ul >
-    <li>getPubKeyHex returns public-key from given private-key</li>
-    
-    <li>privateKey - private key in WIF format (Hex)</li>
-    <li>Returns : pubKey (string)</li>
-    </ul>
-    <br><br></sm-popup>
     <div>
     <sm-form align="center" >
       <sm-input variant="outlined" id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br>
@@ -201,17 +303,7 @@
     <h3>Generate Random Integer</h3>
     <p>To Generate Random integer click on, <b>GENERATE </b>button.<br>
     <a onclick="ppp('genpop')"  class="readmore">Read more>>></a></p>
-    <sm-popup id="genpop">
-    <h3>Generate Random Integer</h3>
-    <br><br>
-    <ul>
-       <li>randInt returns a randomly generated integer in a given range.</li> 
 
-       <li>min - minimum value of the range</li> 
-        <li>max - maximum value of the range</li> 
-            <li>Returns : randomNum (Integer)</li> 
-
-    </ul><br><br></sm-popup>
     <div><br><br>
         <sm-form align="center">
             <div>
@@ -231,15 +323,7 @@
     <p>To Generate Random string click on, <b>GENERATE</b> button.<br>
 
     <a onclick="ppp('strpop')"  class="readmore">Read more>>></a></p>
-    <sm-popup id="strpop">
-    <h3>Generate Random String</h3><br><br>
-    <ul>
-    <li>randString returns a randomly generated string of given length.</li> 
 
-    <li>length - length of the string to be generated</li> 
-        <li>alphaNumeric - boolean (true: generated string will only contain alphabets and digits,<br> false: generated string will also have symbols) (optional, default value is false)</li> 
-            <li>Returns : randomString (String)</li> 
-    </ul><br><br></sm-popup>
     <div><br><br>
         <sm-form align="center">
             <div>
@@ -261,13 +345,7 @@
             <h3>Sign Data</h3>
             <p>To Sign the data, click on <b>SIGN</b> button.<br>
             <a onclick="ppp('signpop')"  class="readmore">Read more>>></a></p>
-            <sm-popup id="signpop">
-                <h3>Sign Data</h3><br>
-            <ul>
-            <li>signData signs the data using the private key</li>           
-            <li>data - data to sign</li>
-            <li>privateKey - private key of the signer</li></ul>
-            <br><br></sm-popup>
+
             <div>
             <sm-form align="center">
                 <div>    
@@ -327,17 +405,7 @@
     <h3>Verify Private key</h3>
     <p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.<br>
         <a onclick="ppp('verpop')" class="readmore">Read more>>></a></p>
-<sm-popup id='verpopup'><br>
-        <h3>Verify Private key</h3>
-    <br><br>
-    <ul>
-    <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
-    <li>privateKey - private key in WIF format (Hex)</li>
-    <li>pubKey_floID - public Key or flo ID</li>
-    <li>isfloID - boolean value (true: compare as flo ID, false: compare as public key) (optional, default is true)</li>
-    <li>Returns : boolen (true or false)</li><br><br>
-    </ul>
-</sm-popup>
+
 <div>
     <sm-form align="center">
 <div>
@@ -356,14 +424,6 @@
     <h3>Validate FLO Id</h3>
     <p>To Validate FLO ID click on, <b>VALIDATE </b>button.<br>
 <a class="readmore" onclick="ppp('valpopup')" >Read more>>></a> </p>
-   <sm-popup id="valpopup">
-        <h3>Validate FLO Id</h3><br><br>
-    <ul >
-      <li>validateAddr check if the given Address is valid or not</li> 
-
-      <li>floID - flo ID to validate</li> 
-        <li>Returns : boolen (true or false)</li> <br><br>
-    </ul></sm-popup>
     <div>
         <sm-form align="center">
             <div>
@@ -380,16 +440,6 @@
     <h3>Verify Signature</h3>
     <p>To Verify Signature ,click on <b>VERIFY </b>button.<br>
     <a onclick="ppp('verifypopup')"  class="readmore"> Read more>>></a></p>
-    <sm-popup id="verifypopup">
-        <h3>Verify Signature</h3><br><br>
-    <ul>
-        <li>verifySign verifies signatue of the data using public-key</li>
-
-            <li>data - data of the given signature</li>
-                <li>signature - signature of the data</li>
-                    <li>publicKey - public key of the signer</li>
-                        <li>Returns : boolen (true or false) </li>
-    </ul><br><br></sm-popup>
 <div >
             <sm-form align="center">
             <div >
@@ -451,14 +501,7 @@
 <h3>Create Shamir's Secret shares</h3>
 <p>To Create Shamir's Secret click on, <b>CREATE</b> button.<br>
 <a onclick="ppp('shampop')"  class="readmore">Read more> >></a></p>
-<sm-popup id="shampop">
-<h3>Create Shamir's Secret shares</h3><br><br>
-<ul>
- <li>str - string to be split</li>   
- <li>total_shares - total number of shares to be split into</li>   
-<li>threshold_limit - minimum number of shares required to reconstruct the secret str</li>   
-<li>Returns : Shares (Array of string)</li>   
-</ul><br><br></sm-popup>
+
 <div >
     <sm-form align="center">
         <div >
@@ -482,15 +525,7 @@
 <h3>Retrieve Shamir's Secret</h3>
 <p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.<br>
 <a onclick="ppp('retpop')"  class="readmore">Read more>>></a></p>
-<sm-popup id="retpop">
-<h3>Retrieve Shamir's Secret</h3><br><br>
-<ul >
-    <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
 
-        <li> sharesArray - Array of shares</li>
-            <li>Returns : retrivedData (String)</li>
-
-</ul><br><br></sm-popup>
 <div >
     <sm-form align="center"><br><br>
         <div>
@@ -512,16 +547,7 @@
 <h3>Verify Shamir's Secret</h3>
 <p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.<br>
 <a onclick="ppp('veripop')"  class="readmore">Read more>>></a></p>
-<sm-popup id="veripop">
-<h3>Verify Shamir's Secret</h3><br><br>
-<ul>
-    <li>verifyShamirsSecret verfies the validity of the created shares.</li>
 
-        <li>sharesArray - Array of shares</li>
-        <li>str - originalData (string).</li>
-        <li>Returns : boolen (true or false)</li>
-
-</ul><br><br></sm-popup>
 <div>
     <sm-form align="center">
         <div>
@@ -529,7 +555,7 @@
         <sm-button variant="primary"  onclick="button1()" style="margin-left: 5%;width: 30%;">PUSH</sm-button><br><br>
         <sm-input id="ar8" variant="outlined" placeholder="Enter original string" animate></sm-input><br><br>
         <sm-button variant="primary" onclick="verifysecret()" style="margin-left: 5%;width: 30%;">VERIFY</sm-button>
-        <sm-button  variant="outlined" onclick="resetbtn1()" style="margin-left: 5%;width: 30%;">RESET</sm-button></div>
+        <sm-button  variant="outlined" onclick="resetbtn1()" style="margin-left: 5%;width: 30%;">RESET</sm-button></div><br>
     </sm-form>
     <div class="innerhtml">
         <div id="write21"></div>
@@ -572,15 +598,7 @@
     <h3>Data Encryption </h3>
     <p>To Encrypt the data, click on <b>ENCRYPT</b> button.<br>
     <a onclick="ppp('encpop')" class="readmore">Read more>>></a></p>
-    <sm-popup id="encpop">
-    <h3>Data Encryption </h3><br><br>
-    <ul>
-        <li>encryptData encrypts the given data using public-key</li>
-         <li>data - data to encrypt (String)</li>
-        <li>publicKey - public key of the recipient</li>
-        <li>Returns : Encrypted data (Object)</li>
-        </ul><br><br>
-    </sm-popup>
+
 
         <div>
             <sm-form align="center">
@@ -605,15 +623,7 @@
     <h3>Decrypt Data</h3>
     <p>To Decrypt data click on, <b>DECRYPT</b> button.<br>
     <a onclick="ppp('decpop')" class="readmore">Read more>>></a> </p>
-    <sm-popup id="decpop">
-    <h3>Decrypt Data</h3><br><br>
-    <ul >
-        <li>decryptData decrypts the given data using private-key</li>
-    
-            <li>data - encrypted data to decrypt (Object that was returned from encryptData)</li>
-                <li>privateKey - private key of the recipient</li>
-                    <li>Returns : Decrypted Data (String)</li>
-    </ul><br><br></sm-popup>
+
     <div>
     <sm-form align="center">
         <div >    
