@@ -25,11 +25,13 @@ h3{text-decoration:underline;}
     }
 
 sm-button{
-    width: 30%;
+    width: 20%;
     margin-left: 40%;
 }
 
 sm-input{
+    width: 50%;
+    margin-left: 25%;
 contain:content;
 }
 
@@ -44,4 +46,21 @@ color: blueviolet;
 text-decoration: underline;
 }
 ul{margin-left: 20px;
+}
+
+@media screen and (min-width:200px) and (max-width:900px)
+{
+    sm-input{
+        width: 100%;
+        margin-left:0px;
+        display:block;
+    }
+}
+@media screen  and (max-width:480px)
+{
+    sm-button{
+        width:70%;
+        margin-left: 0px;
+        align-items: center;
+    }
 }
