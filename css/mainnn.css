@@ -42,12 +42,12 @@ sm-popup
     scroll-behavior: smooth;
 }
 .readmore{cursor: pointer;
-color: blueviolet;
+color:var(--accent-color);
 text-decoration: underline;
 }
 ul{margin-left: 20px;
 }
-
+.h53{font-weight: bold;}
 @media screen and (min-width:200px) and (max-width:900px)
 {
     sm-input{

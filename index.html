@@ -43,6 +43,7 @@
     <sm-popup id='verpopup'><br>
         <h3>Verify Private key</h3>
     <br><br>
+    <h4>Parameters:</h4><br>
     <ul>
     <li>verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
     <li>privateKey - private key in WIF format (Hex)</li>
@@ -53,6 +54,7 @@
     </sm-popup>
     <sm-popup id="my_popup">
         <h3>Generate new FLO ID:</h3><br>
+        <h4>Parameters:</h4><br>
          <ul >
        <li>generateNewID generates a new flo ID and returns private-key, public-key and floID</li>                                  
         <li>Returns : Object { privKey , pubKey, floID }</li><br><br>
@@ -60,6 +62,8 @@
          </sm-popup>
          <sm-popup id="clacpop">
             <h3>Calculate FLO ID</h3><br>
+            <h4>Parameters:</h4><br>
+
             <ul>
             <li>getFloID returns flo-ID from given public-key (or) private-key</li>
             <li>publickey_or_privateKey - public key or private key hex value</li>
@@ -67,6 +71,8 @@
             </ul><br><br></sm-popup>
             <sm-popup id="pubpop" >
                 <h3>Calculate Public Key HEX</h3><br>
+                <h4>Parameters:</h4><br>
+
             <ul >
             <li>getPubKeyHex returns public-key from given private-key</li>
             
@@ -77,6 +83,8 @@
             <sm-popup id="genpop">
                 <h3>Generate Random Integer</h3>
                 <br><br>
+                <h4>Parameters:</h4><br>
+
                 <ul>
                    <li>randInt returns a randomly generated integer in a given range.</li> 
             
@@ -84,18 +92,26 @@
                     <li>max - maximum value of the range</li> 
                         <li>Returns : randomNum (Integer)</li> 
             
-                </ul><br><br></sm-popup>
+                </ul><br><br>
+                   </sm-popup>
                 <sm-popup id="strpop">
                     <h3>Generate Random String</h3><br><br>
+                    <h4>Parameters:</h4><br>
+
                     <ul>
                     <li>randString returns a randomly generated string of given length.</li> 
                 
                     <li>length - length of the string to be generated</li> 
                         <li>alphaNumeric - boolean (true: generated string will only contain alphabets and digits,<br> false: generated string will also have symbols) (optional, default value is false)</li> 
                             <li>Returns : randomString (String)</li> 
-                    </ul><br><br></sm-popup>  
+                    </ul><br>
+                    <h4>Options:</h4>
+                    <p>Set "TRUE" if you wish to generate a alphanumeric string, Set "FALSE" if you wish to generate a string without numbers.</p>
+        <br><br></sm-popup>  
                     <sm-popup id="signpop">
                         <h3>Sign Data</h3><br>
+                        <h4>Parameters:</h4><br>
+
                     <ul>
                     <li>signData signs the data using the private key</li>           
                     <li>data - data to sign</li>
@@ -103,6 +119,8 @@
                     <br><br></sm-popup>    
     <sm-popup id="verpop">
         <h3>Verify Private Key</h3><br><br>
+        <h4>Parameters:</h4><br>
+
         <ul>
             <li>
                 verifyPrivKey verify the private-key for the given public-key or flo-ID</li>
@@ -115,6 +133,8 @@
     </sm-popup>             
     <sm-popup id="valpopup">
         <h3>Validate FLO Id</h3><br><br>
+        <h4>Parameters:</h4><br>
+
     <ul >
       <li>validateAddr check if the given Address is valid or not</li> 
     
@@ -123,6 +143,8 @@
     </ul></sm-popup>
     <sm-popup id="verifypopup">
         <h3>Verify Signature</h3><br><br>
+        <h4>Parameters:</h4><br>
+
     <ul>
         <li>verifySign verifies signatue of the data using public-key</li>
     
@@ -133,6 +155,8 @@
     </ul><br><br></sm-popup>
     <sm-popup id="shampop">
         <h3>Create Shamir's Secret shares</h3><br><br>
+        <h4>Parameters:</h4><br>
+
         <ul>
          <li>str - string to be split</li>   
          <li>total_shares - total number of shares to be split into</li>   
@@ -141,6 +165,8 @@
         </ul><br><br></sm-popup>
         <sm-popup id="retpop">
             <h3>Retrieve Shamir's Secret</h3><br><br>
+            <h4>Parameters:</h4><br>
+
             <ul >
                 <li>retrieveShamirSecret reconstructs the secret from the shares.</li>
             
@@ -150,6 +176,8 @@
             </ul><br><br></sm-popup>
             <sm-popup id="veripop">
                 <h3>Verify Shamir's Secret</h3><br><br>
+                <h4>Parameters:</h4><br>
+
                 <ul>
                     <li>verifyShamirsSecret verfies the validity of the created shares.</li>
                 
@@ -160,6 +188,8 @@
                 </ul><br><br></sm-popup>
                 <sm-popup id="encpop">
                     <h3>Data Encryption </h3><br><br>
+                    <h4>Parameters:</h4><br>
+
                     <ul>
                         <li>encryptData encrypts the given data using public-key</li>
                          <li>data - data to encrypt (String)</li>
@@ -169,6 +199,8 @@
                     </sm-popup>
                     <sm-popup id="decpop">
                         <h3>Decrypt Data</h3><br><br>
+                        <h4>Parameters:</h4><br>
+
                         <ul >
                             <li>decryptData decrypts the given data using private-key</li>
                         
@@ -260,8 +292,10 @@
 <!--generate new flo id-->
 <div id="gengen"><br>
     <h3>Generate new FLO ID:</h3><br>
-    <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.<br>
-  <a onclick="ppp('my_popup')" class="readmore" id="readmore">Read more>>></a></p>
+    <p>To generate new set of FLO ID, click the <b>GENERATE</b> button.<br></p>
+        <p><span class="h53">Syntax:</span> floCrypto.generateNewID()<br>
+
+  <a onclick="ppp('my_popup')" class="readmore" id="readmore">Read more about Generate new FLO ID>>></a></p>
 
 
 <div class="sendapplicationdata">
@@ -281,12 +315,13 @@
 <!--calculate flo id-->
 <div id="calcu">
    <h3>Calculate FLO ID</h3>
-    <p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.<br>
-    <a onclick="ppp('clacpop')"  class="readmore">Read more>>></a></p>
+    <p>To get FLO ID using your Private key or Public key,click on <b>CALCULATE</b> button.<br></p>
+    <p><span class="h53">Syntax:</span>  floCrypto.getFloID(publickey_or_privateKey)<br>
+            <a onclick="ppp('clacpop')"  class="readmore">Read more about Calculate FLO ID>>></a></p>
 
 <div>
 <sm-form align="center">
-<sm-input id="key" variant="outlined" placeholder="Enter Private or Public key" class="inp" animate > </sm-input><br>
+<sm-input id="key" variant="outlined" placeholder="Enter Private or Public key" class="inp" animate > </sm-input>
 <sm-button variant="primary" onclick="calcfloid()">CALCULATE</sm-button><br>
 </sm-form>
 <div id="floo" class="innerhtml"></div>
@@ -297,11 +332,12 @@
 <!--calculate public key hex-->
   <div id="oppub">
     <h3>Calculate Public Key HEX</h3>
-    <p>To get the Public key using your Private key, click the <b>CALCULATE</b> button. <br>
-    <a onclick="ppp('pubpop')"  class="readmore">Read more>>></a> </p>
+    <p>To get the Public key using your Private key, click the <b>CALCULATE</b> button. </p>
+        <p><span class="h53">Syntax:</span> floCrypto.getPubKeyHex(privateKey)<br>
+    <a onclick="ppp('pubpop')"  class="readmore">Read more about Calculate Public Key Hex>>></a> </p>
     <div>
     <sm-form align="center" >
-      <sm-input variant="outlined" id="idprivate" placeholder="Enter Private key"  animate > </sm-input><br>
+      <sm-input variant="outlined" id="idprivate" placeholder="Enter Private key"  animate > </sm-input>
      <sm-button variant="primary" onclick="publickeyhex()">CALCULATE</sm-button><br><br>
     </sm-form>
     <div id="publickeyhex" class="innerhtml" ></div>
@@ -312,14 +348,15 @@
 <!--Generate Random Integer-->
 <div id="opint">
     <h3>Generate Random Integer</h3>
-    <p>To Generate Random integer click on, <b>GENERATE </b>button.<br>
-    <a onclick="ppp('genpop')"  class="readmore">Read more>>></a></p>
+    <p>To Generate Random integer click on, <b>GENERATE </b>button.</p>
+    <p><span class="h53">Syntax:</span>  floCrypto.randInt(min, max) <br>
+    <a onclick="ppp('genpop')"  class="readmore">Read more about Generate Random Integer>>></a></p>
 
     <div><br><br>
         <sm-form align="center">
 
-            <sm-input id="genrandom1" variant="outlined" placeholder="Enter minimum value" animate></sm-input><br>
-            <sm-input id="genrandom2" variant="outlined" placeholder="Enter maximum value" animate></sm-input><br>
+            <sm-input id="genrandom1" variant="outlined" placeholder="Enter minimum value" animate></sm-input>
+            <sm-input id="genrandom2" variant="outlined" placeholder="Enter maximum value" animate></sm-input>
             <sm-button variant="primary" onclick="genrandomint()" >GENERATE</sm-button><br><br>
 
         </sm-form>
@@ -331,14 +368,15 @@
 <!--Generate Random String-->
 <div id="opstr">
     <h3>Generate Random String</h3>
-    <p>To Generate Random string click on, <b>GENERATE</b> button.<br>
+    <p>To Generate Random string click on, <b>GENERATE</b> button.</p>
+    <p><span class="h53">Synatx:</span> floCrypto.randString(length, alphaNumeric)<br>
 
-    <a onclick="ppp('strpop')"  class="readmore">Read more>>></a></p>
+    <a onclick="ppp('strpop')"  class="readmore">Read more about Generate Random String>>></a></p>
 
     <div><br><br>
         <sm-form align="center">
-            <sm-input id="randomstr" variant="outlined" placeholder="Enter the length" animate></sm-input><br>
-            <sm-input id="val3" variant="outlined" placeholder="Enter true or false for alphanumeric" animate></sm-input><br>
+            <sm-input id="randomstr" variant="outlined" placeholder="Enter the length" animate></sm-input>
+            <sm-input id="val3" variant="outlined" placeholder="Enter true or false for alphanumeric" animate></sm-input>
             <sm-button variant="primary" onclick="genrandomstr()" >GENERATE</sm-button><br><br>
         </sm-form>
         <div class="innerhtml">
@@ -353,13 +391,14 @@
 <!--sign data-->
 <div id="opsignature"><br>
             <h3>Sign Data</h3>
-            <p>To Sign the data, click on <b>SIGN</b> button.<br>
-            <a onclick="ppp('signpop')"  class="readmore">Read more>>></a></p>
+            <p>To Sign the data, click on <b>SIGN</b> button.</p>
+            <p><span class="h53">Syntax</span> floCrypto.signData(data, privateKey)  <br>          
+            <a onclick="ppp('signpop')"  class="readmore">Read more about Sign Data>>></a></p>
 
             <div>
             <sm-form align="center"> 
-              <sm-input id="msg5" variant="outlined" placeholder="Enter data to sign"  animate > </sm-input><br>
-              <sm-input id="type5" variant="outlined" placeholder="Enter Private Key"  animate > </sm-input><br>           
+              <sm-input id="msg5" variant="outlined" placeholder="Enter data to sign"  animate > </sm-input>
+              <sm-input id="type5" variant="outlined" placeholder="Enter Private Key"  animate > </sm-input>           
             <sm-button variant="primary" onclick="signdata()" >SIGN</sm-button><br><br>
             
             </sm-form>
@@ -411,8 +450,9 @@
 <!--verify private key-->
 <div id="opver">
     <h3>Verify Private key</h3>
-    <p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.<br>
-        <a onclick="ppp('verpop')" class="readmore">Read more>>></a></p>
+    <p>To verify the Private key using Public or FLO ID, click on <b>VERIFY</b> button.</p>
+    <p><span class="h53">Synatx:</span> floCrypto.verifyPrivKey(privateKey, pubKey_floID, *isfloID)<br>
+        <a onclick="ppp('verpop')" class="readmore">Read more about Verify Private Key>>></a></p>
 
 <div>
     <sm-form align="center">
@@ -428,8 +468,9 @@
 <!--validate flo id-->
 <div id="opvalidate">
     <h3>Validate FLO Id</h3>
-    <p>To Validate FLO ID click on, <b>VALIDATE </b>button.<br>
-<a class="readmore" onclick="ppp('valpopup')" >Read more>>></a> </p>
+    <p>To Validate FLO ID click on, <b>VALIDATE </b>button.</p>
+    <p><span class="h53">Syntax</span> floCrypto.validateAddr(floID)<br>
+<a class="readmore" onclick="ppp('valpopup')" >Read more about Validate FLO ID>>></a> </p>
     <div>
         <sm-form align="center">
                 <sm-input id="flo1" variant="outlined" placeholder="Enter FLO ID" animate></sm-input>
@@ -442,8 +483,9 @@
 <!--Verify signature-->
 <div id="opversign">
     <h3>Verify Signature</h3>
-    <p>To Verify Signature ,click on <b>VERIFY </b>button.<br>
-    <a onclick="ppp('verifypopup')"  class="readmore"> Read more>>></a></p>
+    <p>To Verify Signature ,click on <b>VERIFY </b>button.</p>
+    <p><span class="h53">Syntax:</span> floCrypto.verifySign(data, signature, publicKey)<br>
+    <a onclick="ppp('verifypopup')"  class="readmore"> Read more about Verify Signature>>></a></p>
 <div >
             <sm-form align="center">
             <sm-input id="d" variant="outlined" placeholder="Enter the data"  animate > </sm-input>
@@ -501,8 +543,9 @@
         <!--Create Shamir's Secret shares-->
 <div id="opcr">
 <h3>Create Shamir's Secret shares</h3>
-<p>To Create Shamir's Secret click on, <b>CREATE</b> button.<br>
-<a onclick="ppp('shampop')"  class="readmore">Read more> >></a></p>
+<p>To Create Shamir's Secret click on, <b>CREATE</b> button.</p>
+<p><span class="h53">Syntax:</span> floCrypto.createShamirsSecretShares(str, total_shares, threshold_limit)<br>
+<a onclick="ppp('shampop')"  class="readmore">Read more about Create Shamir's Secret>>></a></p>
 
 <div >
     <sm-form align="center">
@@ -523,8 +566,9 @@
 <!--Retrieve Shamir's Secret-->
 <div id="oprr">
 <h3>Retrieve Shamir's Secret</h3>
-<p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.<br>
-<a onclick="ppp('retpop')"  class="readmore">Read more>>></a></p>
+<p>To Retrieve Shamir's Secret shares click on, <b>RETRIEVE</b> button.</p>
+<p><span class="h53">Syntax:</span> floCrypto.retrieveShamirSecret(sharesArray)<br>
+<a onclick="ppp('retpop')"  class="readmore">Read more about Retrieve Shamir's Secret>>></a></p>
 
 <div >
     <sm-form align="center"><br><br>
@@ -544,8 +588,9 @@
 <!--Verify Shamir's Secret-->
 <div id="opvr">
 <h3>Verify Shamir's Secret</h3>
-<p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.<br>
-<a onclick="ppp('veripop')"  class="readmore">Read more>>></a></p>
+<p>To Verify Shamir's Secret shares click on, <b>VERIFY </b>button.</p>
+<p><span class="h53">Synatx</span> floCrypto.verifyShamirsSecret(sharesArray, str)<br>
+<a onclick="ppp('veripop')"  class="readmore">Read more about Verify Shamir's Secret>>></a></p>
 
 <div>
     <sm-form align="center">
@@ -594,8 +639,9 @@
 <br><br>
 <div id="openc">
     <h3>Data Encryption </h3>
-    <p>To Encrypt the data, click on <b>ENCRYPT</b> button.<br>
-    <a onclick="ppp('encpop')" class="readmore">Read more>>></a></p>
+    <p>To Encrypt the data, click on <b>ENCRYPT</b> button.</p>
+    <p><span class="h53">Syntax:</span> floCrypto.encryptData(data, publicKey)<br>
+           <a onclick="ppp('encpop')" class="readmore">Read more about Data Encryption>>></a></p>
 
 
         <div>
@@ -618,8 +664,9 @@
 <!--decrypr data-->
 <div id="opdec">
     <h3>Decrypt Data</h3>
-    <p>To Decrypt data click on, <b>DECRYPT</b> button.<br>
-    <a onclick="ppp('decpop')" class="readmore">Read more>>></a> </p>
+    <p>To Decrypt data click on, <b>DECRYPT</b> button.</p>
+    <p><span class="h53">Syntax:</span> floCrypto.decryptData(data, privateKey)<br>
+    <a onclick="ppp('decpop')" class="readmore">Read more about Decrypt Data>>></a> </p>
 
     <div>
     <sm-form align="center">
