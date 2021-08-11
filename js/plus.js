@@ -65,7 +65,7 @@
          let privKey=document.getElementById("type5").value; 
          var signature =floCrypto.signData(data, privKey)
          document.getElementById("signed").innerHTML="Signed data is,";
-         var id=document.querySelector("#signatures");
+         var id=document.querySelector("#signed");
          var newdiv= document.createElement('sm-copy')
          newdiv.value=signature;
          id.appendChild(newdiv);
